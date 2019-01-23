@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc} %utf8 % lettere accentate da tastiera
+\usepackage[italian]{babel} % lingua del documento
+\usepackage[T1]{fontenc} % codifica dei font
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage[babel]{csquotes}
+\usepackage[backend=bibtex,sorting=none, backref=true]{biblatex}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Mosquito Disease Spread Rate Prediction}								% Title
+\author{Adorni, Cereda, Nisoli}								% Author
+\date{23 Gen 2019}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\bibliography{bibliography} 
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.5]{LogoBicocca.pdf}\\[1.0 cm]
+    \textsc{\Large Dipartimento di Informatica, \\Sistemistica e Comunicazione}\\[2.0 cm]
+	\textsc{\Large Data Technology \& Machine Learning}\\[0.5 cm]		
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\emph{Autori:}\\
+			Giorgia Adorni\\
+            Elia Cereda\\
+            Eric Nisoli\\
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+            
+			\begin{flushright} \large
+			\emph{} \\
+			806787\\
+            807539\\
+            807147\\
+		\end{flushright}
+        
+	\end{minipage}\\[2 cm]
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{introduzione}
+\include{data_technology}
+\include{machine_learning}
+
+
+% BIBLIOGRAFIA
+\printbibliography
+\addcontentsline{toc}{chapter}{\refname}
+
+\end{document}
