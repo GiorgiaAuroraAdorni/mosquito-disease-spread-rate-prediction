@@ -1,6 +1,35 @@
 \part{Data Technology}
 \section{Descrizione delle modalità di scelta e acquisizione delle sorgenti dati e scelta del modello di descrizione del dataset}
+
 \section{Analisi di almeno 2 dimensioni di qualità e relative metriche dei dataset analizzati singolarmente}
+\subsection{Completezza}
+
+\begin{itemize}
+	\item \textbf{Completezza datesets}:
+		\begin{enumerate}
+			\item \texttt{Spray}: 99,99\%. Solo un attributo presenta campi null.
+			\item \texttt{Weather}: 83,15\%. Su 22 attributi 15 presentano campi mancanti (64.768 campi 10.918). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 61.824 campi 7974 sono mancanti) la completezza del dataset è 87,10\%.
+			\item \texttt{Result}: 97,48\%. Su 12 attributi solo due presentano attributi incompleti, ciascuno del 15,11\%.
+		\end{enumerate}
+	
+	\item \textbf{Completezza tuple}:
+		\begin{enumerate}
+			\item \texttt{Spray}: 99,96\%. Su 14835 tuple 584 contengono campi null.
+			\item \texttt{Weather}: 22,45\%. Su 2944 tuple, escludendo la colonna Water che non registra alcun valore 2.283 presentano campi null.
+			\item \texttt{Result}: 84,89\%. Su 27196 tuple 4108 risultano incomplete (Latitudine, Longitudine).
+		\end{enumerate}
+	
+
+\end{itemize}
+
+Completezza totale dataset: 93,54\% o 94,86\%
+
+Completezza totale tuple: 61,62\% o 69,1\%
+
+
+
+
+
 \section{Processo di integrazione dei dati ed eventuali problemi riscontrati includendo le eterogeneità riscontrate}
 \section{Analisi di almeno 2 dimensioni di qualità e relative metriche delle features successivamente utilizzate}
 \section{Analisi descrittive dei dati integrati}
