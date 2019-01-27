@@ -4,28 +4,187 @@
 \section{Analisi di almeno 2 dimensioni di qualità e relative metriche dei dataset analizzati singolarmente}
 \subsection{Completezza}
 
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Dataset} \quad & \textbf{Completezza di tupla} & \textbf{Completezza dataset} \\
+		\midrule
+		Spray &			96,06\%  	& 99,02\%  \\ 
+		Weather &		0,00\% (22,45\%)		& 81,52\% (85,40\%) \\ 
+		Train &			100,00\% 	& 100,00\%   \\ 
+		Test &			100,00\% 	& 100,00\%   \\ 
+		Result &		84,89\%  	& 97,48\%  \\ 
+		\midrule
+		Totale &	    76,19\% (80,68\%) 	& 95,60\% (96,38\%) \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sui dataset}
+	\label{tab:completezza totale}
+\end{figure}
+
+Vengono in seguito mostrati i dati relativi ad ogni dataset:
 \begin{itemize}
 	\item \textbf{Completezza datesets}:
 		\begin{enumerate}
-			\item \texttt{Spray}: 99,99\%. Solo un attributo presenta campi null.
+			\item \texttt{Spray}: 99,02\%. Solo un attributo presenta campi null.
 			\item \texttt{Weather}: 83,15\%. Su 22 attributi 15 presentano campi mancanti (64.768 campi 10.918). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 61.824 campi 7974 sono mancanti) la completezza del dataset è 87,10\%.
+			\item \texttt{Train}: 100\%.
+			\item \texttt{Test}: 100\%.
 			\item \texttt{Result}: 97,48\%. Su 12 attributi solo due presentano attributi incompleti, ciascuno del 15,11\%.
 		\end{enumerate}
 	
 	\item \textbf{Completezza tuple}:
 		\begin{enumerate}
-			\item \texttt{Spray}: 99,96\%. Su 14835 tuple 584 contengono campi null.
+			\item \texttt{Spray}: 96,06\%. Su 14835 tuple 584 contengono campi null.
 			\item \texttt{Weather}: 22,45\%. Su 2944 tuple, escludendo la colonna Water che non registra alcun valore 2.283 presentano campi null.
+			\item \texttt{Train}: 100\%.
+			\item \texttt{Test}: 100\%.
 			\item \texttt{Result}: 84,89\%. Su 27196 tuple 4108 risultano incomplete (Latitudine, Longitudine).
 		\end{enumerate}
-	
-
 \end{itemize}
 
-Completezza totale dataset: 93,54\% o 94,86\%
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		Date &               14835  & 0                      & 100\%      \\ 
+		Time 	&               14835  & 584                      & 96,06\%      \\ 
+		Latitude &              14835  & 0                      & 100\%      \\ 
+		Longitude &             14835  & 0                      & 100\%      \\ 
+		\midrule
+		Tuple 		&				14835  &	584			   & 96,06\%\\
+		Dataset  	&	   59340  &	584 		   & 99,02\%\\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Spray}}
+	\label{tab:completezza spray}
+\end{figure}
 
-Completezza totale tuple: 61,62\% o 69,1\%
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		Station     &               2944  & 0                      & 100\%      \\ 
+		Date        &               2944  & 0                      & 100\%      \\ 
+		Tmax        &               2944  & 0                      & 100\%      \\ 
+		Tmin        &               2944  & 0                      & 100\%      \\ 
+		Tavg        &               2944  & 11                     & 99,63\%    \\ 
+		Depart      &               2944  & 1472                   & 50\%       \\ 
+		DewPoint    &               2944  & 0                      & 100\%      \\ 
+		WetBulb     &               2944  & 4                      & 99,86\%    \\ 
+		Heat        &               2944  & 11                     & 99,63\%    \\ 
+		Cool        &               2944  & 11                     & 99,63\%    \\ 
+		Sunrise     &               2944  & 1472                   & 50\%       \\ 
+		Sunset      &               2944  & 1472                   & 50\%       \\ 
+		CodeSum     &               2944  & 1609                   & 45,35\%    \\ 
+		Depth       &               2944  & 1472                   & 50\%       \\ 
+		Water1      &               2944  & 2944                   & 0\%        \\ 
+		SnowFall    &               2944  & 1472                   & 50\%       \\ 
+		PrecipTotal &               2944  & 2                      & 99,93\%    \\ 
+		StnPressure &               2944  & 4                      & 99,86\%    \\ 
+		SeaLevel    &               2944  & 9                      & 99,69\%    \\ 
+		ResultSpeed &               2944  & 0                      & 100\%      \\ 
+		ResultDir   &               2944  & 0                      & 100\%      \\ 
+		AvgSpeed    &               2944  & 3                      & 99,90\%	\\ 
+		\midrule
+		Tuple 		&				2944  &	2944 (2283)			   & 0\% (22,45\%)\\
+		Dataset  	&	   64768 (61824)  &	11968 (9024) 		   & 81,52\% (85,40\%)\\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather}}
+	\label{tab:completezza weather}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		Date &               		10506  &  0        &  100\%   \\ 
+		Address &               	10506  &  0        &  100\%   \\ 
+		Species &               	10506  &  0        &  100\%   \\ 
+		Block &               		10506  &  0        &  100\%   \\ 
+		Street &               		10506  &  0        &  100\%   \\ 
+		Trap &               		10506  &  0        &  100\%   \\ 
+		AddressNumberAndStreet &    10506  &  0        &  100\%   \\ 
+		Latitude &              	10506  &  0        &  100\%   \\ 
+		Longitude &               	10506  &  0        &  100\%   \\ 
+		AddressAccuracy &           10506  &  0        &  100\%   \\ 
+		NumMosquitos &              10506  &  0        &  100\%   \\ 
+		WnvPresent &                10506  &  0        &  100\%   \\ 
+		\midrule
+		Tuple 		&				10506  & 0		   & 100\% 	\\
+		Dataset  	&	   			126072  & 0 	   & 100\% \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Train}}
+	\label{tab:completezza train}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		Id &						65534 &  0        &  100\%   \\ 
+		Date &						65534 &  0        &  100\%   \\ 
+		Address &					65534 &  0        &  100\%   \\ 
+		Species &					65534 &  0        &  100\%   \\ 
+		Block &						65534 &  0        &  100\%   \\ 
+		Street &					65534 &  0        &  100\%   \\ 
+		Trap &	    				65534 &  0        &  100\%   \\ 
+		AddressNumberAndStreet &	65534 &  0        &  100\%   \\ 
+		Latitude &	  				65534 &  0        &  100\%   \\ 
+		Longitude &	    			65534 &  0        &  100\%   \\ 
+		AddressAccuracy &	    	65534 &  0        &  100\%   \\  
+		\midrule
+		Tuple 		&				65534  & 0		   & 100\% 	\\
+		Dataset  	&	   			720874  & 0 	   & 100\% \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Test}}
+	\label{tab:completezza test}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		SeasonYear &			27196 &  0        &  100\%   \\ 
+		Week &					27196 &  0        &  100\%   \\ 
+		TestId &				27196 &  0        &  100\%   \\ 
+		Block &					27196 &  0        &  100\%   \\ 
+		Trap &					27196 &  0        &  100\%   \\ 
+		TrapType &				27196 &  0        &  100\%   \\ 
+		TestDate &				27196 &  0        &  100\%   \\ 
+		NumberOfMosquitoes &	27196 &  0        &  100\%   \\ 
+		Result &				27196 &  0        &  100\%   \\ 
+		Species &				27196 &  0        &  100\%   \\ 
+		Latitude &				27196 &  4108        &  84,89\%   \\  
+		Longitude &				27196 &  4108        &  84,89\%   \\  
+		\midrule
+		Tuple 		&			27196  & 4108		   & 84,89\% 	\\
+		Dataset  	&	   		326352 & 8216 	   & 97,48\% \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Result}}
+	\label{tab:completezza result}
+\end{figure}
+
+
+
+
+
+\subsection{Consistenza di chiave}
 
 
 
