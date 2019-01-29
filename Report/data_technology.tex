@@ -9,14 +9,16 @@
 	\begin{tabular}{lcccc}
 		\toprule
 		\textbf{Dataset} \quad & \textbf{Completezza di tupla} & \textbf{Completezza dataset} \\
-		\midrule
+				\midrule
 		Spray &			96,06\%  	& 99,02\%  \\ 
 		Weather &		0,00\% (22,45\%)		& 81,52\% (85,40\%) \\ 
 		Train &			100,00\% 	& 100,00\%   \\ 
 		Test &			100,00\% 	& 100,00\%   \\ 
 		Result &		84,89\%  	& 97,48\%  \\ 
+		Weather from Jen to Apr 2007 &	0,00\% (57,22\%)&	93,89\% (97,97\%) \\ 
+		Weather from Apr 2007 to 2017 &		0,00\% (8,84\%)&	75,81\% (78,84\%)\\ 
 		\midrule
-		Totale &	    76,19\% (80,68\%) 	& 95,60\% (96,38\%) \\
+		Totale &	    54,42\% (67,07\%) 	& 92,53\% (94,10\%) \\
 		\bottomrule
 	\end{tabular}
 	\captionof{table}{Analisi di completezza sui dataset}
@@ -28,19 +30,23 @@ Vengono in seguito mostrati i dati relativi ad ogni dataset:
 	\item \textbf{Completezza datesets}:
 		\begin{enumerate}
 			\item \texttt{Spray}: 99,02\%. Solo un attributo presenta campi null.
-			\item \texttt{Weather}: 83,15\%. Su 22 attributi 15 presentano campi mancanti (64.768 campi 10.918). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 61.824 campi 7974 sono mancanti) la completezza del dataset è 87,10\%.
+			\item \texttt{Weather}: 83,15\%. Su 22 attributi 15 presentano campi mancanti (in totale si hanno 10.918 campi null su 64.768). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 61.824 campi 7974 sono mancanti) la completezza del dataset è 87,10\%.
 			\item \texttt{Train}: 100\%.
 			\item \texttt{Test}: 100\%.
 			\item \texttt{Result}: 97,48\%. Su 12 attributi solo due presentano attributi incompleti, ciascuno del 15,11\%.
+			\item \texttt{Weather from Jen to Apr 2007}: 93,89\%. Su 24 attributi 9 presentano campi mancanti (in totale si hanno 528 campi null su 8640). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 8280 campi 168 sono mancanti) la completezza del dataset è 97,97\%.
+			\item \texttt{Weather from Apr 2007 to 2017}: 75,81\%. Su 26 attributi 24 presentano campi mancanti (in totale si hanno 71823 campi null su 296920). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 285500 campi 60403 sono mancanti) la completezza del dataset è 78,84\%.
 		\end{enumerate}
 	
 	\item \textbf{Completezza tuple}:
 		\begin{enumerate}
 			\item \texttt{Spray}: 96,06\%. Su 14835 tuple 584 contengono campi null.
-			\item \texttt{Weather}: 22,45\%. Su 2944 tuple, escludendo la colonna Water che non registra alcun valore 2.283 presentano campi null.
+			\item \texttt{Weather}: 22,45\%. Su 2944 tuple, escludendo la colonna Water che non registra alcun valore, 2.283 presentano campi null.
 			\item \texttt{Train}: 100\%.
 			\item \texttt{Test}: 100\%.
 			\item \texttt{Result}: 84,89\%. Su 27196 tuple 4108 risultano incomplete (Latitudine, Longitudine).
+			\item \texttt{Weather from Jen to Apr 2007}: 57,22\%. Su 360 tuple, escludendo la colonna Water che non registra alcun valore, 154 presentano campi null.
+			\item \texttt{Weather from Apr 2007 to 2017}: 8,84\%. Su 11420 tuple, escludendo la colonna Water che non registra alcun valore, 10411 presentano campi null.
 		\end{enumerate}
 \end{itemize}
 
@@ -83,7 +89,7 @@ Vengono in seguito mostrati i dati relativi ad ogni dataset:
 		Sunset      &               2944  & 1472                   & 50\%       \\ 
 		CodeSum     &               2944  & 1609                   & 45,35\%    \\ 
 		Depth       &               2944  & 1472                   & 50\%       \\ 
-		Water1      &               2944  & 2944                   & 0\%        \\ 
+		Water1      &               2944 (-)  & 2944 (-)                  & 0\% (-)       \\ 
 		SnowFall    &               2944  & 1472                   & 50\%       \\ 
 		PrecipTotal &               2944  & 2                      & 99,93\%    \\ 
 		StnPressure &               2944  & 4                      & 99,86\%    \\ 
@@ -178,6 +184,85 @@ Vengono in seguito mostrati i dati relativi ad ogni dataset:
 	\end{tabular}
 	\captionof{table}{Analisi di completezza sul dataset \textbf{Result}}
 	\label{tab:completezza result}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+			\midrule
+		Wban Number					&  360  &  0  &    100,00\% \\    
+		YearMonthDay				&  360  &  0  &    100,00\% \\  
+		Max Temp					&  360  &  1  &    99,72\% \\    
+		Min Temp					&  360  &  1  &    99,72\% \\    
+		Avg Temp					&  360  &  0  &    100,00\% \\    
+		Dep from Normal			&	360  &  0  &    100,00\% \\	
+		Avg Dew Pt					&  360  &  3  &    99,17\% \\    
+		Avg Wet Bulb				&	360  &  3  &    99,17\% \\   
+		Heating Degree Days		&	360  &  0  &    100,00\% \\	
+		Cooling Degree Days		&	360  &  0  &    100,00\% \\	
+		Significant Weather		&	360  &  150  &    58,33\% \\	
+		Snow/Ice Depth				&	360  &  3  &    99,17\% \\   
+		Snow/Ice Water Equiv		&	360 (-)  &  360 (-) &    0,00\% (-) \\	
+		Precipitation Snowfall		&	360  &  3  &    99,17\% \\	
+		Precipitation Water Equiv	&	360  &  0  &    100,00\% \\	 
+		Pressue Avg Station		&	360  &  0  &    100,00\% \\	
+		Pressure Avg Sea Level		&	360  &  4  &    98,89\% \\	
+		Wind Speed					&  360  &  0  &    100,00\% \\    
+		Wind Direction				&	360  &  0  &    100,00\% \\   
+		Wind Avg Speed				&	360  &  0  &    100,00\% \\   
+		Max 5 sec speed				&	360  &  0  &    100,00\% \\   
+		Max 5 sec Dir				&	360  &  0  &    100,00\% \\   
+		Max 2 min speed				&	360  &  0  &    100,00\% \\   
+		Max 2 min Dir				&	360  &  0  &    100,00\% \\   
+		\midrule
+		Tuple 		&				360  &	360 (154)			   & 0\% (57,22\%)\\
+		Dataset  	&	   8640 (8280)  &	528 (168) 		   & 93,89\% (97,97\%)\\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather from Jen to Apr 2007}}
+	\label{tab:completezza weather from Jen to Apr 2007}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+			\midrule
+		WBAN	 	&               11420 &  0               & 100,00\% \\
+		YearMonthDay&               11420 &  0               & 100,00\% \\
+		Tmax	 	&               11420 &  927             & 91,88\% \\
+		Tmin	 	&               11420 &  927             & 91,88\% \\
+		Tavg	 	&               11420 &  1005            & 91,20\% \\ 
+		Depart	 	&               11420 &  7976            & 30,16\% \\ 
+		DewPoint	 &              11420  & 46              & 99,60\% \\
+		WetBulb	 	&               11420 &  112             & 99,02\% \\
+		Heat	 	&               11420 &  1005            & 91,20\% \\ 
+		Cool	 	&               11420 &  1005            & 91,20\% \\ 
+		Sunrise	 	&               11420 &  7949            & 30,39\% \\ 
+		Sunset	 	&               11420 &  7949            & 30,39\% \\ 
+		CodeSum	 	&               11420 &  5271            & 53,84\% \\ 
+		Depth	 	&               11420 &  9336            & 18,25\% \\ 
+		Water1	 	&               11420 (-) &  11420 (-)          & 0,00\% (-) \\ 
+		SnowFall	 &              11420  & 9326            & 18,34\% \\ 
+		PrecipTotal	 &              11420  & 945             & 91,73\% \\ 
+		StnPressure	 &              11420  & 946             & 91,72\% \\ 
+		SeaLevel	 &              11420  & 971             & 91,50\% \\ 
+		ResultSpeed	 &              11420  & 30              & 99,74\% \\
+		ResultDir	 &              11420  & 30              & 99,74\% \\
+		AvgSpeed	 &              11420  & 937             & 91,80\% \\
+		Max5Speed	 &              11420  & 932             & 91,84\% \\ 
+		Max5Dir	 	&               11420 &  932             & 91,84\% \\
+		Max2Speed	 &              11420  & 923             & 91,92\% \\
+		Max2Dir		 &              11420  & 923             & 91,92\% \\
+		\midrule
+		Tuple 		&				11420  &	11420 (10411)			   & 0\% (8,84\%)\\
+		Dataset  	&	   296920 (285500)  &	71823 (60403) 		   & 75,81\% (78,84\%)\\
+	\end{tabular}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather from Apr 2007 to 2017}}
+	\label{tab:completezza weather from Apr 2007 to 2017}
 \end{figure}
 
 
