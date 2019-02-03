@@ -15,6 +15,8 @@
 \usepackage[backend=bibtex,sorting=none, backref=true]{biblatex}
 \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
 
+\def\sections#1{\input{sections/#1}}
+
 \title{Mosquito Disease Spread Rate Prediction}								% Title
 \author{Adorni, Cereda, Nisoli}								% Author
 \date{23 Gen 2019}											% Date
@@ -64,9 +66,9 @@
 \pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{introduzione}
-\include{data_technology}
-\include{machine_learning}
+\sections{introduzione/main}
+\sections{data_technology/main}
+\sections{machine_learning/main}
 
 
 % BIBLIOGRAFIA
