@@ -1,0 +1,46 @@
+La leggibilità è una dimensione di qualità utile per permettere, a chi vuole 
+utilizzare una collezione di dati, di analizzare almeno sommariamente le 
+informazioni in modo da poter prendere determinate decisioni riguardanti 
+l'utilizzo dei dati, come ad esempio quali informazioni potrebbero essere più 
+significative per un modello predittivo di machine learning.
+
+I datasets scelti per il progetto utilizzano unità di misura del 
+sistema anglosassone, dunque di difficile lettura per chi utilizza il sistema 
+internazionale, oppure vengono impiegate sigle alfanumeriche per indicare 
+un determinato tipo di valori. 
+
+Di seguito verranno discusse le modifiche 
+apportate agli attributi dei vari datasets per migliorarne la leggibilità.
+
+\begin{itemize}
+
+    \item \textbf{weather.csv}: Il dataset utilizza il valore \textit{M} per 
+        indicare un valore mancante per un attributo, in questo caso è stato 
+        scelto di sostituire a \textit{M} il valore \textit{null} poichè viene 
+        riconosciuto correttamente come valore mancante dai software per 
+        l'import/export dei dati e dai DBMS.
+        
+        \begin{itemize}
+            
+            \item \texttt{Date}: inizialmente l'attributo rappresentava una 
+                data attraverso il pattern \textit{yyyyMMdd}, per migliorarne 
+                la leggibilità è stato cambiato il pattern e utilizzato nella 
+                forma \textit{dd/MM/yyyy}. Ad esempio la data 
+                \textit{20070501} è stata modificata in \textit{01/05/2007}.
+        
+            \item \texttt{Tmax}, \texttt{Tmin}, \texttt{DewPoint}, 
+                \texttt{WetBulb}, \texttt{Heat}, \texttt{Cool}: i valori di 
+                temperatura sono stati convertiti da gradi Fahrenheit (F) 
+                a gradi Celsius (C).
+
+            \item \texttt{StnPressure}, \texttt{SeaLevel}: i valori di 
+                pressione sono stati convertiti da pollici di mercurio (inch) a 
+                millimetri di mercurio (mm).
+
+            \item \texttt{ResultSpeed}, \texttt{AvgSpeed}, \texttt{Max5Speed}, 
+                \texttt{Max2Speed}: i valori di velocità sono stati convertiti 
+                da miglia orarie (mph) a chilometri orari (kmh).
+
+        \end{itemize}
+    
+\end{itemize}
