@@ -1,157 +1,41 @@
+La prima dimensione di qualità analizzata è la completezza, ovvero la copertura con cui vengono rappresentati gli insiemi di dati.
+In particolare sono state distinte la completezza di tupla, che specifica la presenza di valori nulli in una tupla, la completezza degli attributi ovvero la mancanza di valori in una colonna di attributo e infine la completezza della tabella, ovvero il numero totale di valori non nulli in una tabella.\\
+
+Le metriche utilizzate per la misurazione della completezza sono rispettivamente:\\
+\begin{itemize}
+		\item[-] Completezza di tupla: il rapporto tra il numero di valori nulli nella tupla e la cardinalità della tupla (ovvero il numero di attributi);
+		\item[-] Completezza di attributo: il rapporto tra il numero di valori nulli della colonna e la cardinalità della colonna (ovvero il numero di tuple);
+		\item[-] Completezza di tabella: il rapporto tra il numero di valori nulli nella tabella e la cardinalità della tabella (data dal prodotto cartesiano tra righe e colonne).
+\end{itemize}
+
+% Motivo della scelta della dimensione di qualità
+% Con cosa è stato effettuato il conteggio dei valori null
+
+La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza delle tuple è solo del 34,96\%.
+
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{lcccc}
 		\toprule
 		\textbf{Dataset} \quad & \textbf{Completezza di tupla} & \textbf{Completezza dataset} \\
-				\midrule
-		Spray &			96,06\%  	& 99,02\%  \\ 
-		Weather &		0,00\% (22,45\%)		& 81,52\% (85,40\%) \\ 
-		Train &			100,00\% 	& 100,00\%   \\ 
-		Test &			100,00\% 	& 100,00\%   \\ 
-		Result &		84,89\%  	& 97,48\%  \\ 
-		Weather from Jen to Apr 2007 &	0,00\% (57,22\%)&	93,89\% (97,97\%) \\ 
-		Weather from Apr 2007 to 2017 &		0,00\% (8,84\%)&	75,81\% (78,84\%)\\ 
 		\midrule
-		Totale &	    54,42\% (67,07\%) 	& 92,53\% (94,10\%) \\
+		WNV Mosquito &		84,89\%  	& 97,48\%  \\ 
+		Daily 		 &		 0,00\% 	& 38,17\%  \\ 
+		Stations 	 &		20,00\% 	& 82,67\%  \\ 
+		\midrule
+		Totale &	    34,96\%      	& 77,77\%  \\
 		\bottomrule
 	\end{tabular}
 	\captionof{table}{Analisi di completezza sui dataset}
 	\label{tab:completezza totale}
 \end{figure}
 
-Vengono in seguito mostrati i dati relativi ad ogni dataset:
-\begin{itemize}
-	\item \textbf{Completezza datesets}:
-		\begin{enumerate}
-			\item \texttt{Spray}: 99,02\%. Solo un attributo presenta campi null.
-			\item \texttt{Weather}: 83,15\%. Su 22 attributi 15 presentano campi mancanti (in totale si hanno 10.918 campi null su 64.768). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 61.824 campi 7974 sono mancanti) la completezza del dataset è 87,10\%.
-			\item \texttt{Train}: 100\%.
-			\item \texttt{Test}: 100\%.
-			\item \texttt{Result}: 97,48\%. Su 12 attributi solo due presentano attributi incompleti, ciascuno del 15,11\%.
-			\item \texttt{Weather from Jen to Apr 2007}: 93,89\%. Su 24 attributi 9 presentano campi mancanti (in totale si hanno 528 campi null su 8640). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 8280 campi 168 sono mancanti) la completezza del dataset è 97,97\%.
-			\item \texttt{Weather from Apr 2007 to 2017}: 75,81\%. Su 26 attributi 24 presentano campi mancanti (in totale si hanno 71823 campi null su 296920). Considerando che un attributo è completamente null, eliminando la colonna si ottiene che (su 285500 campi 60403 sono mancanti) la completezza del dataset è 78,84\%.
-		\end{enumerate}
-	
-	\item \textbf{Completezza tuple}:
-		\begin{enumerate}
-			\item \texttt{Spray}: 96,06\%. Su 14835 tuple 584 contengono campi null.
-			\item \texttt{Weather}: 22,45\%. Su 2944 tuple, escludendo la colonna Water che non registra alcun valore, 2.283 presentano campi null.
-			\item \texttt{Train}: 100\%.
-			\item \texttt{Test}: 100\%.
-			\item \texttt{Result}: 84,89\%. Su 27196 tuple 4108 risultano incomplete (Latitudine, Longitudine).
-			\item \texttt{Weather from Jen to Apr 2007}: 57,22\%. Su 360 tuple, escludendo la colonna Water che non registra alcun valore, 154 presentano campi null.
-			\item \texttt{Weather from Apr 2007 to 2017}: 8,84\%. Su 11420 tuple, escludendo la colonna Water che non registra alcun valore, 10411 presentano campi null.
-		\end{enumerate}
-\end{itemize}
+Vengono in seguito mostrate le analisi relative ai dati relativi di ogni dataset.
 
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lcccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-		\midrule
-		Date &               14835  & 0                      & 100\%      \\ 
-		Time 	&               14835  & 584                      & 96,06\%      \\ 
-		Latitude &              14835  & 0                      & 100\%      \\ 
-		Longitude &             14835  & 0                      & 100\%      \\ 
-		\midrule
-		Tuple 		&				14835  &	584			   & 96,06\%\\
-		Dataset  	&	   59340  &	584 		   & 99,02\%\\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Spray}}
-	\label{tab:completezza spray}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lcccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-		\midrule
-		Station     &               2944  & 0                      & 100\%      \\ 
-		Date        &               2944  & 0                      & 100\%      \\ 
-		Tmax        &               2944  & 0                      & 100\%      \\ 
-		Tmin        &               2944  & 0                      & 100\%      \\ 
-		Tavg        &               2944  & 11                     & 99,63\%    \\ 
-		Depart      &               2944  & 1472                   & 50\%       \\ 
-		DewPoint    &               2944  & 0                      & 100\%      \\ 
-		WetBulb     &               2944  & 4                      & 99,86\%    \\ 
-		Heat        &               2944  & 11                     & 99,63\%    \\ 
-		Cool        &               2944  & 11                     & 99,63\%    \\ 
-		Sunrise     &               2944  & 1472                   & 50\%       \\ 
-		Sunset      &               2944  & 1472                   & 50\%       \\ 
-		CodeSum     &               2944  & 1609                   & 45,35\%    \\ 
-		Depth       &               2944  & 1472                   & 50\%       \\ 
-		Water1      &               2944 (-)  & 2944 (-)                  & 0\% (-)       \\ 
-		SnowFall    &               2944  & 1472                   & 50\%       \\ 
-		PrecipTotal &               2944  & 2                      & 99,93\%    \\ 
-		StnPressure &               2944  & 4                      & 99,86\%    \\ 
-		SeaLevel    &               2944  & 9                      & 99,69\%    \\ 
-		ResultSpeed &               2944  & 0                      & 100\%      \\ 
-		ResultDir   &               2944  & 0                      & 100\%      \\ 
-		AvgSpeed    &               2944  & 3                      & 99,90\%	\\ 
-		\midrule
-		Tuple 		&				2944  &	2944 (2283)			   & 0\% (22,45\%)\\
-		Dataset  	&	   64768 (61824)  &	11968 (9024) 		   & 81,52\% (85,40\%)\\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather}}
-	\label{tab:completezza weather}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lcccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-		\midrule
-		Date &               		10506  &  0        &  100\%   \\ 
-		Address &               	10506  &  0        &  100\%   \\ 
-		Species &               	10506  &  0        &  100\%   \\ 
-		Block &               		10506  &  0        &  100\%   \\ 
-		Street &               		10506  &  0        &  100\%   \\ 
-		Trap &               		10506  &  0        &  100\%   \\ 
-		AddressNumberAndStreet &    10506  &  0        &  100\%   \\ 
-		Latitude &              	10506  &  0        &  100\%   \\ 
-		Longitude &               	10506  &  0        &  100\%   \\ 
-		AddressAccuracy &           10506  &  0        &  100\%   \\ 
-		NumMosquitos &              10506  &  0        &  100\%   \\ 
-		WnvPresent &                10506  &  0        &  100\%   \\ 
-		\midrule
-		Tuple 		&				10506  & 0		   & 100\% 	\\
-		Dataset  	&	   			126072  & 0 	   & 100\% \\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Train}}
-	\label{tab:completezza train}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lcccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-		\midrule
-		Id &						65534 &  0        &  100\%   \\ 
-		Date &						65534 &  0        &  100\%   \\ 
-		Address &					65534 &  0        &  100\%   \\ 
-		Species &					65534 &  0        &  100\%   \\ 
-		Block &						65534 &  0        &  100\%   \\ 
-		Street &					65534 &  0        &  100\%   \\ 
-		Trap &	    				65534 &  0        &  100\%   \\ 
-		AddressNumberAndStreet &	65534 &  0        &  100\%   \\ 
-		Latitude &	  				65534 &  0        &  100\%   \\ 
-		Longitude &	    			65534 &  0        &  100\%   \\ 
-		AddressAccuracy &	    	65534 &  0        &  100\%   \\  
-		\midrule
-		Tuple 		&				65534  & 0		   & 100\% 	\\
-		Dataset  	&	   			720874  & 0 	   & 100\% \\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Test}}
-	\label{tab:completezza test}
-\end{figure}
+\subsubsection*{WNV Mosquito}
+\addcontentsline{toc}{subsubsection}{WNV Mosquito}
+Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \textit{latitudine} e \textit{longitudine}, presentano dei valori mancanti.\\
+In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
 	\centering
@@ -169,92 +53,129 @@ Vengono in seguito mostrati i dati relativi ad ogni dataset:
 		NumberOfMosquitoes &	27196 &  0        &  100\%   \\ 
 		Result &				27196 &  0        &  100\%   \\ 
 		Species &				27196 &  0        &  100\%   \\ 
-		Latitude &				27196 &  4108        &  84,89\%   \\  
-		Longitude &				27196 &  4108        &  84,89\%   \\  
+		Latitude &				27196 &  4108     &  84,89\%   \\  
+		Longitude &				27196 &  4108     &  84,89\%   \\  
 		\midrule
-		Tuple 		&			27196  & 4108		   & 84,89\% 	\\
-		Dataset  	&	   		326352 & 8216 	   & 97,48\% \\
+		Tuple 		&			27196  & 4108	  & 84,89\% 	\\
+		Dataset  	&	   		326352 & 8216 	  & 97,48\% \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Result}}
-	\label{tab:completezza result}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{WNV Mosquito}}
+	\label{tab:completezza wnv}
 \end{figure}
+
+\subsubsection*{Daily}
+\addcontentsline{toc}{subsubsection}{Daily}
+Il dataset \textsc{Daily} presenta una completezza del 38,17\%. Esso risulta essere il meno completo tra i dataset presentati. In particolare solo due attributi su 50 risultano completi, mentre tutti gli altri presentano dei valori mancanti.\\
+In tabella \ref{tab:completezza daily} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
+
+	\begin{longtable}{lcccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule
+		\endfirsthead
+		\multicolumn{5}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\midrule			
+		\endhead
+		\multicolumn{5}{l}{\footnotesize\itshape Continua nella prossima pagina} \\
+		\endfoot
+		WBAN			& 13400 & 0	 		 & 100,00\%  	\\	
+		YearMonthDay	& 13400 & 0	 		 & 100,00\%  	\\	
+		Tmax			& 13400 & 1723	     & 87,14\%  	\\
+		TmaxFlag		& 13400 & 13340	     & 0,45\%  		\\	
+		Tmin			& 13400 & 1723	     & 87,14\%  	\\
+		TminFlag		& 13400 & 13375	     & 0,19\%  		\\	
+		Tavg			& 13400 & 1807	     & 86,51\%  	\\
+		TavgFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Depart			& 13400 & 9561	     & 28,65\%  	\\
+		DepartFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		DewPoint		& 13400 & 61	   	 & 99,54\%  	\\
+		DewPointFlag	& 13400 & 13400	     & 0,00\%  		\\		
+		WetBulb			& 13400 & 172	     & 98,72\%  	\\
+		WetBulbFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Heat			& 13400 & 1807	     & 86,51\%  	\\
+		HeatFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Cool			& 13400 & 1807	     & 86,51\%  	\\
+		CoolFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Sunrise			& 13400 & 9533	     & 28,86\%  	\\
+		SunriseFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Sunset			& 13400 & 9533	     & 28,86\%  	\\
+		SunsetFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		CodeSum			& 13400 & 6250	     & 53,36\%  	\\
+		CodeSumFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		Depth			& 13400 & 10922	     & 18,49\%  	\\
+		DepthFlag		& 13400 & 13400   	 & 0,00\%		\\	
+		Water1			& 13400 & 13400   	 & 0,00\%		\\
+		Water1Flag		& 13400 & 13400   	 & 0,00\%		\\	
+		SnowFall		& 13400 & 10912   	 & 18,57\%		\\	
+		SnowFallFlag	& 13400 & 13372   	 & 0,21\%		\\		
+		PrecipTotal		& 13400 & 1745   	 & 86,98\%		\\	
+		PrecipTotalFlag	& 13400 & 13237   	 & 1,22\%		\\		
+		StnPressure		& 13400 & 1749   	 & 86,95\%		\\	
+		StnPressureFlag	& 13400 & 13400   	 & 0,00\%		\\		
+		SeaLevel		& 13400 & 1771   	 & 86,78\%		\\	
+		SeaLevelFlag	& 13400 & 13400   	 & 0,00\%		\\		
+		ResultSpeed		& 13400 & 41   	 	 & 99,69\%		\\	
+		ResultSpeedFlag	& 13400 & 13400   	 & 0,00\%		\\		
+		ResultDir		& 13400 & 41   	 	 & 99,69\%		\\			
+		ResultDirFlag	& 13400 & 13400   	 & 0,00\%		\\		
+		AvgSpeed		& 13400 & 1736   	 & 87,04\%		\\	
+		AvgSpeedFlag	& 13400 & 13400   	 & 0,00\%		\\		
+		Max5Speed		& 13400 & 1728   	 & 87,10\%		\\	
+		Max5SpeedFlag	& 13400 & 13195   	 & 1,53\%		\\		
+		Max5Dir			& 13400 & 1728   	 & 87,10\%		\\
+		Max5DirFlag		& 13400 & 13400   	 & 0,00\%		\\	
+		Max2Speed		& 13400 & 1719   	 & 87,17\%		\\	
+		Max2SpeedFlag	& 13400 & 13380   	 & 0,15\%		\\		
+		Max2Dir			& 13400 & 1719   	 & 87,17\%		\\
+		Max2DirFlag		& 13400 & 13400   	 & 0,00\%		\\	
+		\midrule
+		Tuple 			& 13400  &	13400	 & 0,00\%		\\
+		Dataset  		& 670000 &	414287 	 & 38,17\%		\\
+		\bottomrule
+		
+	\end{longtable}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Daily}}
+	\label{tab:completezza daily}
+
+\subsubsection*{Stations}
+\addcontentsline{toc}{subsubsection}{Stations}
+Il dataset \textsc{Stations} presenta una completezza del 82,67\%. Esso risulta essere il meno completo tra i dataset presentati. In particolare quattro attributi su 15 presentano dei valori mancanti.\\
+In tabella \ref{tab:completezza stations} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{lcccc}
 		\toprule
 		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-			\midrule
-		Wban Number					&  360  &  0  &    100,00\% \\    
-		YearMonthDay				&  360  &  0  &    100,00\% \\  
-		Max Temp					&  360  &  1  &    99,72\% \\    
-		Min Temp					&  360  &  1  &    99,72\% \\    
-		Avg Temp					&  360  &  0  &    100,00\% \\    
-		Dep from Normal			&	360  &  0  &    100,00\% \\	
-		Avg Dew Pt					&  360  &  3  &    99,17\% \\    
-		Avg Wet Bulb				&	360  &  3  &    99,17\% \\   
-		Heating Degree Days		&	360  &  0  &    100,00\% \\	
-		Cooling Degree Days		&	360  &  0  &    100,00\% \\	
-		Significant Weather		&	360  &  150  &    58,33\% \\	
-		Snow/Ice Depth				&	360  &  3  &    99,17\% \\   
-		Snow/Ice Water Equiv		&	360 (-)  &  360 (-) &    0,00\% (-) \\	
-		Precipitation Snowfall		&	360  &  3  &    99,17\% \\	
-		Precipitation Water Equiv	&	360  &  0  &    100,00\% \\	 
-		Pressue Avg Station		&	360  &  0  &    100,00\% \\	
-		Pressure Avg Sea Level		&	360  &  4  &    98,89\% \\	
-		Wind Speed					&  360  &  0  &    100,00\% \\    
-		Wind Direction				&	360  &  0  &    100,00\% \\   
-		Wind Avg Speed				&	360  &  0  &    100,00\% \\   
-		Max 5 sec speed				&	360  &  0  &    100,00\% \\   
-		Max 5 sec Dir				&	360  &  0  &    100,00\% \\   
-		Max 2 min speed				&	360  &  0  &    100,00\% \\   
-		Max 2 min Dir				&	360  &  0  &    100,00\% \\   
 		\midrule
-		Tuple 		&				360  &	360 (154)			   & 0\% (57,22\%)\\
-		Dataset  	&	   8640 (8280)  &	528 (168) 		   & 93,89\% (97,97\%)\\
+		WBAN						& 5 & 0	 	& 100,00\%  	\\	
+		WMO							& 5 & 3	 	& 40,00\%  		\\	
+		CallSign					& 5 & 0     & 100,00\%  	\\
+		ClimateDivisionCode			& 5 & 4     & 20,00\% 		\\	
+		ClimateDivisionStateCode	& 5 & 0     & 100,00\%  	\\
+		ClimateDivisionStationCode	& 5 & 4     & 20,00\% 		\\	
+		Name						& 5 & 0     & 100,00\%  	\\
+		State						& 5 & 0     & 100,00\% 		\\	
+		Location					& 5 & 0     & 100,00\%  	\\
+		Latitude					& 5 & 0     & 100,00\% 		\\	
+		Longitude					& 5 & 0   	& 100,00\%  	\\
+		GroundHeight				& 5 & 0     & 100,00\% 		\\		
+		StationHeight				& 5 & 0     & 100,00\%  	\\
+		Barometer					& 5 & 2     & 60,00\% 		\\	
+		TimeZone					& 5 & 0     & 100,00\%  	\\
+		\midrule
+		Tuple 						& 5  &	4   & 20,00\%		\\
+		Dataset  					& 75 &	13  & 82,67\%		\\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather from Jen to Apr 2007}}
-	\label{tab:completezza weather from Jen to Apr 2007}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Stations}}
+	\label{tab:completezza stations}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lcccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
-			\midrule
-		WBAN	 	&               11420 &  0               & 100,00\% \\
-		YearMonthDay&               11420 &  0               & 100,00\% \\
-		Tmax	 	&               11420 &  927             & 91,88\% \\
-		Tmin	 	&               11420 &  927             & 91,88\% \\
-		Tavg	 	&               11420 &  1005            & 91,20\% \\ 
-		Depart	 	&               11420 &  7976            & 30,16\% \\ 
-		DewPoint	 &              11420  & 46              & 99,60\% \\
-		WetBulb	 	&               11420 &  112             & 99,02\% \\
-		Heat	 	&               11420 &  1005            & 91,20\% \\ 
-		Cool	 	&               11420 &  1005            & 91,20\% \\ 
-		Sunrise	 	&               11420 &  7949            & 30,39\% \\ 
-		Sunset	 	&               11420 &  7949            & 30,39\% \\ 
-		CodeSum	 	&               11420 &  5271            & 53,84\% \\ 
-		Depth	 	&               11420 &  9336            & 18,25\% \\ 
-		Water1	 	&               11420 (-) &  11420 (-)          & 0,00\% (-) \\ 
-		SnowFall	 &              11420  & 9326            & 18,34\% \\ 
-		PrecipTotal	 &              11420  & 945             & 91,73\% \\ 
-		StnPressure	 &              11420  & 946             & 91,72\% \\ 
-		SeaLevel	 &              11420  & 971             & 91,50\% \\ 
-		ResultSpeed	 &              11420  & 30              & 99,74\% \\
-		ResultDir	 &              11420  & 30              & 99,74\% \\
-		AvgSpeed	 &              11420  & 937             & 91,80\% \\
-		Max5Speed	 &              11420  & 932             & 91,84\% \\ 
-		Max5Dir	 	&               11420 &  932             & 91,84\% \\
-		Max2Speed	 &              11420  & 923             & 91,92\% \\
-		Max2Dir		 &              11420  & 923             & 91,92\% \\
-		\midrule
-		Tuple 		&				11420  &	11420 (10411)			   & 0\% (8,84\%)\\
-		Dataset  	&	   296920 (285500)  &	71823 (60403) 		   & 75,81\% (78,84\%)\\
-	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather from Apr 2007 to 2017}}
-	\label{tab:completezza weather from Apr 2007 to 2017}
-\end{figure}
+\subsection{Miglioramento}
+
+Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
+In particolare, alcuni casi vengono facilmente risolti derivando il valore di un specifico attributo da un set di altri attributi, per esempio nel dataset \textbf{Weather} l'attributo \textsc{Tavg} può essere facilmente calcolato come la media degli attributi \textsc{Tmin} e \textsc{Tmax}.
