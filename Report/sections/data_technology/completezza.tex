@@ -179,3 +179,12 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 
 Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
 In particolare, alcuni casi vengono facilmente risolti derivando il valore di un specifico attributo da un set di altri attributi, per esempio nel dataset \textbf{Weather} l'attributo \textsc{Tavg} può essere facilmente calcolato come la media degli attributi \textsc{Tmin} e \textsc{Tmax}.
+
+
+\subsubsection{Acquisizione di nuovi dati}
+Per quando riguarda il dataset \textsc{WNV Mosquito} è stata effettuato un completamento delle istanze mancanti degli attributi \textit{latitudine} e \textit{longitudine} utilizzando il servizio \textbf{Geocoding} Google.
+
+In particolare utilizzando gli indirizzi presenti nella colonna \textsc{Block} abbiamo estratto le corrispondenti coppie di coordinate geografiche latitudine e longitudine. 
+Per verificarne l'accuratezza è stato effettuato il calcolo della distanza geografica tra le istanze non nulle e quelle ottenute dal servizio. In particolare abbiamo potuto verificare che il 95\% delle coppie di istanze si trovano ad una distanza inferiore a 925m.
+
+Dunque, essendo le posizioni degli indirizzi utilizzate per cercare la stazione di rilevamento meteo più vicine, ed essendo l'accuratezza sufficientemente alta per questo scopo, abbiamo deciso di utilizzare le coordinate calcolate con il servizio di Geocoding per riempire i campi mancanti del dataset, ottenendo una completezza totale di schema, tupla e attributi pari al 100,00\%.
