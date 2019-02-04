@@ -1,0 +1,8 @@
+Una volta terminata la valutazione dei dateset tramite le dimensioni qualità, è stata eseguita una deduplicazione dei dataset, ovvero l'identificazione di tutte le coppie o gruppi di tuple corrispondenti allo stesso oggetto del mondo reale.
+
+La deduplicazione è stata eseguita utilizzando il software Power BI in particolare ricorrendo allo strumento Power Query per l'inserimento, la trasformazione, l'integrazione e l'arricchimento dei dati.
+\\\\	
+In particolare è stata effettuata la deduplicazione del dataset \textbf{WNV Mosquito}, utilizzando come attributi \textsc{Block}, \textsc{Latitude} e \textsc{Longitude}. 
+Su questo dataset è stata verificata la presenza di alcune tuple duplicate, che differivano per i campi \textsc{Latitude} e \textsc{Longitude}. Calcolando la distanza tra le diverse coordinate abbiamo notato che le differenze erano solo di alcuni metri.
+Abbiamo dunque deciso di tenere randomicamente una delle tuple duplicate data la scarsa differenza tra le due e la poca importanza della precisione, poichè nel nostro modello predittivo le coordinate di ogni indirizzo vengono utilizzate solo per cercare la stazione di rilevamento meteo più vicina.
+
