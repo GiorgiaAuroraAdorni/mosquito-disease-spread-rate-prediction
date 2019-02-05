@@ -1,0 +1,12 @@
+Una volta terminata la valutazione dei dataset tramite le dimensioni qualità, è stata eseguita una deduplicazione dei dataset, ovvero l'identificazione di tutte le coppie o gruppi di tuple corrispondenti allo stesso oggetto del mondo reale.
+
+La deduplicazione è stata eseguita utilizzando il software Power BI in particolare ricorrendo allo strumento Power Query per l'inserimento, la trasformazione, l'integrazione e l'arricchimento dei dati.
+\\\\	
+È stata effettuata la deduplicazione del dataset \textbf{WNV Mosquito}, utilizzando analizzando l'attributo \textsc{Block}. In particolare è stata riscontrata la presenza di alcune tuple duplicate, che differivano per i campi \textsc{Latitude} e \textsc{Longitude}. Calcolando la distanza tra le diverse coordinate abbiamo verificato che le differenze erano solo di alcuni metri.
+Dunque è stato deciso di tenere randomicamente una delle tuple duplicate data la scarsa differenza tra le due e la poca importanza della precisione, poiché nel nostro modello predittivo le coordinate di ogni indirizzo vengono utilizzate solo per cercare una corrispondenza con la stazione di rilevamento meteo più vicina.
+\\\\
+Sempre sul dataset \textbf{WNV Mosquito} è stata provata l'esecuzione della deduplicazione questa volta utilizzando come input la colonna \textsc{Trap} e i campi \textsc{Latitude}, \textsc{Longitude} e \textsc{Block}. In questo caso viene erroneamente rilevata la presenza di due tuple duplicate, in cui la stessa trappola è situata in due posti diversi. 
+
+Discriminando attraverso l'attributo \textsc{Season Year} non vengono rilevate più le tuple duplicate. Questo deriva dal fatto che la trappola potrebbe essere stata spostata negli anni.
+
+Lo stesso problema si verifica nel caso vengano presi in input la colonna \textsc{Trap} e il campo \textsc{Trap Type}. Questa volta sono 17 le tuple rilevate come duplicate, ma ancora una volta è possibile discriminare attraverso l'attributo \textsc{Season Year}.
