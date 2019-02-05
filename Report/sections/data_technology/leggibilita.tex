@@ -14,7 +14,7 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
 
 \begin{itemize}
 
-    \item \textbf{weather.csv}: Il dataset utilizza il valore \textit{M} per 
+    \item \textbf{Weather}: Il dataset utilizza il valore \textit{M} per 
         indicare un valore mancante per un attributo, in questo caso è stato 
         scelto di sostituire a \textit{M} il valore \textit{null} poichè viene 
         riconosciuto correttamente come valore mancante dai software per 
@@ -40,7 +40,27 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
             \item \texttt{ResultSpeed}, \texttt{AvgSpeed}, \texttt{Max5Speed}, 
                 \texttt{Max2Speed}: i valori di velocità sono stati convertiti 
                 da miglia orarie (mph) a chilometri orari (kmh).
+                
+            \item \texttt{CodeSum} %elia
 
         \end{itemize}
     
 \end{itemize}
+
+
+\begin{itemize}
+	
+	\item \textbf{WNV mosquito}:
+	
+	\begin{itemize}
+		
+		\item \texttt{Trap}: nel dataset le trappole vengono contrassegnate dalla lettera \textit{T} seguita da tre cifre. Le trappole di tipo "satellitare" sono installate di solito vicino alle trappole principali e servono per migliorare gli sforzi di sorveglianza. Per questo motivo esse sono indicate dallo stesso pattern della trappola principale con in aggiunta una lettera. Per esempio T220A è la prima trappola satellitare per T220. Essendo questo di difficile lettura sono state aggiunte due colonne: \texttt{Main Trap} che riporta il codice della trappola principale e \texttt{Sub Trap} che contiene nel caso delle trappole satellite la lettera ad essa associata.
+		
+		\item \texttt{Result}: inizialmente la colonna conteneva dei valori di testo \textit{positive} e \textit{negative}, quesi sono stati trasformati in valori logici booleani.  
+		
+		\item \texttt{Number Of Mosquito}: nel caso di numero di zanzare superiore a 50, questo viene diviso in un altro record con gli stessi attributi in modo tale che il numero di zanzare sia limitato a 50.  
+			
+	\end{itemize}
+	
+\end{itemize}
+
