@@ -20,10 +20,10 @@ La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza 
 		\textbf{Dataset} \quad & \textbf{Completezza di tupla} & \textbf{Completezza dataset} \\
 		\midrule
 		WNV Mosquito &		84,89\%  	& 97,48\%  \\ 
-		Daily 		 &		 0,00\% 	& 38,17\%  \\ 
+		Weather 	 &		 0,00\% 	& 86,09\%  \\ 
 		Stations 	 &		20,00\% 	& 82,67\%  \\ 
 		\midrule
-		Totale &	    34,96\%      	& 77,77\%  \\
+		Totale 		 &	    34,96\%     & 88,75\%  \\
 		\bottomrule
 	\end{tabular}
 	\captionof{table}{Analisi di completezza sui dataset}
@@ -64,10 +64,10 @@ In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza r
 	\label{tab:completezza wnv}
 \end{figure}
 
-\subsubsection*{Daily}
-\addcontentsline{toc}{subsubsection}{Daily}
-Il dataset \textsc{Daily} presenta una completezza del 38,17\%. Esso risulta essere il meno completo tra i dataset presentati. In particolare solo due attributi su 50 risultano completi, mentre tutti gli altri presentano dei valori mancanti.\\
-In tabella \ref{tab:completezza daily} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
+\subsubsection*{Weather}
+\addcontentsline{toc}{subsubsection}{Weather}
+Il dataset \textsc{Weather} presenta una completezza del 38,17\%. Esso risulta essere il meno completo tra i dataset presentati. In particolare solo due attributi su 50 risultano completi, mentre tutti gli altri presentano dei valori mancanti.\\
+In tabella \ref{tab:completezza weather} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 	\begin{longtable}{lcccc}
 		\toprule
@@ -81,64 +81,65 @@ In tabella \ref{tab:completezza daily} sono presentate le analisi di completezza
 		\endhead
 		\multicolumn{5}{l}{\footnotesize\itshape Continua nella prossima pagina} \\
 		\endfoot
-		WBAN			& 13400 & 0	 		 & 100,00\%  	\\	
-		YearMonthDay	& 13400 & 0	 		 & 100,00\%  	\\	
+		\endlastfoot
+		WBAN			& 13400 & 0		 	 & 100,00\%  	\\	
+		YearMonthDay	& 13400 & 0		 	 & 100,00\%  	\\	
 		Tmax			& 13400 & 1723	     & 87,14\%  	\\
-		TmaxFlag		& 13400 & 13340	     & 0,45\%  		\\	
+		TmaxFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Tmin			& 13400 & 1723	     & 87,14\%  	\\
-		TminFlag		& 13400 & 13375	     & 0,19\%  		\\	
+		TminFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Tavg			& 13400 & 1807	     & 86,51\%  	\\
-		TavgFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		TavgFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Depart			& 13400 & 9561	     & 28,65\%  	\\
-		DepartFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		DepartFlag		& 13400 & 0		     & 100,00\% 	\\	
 		DewPoint		& 13400 & 61	   	 & 99,54\%  	\\
-		DewPointFlag	& 13400 & 13400	     & 0,00\%  		\\		
+		DewPointFlag	& 13400 & 0		     & 100,00\% 	\\		
 		WetBulb			& 13400 & 172	     & 98,72\%  	\\
-		WetBulbFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		WetBulbFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Heat			& 13400 & 1807	     & 86,51\%  	\\
-		HeatFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		HeatFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Cool			& 13400 & 1807	     & 86,51\%  	\\
-		CoolFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		CoolFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Sunrise			& 13400 & 9533	     & 28,86\%  	\\
-		SunriseFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		SunriseFlag		& 13400 & 0		     & 100,00\% 	\\	
 		Sunset			& 13400 & 9533	     & 28,86\%  	\\
-		SunsetFlag		& 13400 & 13400	     & 0,00\%  		\\	
+		SunsetFlag		& 13400 & 0		     & 100,00\% 	\\	
 		CodeSum			& 13400 & 6250	     & 53,36\%  	\\
-		CodeSumFlag		& 13400 & 13400	     & 0,00\%  		\\	
-		Depth			& 13400 & 10922	     & 18,49\%  	\\
-		DepthFlag		& 13400 & 13400   	 & 0,00\%		\\	
-		Water1			& 13400 & 13400   	 & 0,00\%		\\
-		Water1Flag		& 13400 & 13400   	 & 0,00\%		\\	
-		SnowFall		& 13400 & 10912   	 & 18,57\%		\\	
-		SnowFallFlag	& 13400 & 13372   	 & 0,21\%		\\		
-		PrecipTotal		& 13400 & 1745   	 & 86,98\%		\\	
-		PrecipTotalFlag	& 13400 & 13237   	 & 1,22\%		\\		
-		StnPressure		& 13400 & 1749   	 & 86,95\%		\\	
-		StnPressureFlag	& 13400 & 13400   	 & 0,00\%		\\		
-		SeaLevel		& 13400 & 1771   	 & 86,78\%		\\	
-		SeaLevelFlag	& 13400 & 13400   	 & 0,00\%		\\		
-		ResultSpeed		& 13400 & 41   	 	 & 99,69\%		\\	
-		ResultSpeedFlag	& 13400 & 13400   	 & 0,00\%		\\		
-		ResultDir		& 13400 & 41   	 	 & 99,69\%		\\			
-		ResultDirFlag	& 13400 & 13400   	 & 0,00\%		\\		
-		AvgSpeed		& 13400 & 1736   	 & 87,04\%		\\	
-		AvgSpeedFlag	& 13400 & 13400   	 & 0,00\%		\\		
-		Max5Speed		& 13400 & 1728   	 & 87,10\%		\\	
-		Max5SpeedFlag	& 13400 & 13195   	 & 1,53\%		\\		
-		Max5Dir			& 13400 & 1728   	 & 87,10\%		\\
-		Max5DirFlag		& 13400 & 13400   	 & 0,00\%		\\	
-		Max2Speed		& 13400 & 1719   	 & 87,17\%		\\	
-		Max2SpeedFlag	& 13400 & 13380   	 & 0,15\%		\\		
-		Max2Dir			& 13400 & 1719   	 & 87,17\%		\\
-		Max2DirFlag		& 13400 & 13400   	 & 0,00\%		\\	
+		CodeSumFlag		& 13400 & 0		     & 100,00\% 	\\	
+		Depth			& 13400 & 10922		 & 18,49\%  	\\
+		DepthFlag		& 13400 & 0		   	 & 100,00\%		\\	
+		Water1			& 13400 & 13400		 & 0,00\%		\\
+		Water1Flag		& 13400 & 0		   	 & 100,00\%		\\	
+		SnowFall		& 13400 & 10912		 & 18,57\%		\\	
+		SnowFallFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		PrecipTotal		& 13400 & 1745		 & 86,98\%		\\	
+		PrecipTotalFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		StnPressure		& 13400 & 1749		 & 86,95\%		\\	
+		StnPressureFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		SeaLevel		& 13400 & 1771		 & 86,78\%		\\	
+		SeaLevelFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		ResultSpeed		& 13400 & 41		 & 99,69\%		\\	
+		ResultSpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		ResultDir		& 13400 & 41		 & 99,69\%		\\			
+		ResultDirFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		AvgSpeed		& 13400 & 1736		 & 87,04\%		\\	
+		AvgSpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		Max5Speed		& 13400 & 1728		 & 87,10\%		\\	
+		Max5SpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		Max5Dir			& 13400 & 1728		 & 87,10\%		\\
+		Max5DirFlag		& 13400 & 0		   	 & 100,00\%		\\	
+		Max2Speed		& 13400 & 1719		 & 87,17\%		\\	
+		Max2SpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
+		Max2Dir			& 13400 & 1719		 & 87,17\%		\\
+		Max2DirFlag		& 13400 & 0		   	 & 100,00\%		\\	
 		\midrule
 		Tuple 			& 13400  &	13400	 & 0,00\%		\\
-		Dataset  		& 670000 &	414287 	 & 38,17\%		\\
+		Dataset  		& 670000 &	93188 	 & 86,09\%		\\
 		\bottomrule
 		
 	\end{longtable}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Daily}}
-	\label{tab:completezza daily}
+	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather}}
+	\label{tab:completezza weather}
 
 \subsubsection*{Stations}
 \addcontentsline{toc}{subsubsection}{Stations}
