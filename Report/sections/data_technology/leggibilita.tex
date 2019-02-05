@@ -22,26 +22,25 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
         
         \begin{itemize}
             
-            \item \texttt{Date}: inizialmente l'attributo rappresentava una 
+            \item \texttt{date}: inizialmente l'attributo rappresentava una 
                 data attraverso il pattern \textit{yyyyMMdd}, per migliorarne 
                 la leggibilità è stato cambiato il pattern e utilizzato nella 
                 forma \textit{dd/MM/yyyy}. Ad esempio la data 
                 \textit{20070501} è stata modificata in \textit{01/05/2007}.
         
-            \item \texttt{Tmax}, \texttt{Tmin}, \texttt{DewPoint}, 
-                \texttt{WetBulb}, \texttt{Heat}, \texttt{Cool}: i valori di 
+            \item \texttt{t\_max}, \texttt{t\_min}, \texttt{dew\_point}, 
+                \texttt{wet\_bulb}, \texttt{heat}, \texttt{cool}: i valori di 
                 temperatura sono stati convertiti da gradi Fahrenheit (F) 
                 a gradi Celsius (C).
 
-            \item \texttt{StnPressure}, \texttt{SeaLevel}: i valori di 
+            \item \texttt{stn\_pressure}, \texttt{sea\_level}: i valori di 
                 pressione sono stati convertiti da pollici di mercurio (inch) a 
                 millimetri di mercurio (mm).
 
-            \item \texttt{ResultSpeed}, \texttt{AvgSpeed}, \texttt{Max5Speed}, 
-                \texttt{Max2Speed}: i valori di velocità sono stati convertiti 
+            \item \texttt{result\_speed}, \texttt{avg\_speed}, \texttt{max5\_speed}, \texttt{max2\_speed}: i valori di velocità sono stati convertiti 
                 da miglia orarie (mph) a chilometri orari (kmh).
                 
-            \item \texttt{CodeSum} %elia
+            \item \texttt{code\_sum} %elia
 
         \end{itemize}
 	
@@ -49,11 +48,11 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
 	
 	\begin{itemize}
 		
-		\item \texttt{Trap}: nel dataset le trappole vengono contrassegnate dalla lettera \textit{T} seguita da tre cifre. Le trappole di tipo "satellitare" sono installate di solito vicino alle trappole principali e servono per migliorare gli sforzi di sorveglianza. Per questo motivo esse sono indicate dallo stesso pattern della trappola principale con in aggiunta una lettera. Per esempio T220A è la prima trappola satellitare per T220. Essendo questo di difficile lettura sono state aggiunte due colonne: \texttt{Main Trap} che riporta il codice della trappola principale e \texttt{Sub Trap} che contiene nel caso delle trappole satellite la lettera ad essa associata.
+		\item \texttt{trap}: nel dataset le trappole vengono contrassegnate dalla lettera \textit{T} seguita da tre cifre. Le trappole di tipo "satellitare" sono installate di solito vicino alle trappole principali e servono per migliorare gli sforzi di sorveglianza. Per questo motivo esse sono indicate dallo stesso pattern della trappola principale con in aggiunta una lettera. Per esempio T220A è la prima trappola satellitare per T220. Essendo questo di difficile lettura sono state aggiunte due colonne: \texttt{main\_trap} che riporta il codice della trappola principale e \texttt{sub\_trap} che contiene nel caso delle trappole satellite la lettera ad essa associata.
 		
-		\item \texttt{Result}: inizialmente la colonna conteneva dei valori di testo \textit{positive} e \textit{negative}, quesi sono stati trasformati in valori logici booleani.  
+		\item \texttt{result}: inizialmente la colonna conteneva dei valori di testo \textit{positive} e \textit{negative}, questi sono stati trasformati in valori logici booleani.  
 		
-		\item \texttt{Number Of Mosquito}: nel caso di numero di zanzare superiore a 50, questo viene diviso in un altro record con gli stessi attributi in modo tale che il numero di zanzare sia limitato a 50.  
+		\item \texttt{number\_of\_mosquito}: nel caso di numero di zanzare superiore a 50, questo viene diviso in un altro record con gli stessi attributi in modo tale che il numero di zanzare sia limitato a 50.  
 			
 	\end{itemize}
 	

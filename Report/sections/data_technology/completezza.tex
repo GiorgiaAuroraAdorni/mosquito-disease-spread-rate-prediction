@@ -34,7 +34,7 @@ Vengono in seguito mostrate le analisi relative ai dati di ogni dataset.
 
 \subsubsection*{WNV Mosquito}
 \addcontentsline{toc}{subsubsection}{WNV Mosquito}
-Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \textit{latitudine} e \textit{longitudine}, presentano dei valori mancanti.\\
+Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \textit{latitude} e \textit{longitude}, presentano dei valori mancanti.\\
 In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
@@ -43,18 +43,18 @@ In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza r
 		\toprule
 		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
 		\midrule
-		SeasonYear &			27196 &  0        &  100\%   \\ 
-		Week &					27196 &  0        &  100\%   \\ 
-		TestId &				27196 &  0        &  100\%   \\ 
-		Block &					27196 &  0        &  100\%   \\ 
-		Trap &					27196 &  0        &  100\%   \\ 
-		TrapType &				27196 &  0        &  100\%   \\ 
-		TestDate &				27196 &  0        &  100\%   \\ 
-		NumberOfMosquitoes &	27196 &  0        &  100\%   \\ 
-		Result &				27196 &  0        &  100\%   \\ 
-		Species &				27196 &  0        &  100\%   \\ 
-		Latitude &				27196 &  4108     &  84,89\%   \\  
-		Longitude &				27196 &  4108     &  84,89\%   \\  
+		season\_year			&			27196 &  0        &  100\%   	\\ 
+		week					&			27196 &  0        &  100\%   	\\ 
+		testi\_d				&			27196 &  0        &  100\%   	\\ 
+		block					&			27196 &  0        &  100\%   	\\ 
+		trap					&			27196 &  0        &  100\%   	\\ 
+		trap\_type				&			27196 &  0        &  100\%   	\\ 
+		test\_date				&			27196 &  0        &  100\%   	\\ 
+		number\_of\_mosquitoes	&			27196 &  0        &  100\%   	\\ 
+		result					&			27196 &  0        &  100\%   	\\ 
+		species					&			27196 &  0        &  100\%   	\\ 
+		latitude				&			27196 &  4108     &  84,89\%   	\\  
+		longitude				&			27196 &  4108     &  84,89\%   	\\  
 		\midrule
 		Tuple 		&			27196  & 4108	  & 84,89\% 	\\
 		Dataset  	&	   		326352 & 8216 	  & 97,48\% \\
@@ -82,56 +82,56 @@ In tabella \ref{tab:completezza weather} sono presentate le analisi di completez
 		\multicolumn{5}{l}{\footnotesize\itshape Continua nella prossima pagina} \\
 		\endfoot
 		\endlastfoot
-		WBAN			& 13400 & 0		 	 & 100,00\%  	\\	
-		YearMonthDay	& 13400 & 0		 	 & 100,00\%  	\\	
-		Tmax			& 13400 & 1723	     & 87,14\%  	\\
-		TmaxFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Tmin			& 13400 & 1723	     & 87,14\%  	\\
-		TminFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Tavg			& 13400 & 1807	     & 86,51\%  	\\
-		TavgFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Depart			& 13400 & 9561	     & 28,65\%  	\\
-		DepartFlag		& 13400 & 0		     & 100,00\% 	\\	
-		DewPoint		& 13400 & 61	   	 & 99,54\%  	\\
-		DewPointFlag	& 13400 & 0		     & 100,00\% 	\\		
-		WetBulb			& 13400 & 172	     & 98,72\%  	\\
-		WetBulbFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Heat			& 13400 & 1807	     & 86,51\%  	\\
-		HeatFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Cool			& 13400 & 1807	     & 86,51\%  	\\
-		CoolFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Sunrise			& 13400 & 9533	     & 28,86\%  	\\
-		SunriseFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Sunset			& 13400 & 9533	     & 28,86\%  	\\
-		SunsetFlag		& 13400 & 0		     & 100,00\% 	\\	
-		CodeSum			& 13400 & 6250	     & 53,36\%  	\\
-		CodeSumFlag		& 13400 & 0		     & 100,00\% 	\\	
-		Depth			& 13400 & 10922		 & 18,49\%  	\\
-		DepthFlag		& 13400 & 0		   	 & 100,00\%		\\	
-		Water1			& 13400 & 13400		 & 0,00\%		\\
-		Water1Flag		& 13400 & 0		   	 & 100,00\%		\\	
-		SnowFall		& 13400 & 10912		 & 18,57\%		\\	
-		SnowFallFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		PrecipTotal		& 13400 & 1745		 & 86,98\%		\\	
-		PrecipTotalFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		StnPressure		& 13400 & 1749		 & 86,95\%		\\	
-		StnPressureFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		SeaLevel		& 13400 & 1771		 & 86,78\%		\\	
-		SeaLevelFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		ResultSpeed		& 13400 & 41		 & 99,69\%		\\	
-		ResultSpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		ResultDir		& 13400 & 41		 & 99,69\%		\\			
-		ResultDirFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		AvgSpeed		& 13400 & 1736		 & 87,04\%		\\	
-		AvgSpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		Max5Speed		& 13400 & 1728		 & 87,10\%		\\	
-		Max5SpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		Max5Dir			& 13400 & 1728		 & 87,10\%		\\
-		Max5DirFlag		& 13400 & 0		   	 & 100,00\%		\\	
-		Max2Speed		& 13400 & 1719		 & 87,17\%		\\	
-		Max2SpeedFlag	& 13400 & 0		   	 & 100,00\%		\\		
-		Max2Dir			& 13400 & 1719		 & 87,17\%		\\
-		Max2DirFlag		& 13400 & 0		   	 & 100,00\%		\\	
+		wban				& 13400 & 0		 	 & 100,00\%  	\\	
+		year\_month\_day	& 13400 & 0		 	 & 100,00\%  	\\	
+		t\_max				& 13400 & 1723	     & 87,14\%  	\\
+		t\_max\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		t\_min				& 13400 & 1723	     & 87,14\%  	\\
+		t\_min\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		t\_avg				& 13400 & 1807	     & 86,51\%  	\\
+		t\_avg\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		depart				& 13400 & 9561	     & 28,65\%  	\\
+		depart\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		dew\_point			& 13400 & 61	   	 & 99,54\%  	\\
+		dew\_point\_flag	& 13400 & 0		     & 100,00\% 	\\		
+		wet\_bulb			& 13400 & 172	     & 98,72\%  	\\
+		wet\_bulb\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		heat				& 13400 & 1807	     & 86,51\%  	\\
+		heat\_flag			& 13400 & 0		     & 100,00\% 	\\	
+		cool				& 13400 & 1807	     & 86,51\%  	\\
+		cool\_flag			& 13400 & 0		     & 100,00\% 	\\	
+		sunrise				& 13400 & 9533	     & 28,86\%  	\\
+		sunrise\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		sunset				& 13400 & 9533	     & 28,86\%  	\\
+		sunset\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		code\_sum			& 13400 & 6250	     & 53,36\%  	\\
+		code\_sum\_flag		& 13400 & 0		     & 100,00\% 	\\	
+		depth				& 13400 & 10922		 & 18,49\%  	\\
+		depth\_flag			& 13400 & 0		   	 & 100,00\%		\\	
+		water1				& 13400 & 13400		 & 0,00\%		\\
+		water1\_flag		& 13400 & 0		   	 & 100,00\%		\\	
+		snow\_fall			& 13400 & 10912		 & 18,57\%		\\	
+		snow\_fall\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		precip\_total		& 13400 & 1745		 & 86,98\%		\\	
+		precip\_total\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		stn\_pressure		& 13400 & 1749		 & 86,95\%		\\	
+		stn\_pressure\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		sea\_level			& 13400 & 1771		 & 86,78\%		\\	
+		sea\_level\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		result\_speed		& 13400 & 41		 & 99,69\%		\\	
+		result\_speed\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		result\_dir			& 13400 & 41		 & 99,69\%		\\			
+		result\_dir\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		avg\_speed			& 13400 & 1736		 & 87,04\%		\\	
+		avg\_speed\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		max5\_speed			& 13400 & 1728		 & 87,10\%		\\	
+		max5\_speed\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		max5\_dir			& 13400 & 1728		 & 87,10\%		\\
+		max5\_dir\_flag		& 13400 & 0		   	 & 100,00\%		\\	
+		max2\_speed			& 13400 & 1719		 & 87,17\%		\\	
+		max2\_speed\_flag	& 13400 & 0		   	 & 100,00\%		\\		
+		max2\_dir			& 13400 & 1719		 & 87,17\%		\\
+		max2\_dir\_flag		& 13400 & 0		   	 & 100,00\%		\\	
 		\midrule
 		Tuple 			& 13400  &	13400	 & 0,00\%		\\
 		Dataset  		& 670000 &	93188 	 & 86,09\%		\\
@@ -152,21 +152,21 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 		\toprule
 		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
 		\midrule
-		WBAN						& 5 & 0	 	& 100,00\%  	\\	
-		WMO							& 5 & 3	 	& 40,00\%  		\\	
-		CallSign					& 5 & 0     & 100,00\%  	\\
-		ClimateDivisionCode			& 5 & 4     & 20,00\% 		\\	
-		ClimateDivisionStateCode	& 5 & 0     & 100,00\%  	\\
-		ClimateDivisionStationCode	& 5 & 4     & 20,00\% 		\\	
-		Name						& 5 & 0     & 100,00\%  	\\
-		State						& 5 & 0     & 100,00\% 		\\	
-		Location					& 5 & 0     & 100,00\%  	\\
-		Latitude					& 5 & 0     & 100,00\% 		\\	
-		Longitude					& 5 & 0   	& 100,00\%  	\\
-		GroundHeight				& 5 & 0     & 100,00\% 		\\		
-		StationHeight				& 5 & 0     & 100,00\%  	\\
-		Barometer					& 5 & 2     & 60,00\% 		\\	
-		TimeZone					& 5 & 0     & 100,00\%  	\\
+		wban								& 5 & 0	 	& 100,00\%  	\\	
+		wmo									& 5 & 3	 	& 40,00\%  		\\	
+		callsign							& 5 & 0     & 100,00\%  	\\
+		climate\_division\_code				& 5 & 4     & 20,00\% 		\\	
+		climate\_division\_state\_code		& 5 & 0     & 100,00\%  	\\
+		climate\_division\_station\_code	& 5 & 4     & 20,00\% 		\\	
+		name								& 5 & 0     & 100,00\%  	\\
+		state								& 5 & 0     & 100,00\% 		\\	
+		location							& 5 & 0     & 100,00\%  	\\
+		latitude							& 5 & 0     & 100,00\% 		\\	
+		longitude							& 5 & 0   	& 100,00\%  	\\
+		ground\_height						& 5 & 0     & 100,00\% 		\\		
+		station\_height						& 5 & 0     & 100,00\%  	\\
+		barometer							& 5 & 2     & 60,00\% 		\\	
+		time\_zone							& 5 & 0     & 100,00\%  	\\
 		\midrule
 		Tuple 						& 5  &	4   & 20,00\%		\\
 		Dataset  					& 75 &	13  & 82,67\%		\\
@@ -179,13 +179,13 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 \subsection{Miglioramento}
 
 Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
-In particolare, alcuni casi vengono facilmente risolti derivando il valore di un specifico attributo da un set di altri attributi, per esempio nel dataset \textbf{Weather} l'attributo \textsc{Tavg} può essere facilmente calcolato come la media degli attributi \textsc{Tmin} e \textsc{Tmax}.
+In particolare, alcuni casi vengono facilmente risolti derivando il valore di un specifico attributo da un set di altri attributi, per esempio nel dataset \textbf{Weather} l'attributo \textsc{t\_avg} può essere facilmente calcolato come la media degli attributi \textsc{t\_min} e \textsc{t\_max}.
 
 
 \subsubsection{Acquisizione di nuovi dati}
-Per quando riguarda il dataset \textsc{WNV Mosquito} è stata effettuato un completamento delle istanze mancanti degli attributi \textit{latitudine} e \textit{longitudine} utilizzando il servizio \textbf{Geocoding} Google.
+Per quando riguarda il dataset \textsc{WNV Mosquito} è stata effettuato un completamento delle istanze mancanti degli attributi \textit{latitude} e \textit{longitude} utilizzando il servizio \textbf{Geocoding} Google.
 
-In particolare utilizzando gli indirizzi presenti nella colonna \textsc{Block} abbiamo estratto le corrispondenti coppie di coordinate geografiche latitudine e longitudine. 
+In particolare utilizzando gli indirizzi presenti nella colonna \textsc{block} abbiamo estratto le corrispondenti coppie di coordinate geografiche latitudine e longitudine. 
 Per verificarne l'accuratezza è stato effettuato il calcolo della distanza geografica tra le istanze non nulle e quelle ottenute dal servizio. In particolare abbiamo potuto verificare che il 95\% delle coppie di istanze si trovano ad una distanza inferiore a 925m.
 
 Dunque, essendo le posizioni degli indirizzi utilizzate per cercare la stazione di rilevamento meteo più vicine, ed essendo l'accuratezza sufficientemente alta per questo scopo, abbiamo deciso di utilizzare le coordinate calcolate con il servizio di Geocoding per riempire i campi mancanti del dataset, ottenendo una completezza totale di schema, tupla e attributi pari al 100,00\%.
