@@ -1,0 +1,157 @@
+\section{Acquisizione del dataset}
+% Descrizione delle modalità di scelta
+Il dataset \textbf{WNV Mosquito}, contenente l'elenco delle località e dei risultati dei test per i pool di zanzare, testati attraverso il programma di salute ambientale del Dipartimento della sanità pubblica di Chicago, è stato reperito dal sito \href{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}{Chicago Data Portal}.
+
+Il CDPH gestisce un programma di sorveglianza ambientale per il virus del Nilo occidentale (WNV), che include la raccolta di zanzare dalle trappole situate in tutta la città, l'identificazione e lo smistamento delle zanzare raccolte e il test di specifiche specie per WNV.\\
+
+I dataset \textbf{Stations} e \textbf{Weather}, contenenti i NOAA Quality Controlled Local Climatological Data (QCLCD), sono stati ottenuti dal sito \href{https://www.ncdc.noaa.gov/orders/qclcd/}{Noaa gov} e gestiti attraverso uno script. 
+%qui tocca a te elia
+
+
+\section{Descrizione del dataset}
+Vengono di seguito descritti gli attributi di ciascun dataset.
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lll}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valore} \\
+		\midrule
+		\multirow{2}{*}{season\_year} & \multirow{2}{*}{anno del test} &  categorico \\
+							& &{2007} -- {2017}       	\\ \hline
+		\multirow{2}{*}{week}					&\multirow{2}{*}{settimana dell'anno del test}  & numerico    \\ 
+		& & {1} -- {52} ({20} -- {40})\\\hline
+		test\_id			& id del record &  numerico        	\\\hline 
+		\multirow{3}{*}{block}	& \multirow{3}{*}{indirizzo della trappola} & xxXX = numero del blocco \\
+		& & S = indirizzo	\\
+		& & xxXXS \\ \hline
+		\multirow{2}{*}{trap}	&\multirow{2}{*}{ della trappola} &  identificatore        	\\ 
+		&& T001X -- T925X\\\hline
+		\multirow{5}{*}{trap\_type}				& \multirow{5}{*}{tipologia di trappola} &  categorico        	\\ 
+		&& OVI\\
+		&& CVC\\
+		&& GRAVID\\
+		&& SENTINEL\\\hline
+		\multirow{2}{*}{test\_date}	&\multirow{2}{*}{data del test}   &  Data e ora        	\\ 
+		& & yyyy/mm/dd hh:mm:ss \\\hline
+		\multirow{2}{*}{number\_of\_mosquitoes}	& \multirow{2}{*}{numero di zanzare catturate} &  numerico        	\\ 
+		& & {1} -- {50} \\ \hline
+		\multirow{3}{*}{result}	& \multirow{3}{*}{risultato del test}   &  categorico \\
+		& & positive = WNV presente \\
+		& & negative = WNV non presente  	\\ \hline
+		\multirow{9}{*}{species}	& \multirow{9}{*}{specie di zanzare}	 &  categorico       	\\ 
+		& & CULEX PIPIENS/RESTAUANS \\
+		& & CULEX PIPIENS \\
+		& & CULEX RESTAUANS \\
+		& & CULEX ERRATICUS \\
+		& & CULEX SALINARIUS \\
+		& & CULEX TARSALIS \\
+		& & CULEX TERRITANS \\
+		& & UNSPECIFIED CULEX  \\	\hline
+		\multirow{2}{*}{latitude}				& \multirow{2}{*}{latitudine dell'indirizzo}	 &  decimale       \\ 
+		& & {40.00} -- {42.00}  \\ \hline
+		\multirow{2}{*}{longitude}				& \multirow{2}{*}{longitudine dell'indirizzo} &  decimale      	\\ 
+		&& {-87.00} -- {-88.00} \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Attributi dataset \textbf{WNV Mosquito}}
+	\label{tab:attributi wnv}
+\end{figure}
+
+
+\begin{longtable}{lccc}
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valore} \\
+	\midrule
+	\endfirsthead
+	\multicolumn{4}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valore} \\
+	\midrule			
+	\endhead
+	\multicolumn{4}{l}{\footnotesize\itshape Continua nella prossima pagina} \\
+	\endfoot
+	\endlastfoot
+	wban				& 	 & 			 	\\	
+	year\_month\_day	& 	 & 			  	\\	
+	t\_max				& 	 & 		   	\\
+	t\_max\_flag		& 	 & 			   	\\	
+	t\_min				& 	 & 		   	\\
+	t\_min\_flag		& 	 & 			   	\\	
+	t\_avg				& 	 & 		   	\\
+	t\_avg\_flag		& 	 & 			   	\\	
+	depart				& 	 & 		   	\\
+	depart\_flag		& 	 & 			   	\\	
+	dew\_point			& 	 & 		   	\\
+	dew\_point\_flag	& 	 & 			   	\\		
+	wet\_bulb			& 	 & 		   	\\
+	wet\_bulb\_flag		& 	 & 			   	\\	
+	heat				& 	 & 		   	\\
+	heat\_flag			& 	 & 			   	\\	
+	cool				& 	 & 		   	\\
+	cool\_flag			& 	 & 			   	\\	
+	sunrise				& 	 & 		   	\\
+	sunrise\_flag		& 	 & 			   	\\	
+	sunset				& 	 & 		   	\\
+	sunset\_flag		& 	 & 		   	\\	
+	code\_sum			& 	 & 		   	\\
+	code\_sum\_flag		& 	 & 		   	\\	
+	depth				& 	 & 		 	\\
+	depth\_flag			& 	 & 		  	\\	
+	water1				& 	 & 				\\
+	water1\_flag		& 	 & 		  	\\	
+	snow\_fall			& 	 & 				\\	
+	snow\_fall\_flag	& 	 & 			\\		
+	precip\_total		& 	 & 			\\	
+	precip\_total\_flag	& 	 & 		  	\\		
+	stn\_pressure		& 	 & 			\\	
+	stn\_pressure\_flag	& 	 & 		  	\\		
+	sea\_level			& 	 & 			\\	
+	sea\_level\_flag	& 	 & 			\\		
+	result\_speed		& 	 & 		\\	
+	result\_speed\_flag	& 	 & 		  	\\		
+	result\_dir			& 	 & 		\\			
+	result\_dir\_flag	& 	 & 		  	\\		
+	avg\_speed			& 	 & 			\\	
+	avg\_speed\_flag	& 	 & 			\\		
+	max5\_speed			& 	 & 			\\	
+	max5\_speed\_flag	& 	 & 		  	\\		
+	max5\_dir			& 	 & 			\\
+	max5\_dir\_flag		& 	 & 			\\	
+	max2\_speed			& 	 & 			\\	
+	max2\_speed\_flag	& 	 & 		  	\\		
+	max2\_dir			& 	 & 			\\
+	max2\_dir\_flag		& 	 & 		  	\\	
+	\bottomrule
+	
+\end{longtable}
+\captionof{table}{Attributi dataset \textbf{Weather}}
+\label{tab:attributi weather}
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valore} \\
+		\midrule
+		wban								&  & 	   		\\	
+		wmo									& 	& 		  		\\	
+		callsign							& 	 & 		     	\\
+		climate\_division\_code				& 	 & 		   		\\	
+		climate\_division\_state\_code		& 	 & 		     	\\
+		climate\_division\_station\_code	& 	 & 		   		\\	
+		name								& 	 & 		     	\\
+		state								& 	 & 		    	\\	
+		location							& 	 & 		     	\\
+		latitude							& 	 & 		    	\\	
+		longitude							& 	 & 		    	\\
+		ground\_height						& 	 & 		   	 \\		
+		station\_height						& 	 & 		     	\\
+		barometer							& 	 & 		   		\\	
+		time\_zone							& 	 & 		     	\\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Attributi dataset \textbf{Stations}}
+	\label{tab:attributi stations}
+\end{figure}
+
