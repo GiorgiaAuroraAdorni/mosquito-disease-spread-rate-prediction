@@ -26,11 +26,11 @@ La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza 
 		Totale 		 &	    34,96\%     & 88,75\%  \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sui dataset}
+	\captionof{table}{Analisi di completezza sui tre dataset}
 	\label{tab:completezza totale}
 \end{figure}
 
-Vengono in seguito mostrate le analisi relative ai dati di ogni dataset.
+Vengono in seguito mostrate le analisi relative ai dati di ciascun dataset.
 
 \subsubsection*{WNV Mosquito}
 \addcontentsline{toc}{subsubsection}{WNV Mosquito}
@@ -41,7 +41,8 @@ In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza r
 	\centering
 	\begin{tabular}{lcccc}
 		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\textbf{Attributo} \quad & \textbf{Istanze} & \textbf{Valori nulli} & 
+		\textbf{Completezza} \\
 		\midrule
 		season\_year			&			27196 &  0        &  100\%   	\\ 
 		week					&			27196 &  0        &  100\%   	\\ 
@@ -71,15 +72,18 @@ In tabella \ref{tab:completezza weather} sono presentate le analisi di completez
 
 	\begin{longtable}{lcccc}
 		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\textbf{Attributo} \quad & \textbf{Istanze} & \textbf{Valori nulli} & 
+		\textbf{Completezza} \\
 		\midrule
 		\endfirsthead
 		\multicolumn{5}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
 		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\textbf{Attributo} \quad & \textbf{Istanze} & \textbf{Valori nulli} & 
+		\textbf{Completezza} \\
 		\midrule			
 		\endhead
-		\multicolumn{5}{l}{\footnotesize\itshape Continua nella prossima pagina} \\
+		\multicolumn{5}{l}{\footnotesize\itshape Continua nella pagina 
+		seguente} \\
 		\endfoot
 		\endlastfoot
 		wban				& 13400 & 0		 	 & 100,00\%  	\\	
@@ -150,7 +154,8 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 	\centering
 	\begin{tabular}{lcccc}
 		\toprule
-		\textbf{Attributo} \quad & \textbf{Numero di istanze} & \textbf{Numero di null} & \textbf{Completezza} \\
+		\textbf{Attributo} \quad & \textbf{Istanze} & \textbf{Valori nulli} & 
+		\textbf{Completezza} \\
 		\midrule
 		wban								& 5 & 0	 	& 100,00\%  	\\	
 		wmo									& 5 & 3	 	& 40,00\%  		\\	
@@ -179,13 +184,27 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 \subsection{Miglioramento}
 
 Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
-In particolare, alcuni casi vengono facilmente risolti derivando il valore di un specifico attributo da un set di altri attributi, per esempio nel dataset \textbf{Weather} l'attributo \textsc{t\_avg} può essere facilmente calcolato come la media degli attributi \textsc{t\_min} e \textsc{t\_max}.
+\textbf{FIXME questo non l'abbiamo fatto} In particolare, alcuni casi vengono 
+facilmente risolti derivando il valore di un specifico attributo da un set di 
+altri attributi, per esempio nel dataset \textbf{Weather} l'attributo 
+\textsc{t\_avg} può essere facilmente calcolato come la media degli attributi 
+\textsc{t\_min} e \textsc{t\_max}.
 
 
 \subsubsection{Acquisizione di nuovi dati}
-Per quando riguarda il dataset \textsc{WNV Mosquito} è stata effettuato un completamento delle istanze mancanti degli attributi \textit{latitude} e \textit{longitude} utilizzando il servizio \textbf{Geocoding} Google.
+Per quando riguarda il dataset \textsc{WNV Mosquito} è stato effettuato un 
+completamento dei valori \textit{latitude} e \textit{longitude} mancanti, 
+utilizzando il servizio di \textbf{Geocoding} offerto da Google.
 
-In particolare utilizzando gli indirizzi presenti nella colonna \textsc{block} abbiamo estratto le corrispondenti coppie di coordinate geografiche latitudine e longitudine. 
-Per verificarne l'accuratezza è stato effettuato il calcolo della distanza geografica tra le istanze non nulle e quelle ottenute dal servizio. In particolare abbiamo potuto verificare che il 95\% delle coppie di istanze si trovano ad una distanza inferiore a 925m.
+In particolare, dagli indirizzi presenti nella colonna \textsc{block} abbiamo 
+estratto le corrispondenti coppie di latitudine e longitudine. 
+Per verificare l'accuratezza delle posizioni ottenute è stata calcolata la 
+distanza geografica tra le coordinate presenti e quelle ottenute dal servizio. 
+In questo modo abbiamo potuto verificare che il 95\% delle istanze si trova ad 
+una distanza inferiore a 925 metri.
 
-Dunque, essendo le posizioni degli indirizzi utilizzate per cercare la stazione di rilevamento meteo più vicine, ed essendo l'accuratezza sufficientemente alta per questo scopo, abbiamo deciso di utilizzare le coordinate calcolate con il servizio di Geocoding per riempire i campi mancanti del dataset, ottenendo una completezza totale di schema, tupla e attributi pari al 100,00\%.
+Essendo queste posizioni utilizzate principalmente per individuare le stazioni 
+meteorologiche più vicine ad una data trappola, abbiamo ritenuto sufficiente 
+l'accuratezza dei risultati del servizio di Geocoding. Abbiamo quindi sfruttato 
+le coordinate ottenute per popolare i campi mancanti nel dataset originale, 
+raggiungendo una completezza di schema, tupla e attributi pari al 100,00\%.
