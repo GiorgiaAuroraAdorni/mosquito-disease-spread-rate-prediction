@@ -62,10 +62,6 @@ CREATE TABLE IF NOT EXISTS "Weather" (
 	code_sum_sn smallint,
 	code_sum_up smallint,
 	code_sum_hail smallint,
-	code_sum_gs smallint,
-	code_sum_gr smallint,
-	code_sum_fc smallint,
-	code_sum_du smallint,
 	
 	PRIMARY KEY (wban, year, week_of_year)
 );
