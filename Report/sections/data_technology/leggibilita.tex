@@ -1,16 +1,16 @@
-La leggibilità è una dimensione di qualità utile per permettere, a chi vuole 
-utilizzare una collezione di dati, di analizzare almeno sommariamente le 
+La leggibilità è una dimensione di qualità utile per permettere a chi vuole 
+utilizzare una collezione di dati di analizzare almeno sommariamente le 
 informazioni in modo da poter prendere determinate decisioni riguardanti 
 l'utilizzo dei dati, come ad esempio quali informazioni potrebbero essere più 
 significative per un modello predittivo di machine learning.
 
-I datasets scelti per il progetto utilizzano unità di misura del 
-sistema anglosassone, dunque di difficile lettura per chi utilizza il sistema 
-internazionale, oppure vengono impiegate sigle alfanumeriche per indicare 
-un determinato tipo di valori. 
+I dataset scelti per il progetto utilizzano unità di misura del sistema 
+anglosassone, dunque di difficile lettura per chi utilizza il sistema 
+internazionale, oppure vengono impiegate sigle alfanumeriche per indicare un 
+determinato tipo di valori. 
 
-Di seguito verranno discusse le modifiche 
-apportate agli attributi dei vari datasets per migliorarne la leggibilità.
+Di seguito verranno discusse le modifiche apportate agli attributi dei vari 
+dataset per migliorarne la leggibilità.
 
 \begin{itemize}
 
@@ -28,17 +28,20 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
                 forma \textit{dd/MM/yyyy}. Ad esempio la data 
                 \textit{20070501} è stata modificata in \textit{01/05/2007}.
         
-            \item \texttt{t\_max}, \texttt{t\_min}, \texttt{dew\_point}, 
-                \texttt{wet\_bulb}, \texttt{heat}, \texttt{cool}: i valori di 
-                temperatura sono stati convertiti da gradi Fahrenheit (F) 
-                a gradi Celsius (C).
+            \item \texttt{t\_max}, \texttt{t\_min}, \texttt{depart}, 
+            	\texttt{dew\_point}, \texttt{wet\_bulb}, \texttt{heat}, 
+            	\texttt{cool}: i valori di temperatura sono stati convertiti da 
+            	gradi Fahrenheit (\si{\degree F}) a gradi Celsius 
+            	(\si{\celsius}).
 
             \item \texttt{stn\_pressure}, \texttt{sea\_level}: i valori di 
-                pressione sono stati convertiti da pollici di mercurio (inch) a 
-                millimetri di mercurio (mm).
+                pressione sono stati convertiti da pollici di mercurio (inHg) a 
+                millimetri di mercurio (mmHg).
 
-            \item \texttt{result\_speed}, \texttt{avg\_speed}, \texttt{max5\_speed}, \texttt{max2\_speed}: i valori di velocità sono stati convertiti 
-                da miglia orarie (mph) a chilometri orari (kmh).
+            \item \texttt{result\_speed}, \texttt{avg\_speed}, 
+            \texttt{max5\_speed}, \texttt{max2\_speed}: i valori di velocità 
+            sono stati convertiti da miglia orarie (mph) a chilometri orari 
+            (\si[per-mode=symbol]{\km\per\hour}).
                 
             \item \texttt{code\_sum} %elia
 
@@ -48,11 +51,25 @@ apportate agli attributi dei vari datasets per migliorarne la leggibilità.
 	
 	\begin{itemize}
 		
-		\item \texttt{trap}: nel dataset le trappole vengono contrassegnate dalla lettera \textit{T} seguita da tre cifre. Le trappole di tipo "satellitare" sono installate di solito vicino alle trappole principali e servono per migliorare gli sforzi di sorveglianza. Per questo motivo esse sono indicate dallo stesso pattern della trappola principale con in aggiunta una lettera. Per esempio T220A è la prima trappola satellitare per T220. Essendo questo di difficile lettura sono state aggiunte due colonne: \texttt{main\_trap} che riporta il codice della trappola principale e \texttt{sub\_trap} che contiene nel caso delle trappole satellite la lettera ad essa associata.
+		\item \texttt{trap}: nel dataset le trappole vengono contrassegnate 
+		dalla lettera \textit{T} seguita da tre cifre. Trappole "satellite" 
+		sono spesso installate vicino ad una trappola principale per potenziare 
+		la sorveglianza. Per questo motivo sono indicate dallo stesso codice 
+		della trappola principale seguito da una lettera. Ad esempio T220A è la 
+		prima trappola satellite per T220. Essendo questo di difficile lettura 
+		sono state aggiunte due colonne: \texttt{main\_trap} che riporta il 
+		codice della trappola principale e \texttt{sub\_trap} che contiene nel 
+		caso delle trappole satellite la lettera ad essa associata.
 		
-		\item \texttt{result}: inizialmente la colonna conteneva dei valori di testo \textit{positive} e \textit{negative}, questi sono stati trasformati in valori logici booleani.  
+		\item \texttt{result}: inizialmente la colonna conteneva dei valori  
+		testuali, \textit{positive} e \textit{negative}, che sono stati 
+		trasformati in valori booleani.  
 		
-		\item \texttt{number\_of\_mosquito}: nel caso di numero di zanzare superiore a 50, questo viene diviso in un altro record con gli stessi attributi in modo tale che il numero di zanzare sia limitato a 50.  
+		\item \texttt{number\_of\_mosquito}: \textbf{FIXME questo era già così 
+		nel dataset originale, non l'abbiamo fatto noi.} nel caso di numero di 
+		zanzare superiore a 50, questo viene diviso in un altro record con gli 
+		stessi attributi in modo tale che il numero di zanzare sia limitato a 
+		50.  
 			
 	\end{itemize}
 	
