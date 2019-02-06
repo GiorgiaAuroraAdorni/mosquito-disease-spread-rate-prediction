@@ -31,6 +31,6 @@ JOIN (
 				LIMIT 1
 			)
 		) AS "NN" ON "S".wban = "NN".station_wban
-	) AS "SB" ON "W".wban = "SB".station_wban
-) AS "BSW" ON "WNV".block = "BSW".block_name
+	) AS "SB" ON "W".wban = "SB".wban
+) AS "BSW" ON "WNV".block = "BSW".block
 WHERE "WNV".season_year = "BSW".year AND "WNV".week = "BSW".week_of_year;
