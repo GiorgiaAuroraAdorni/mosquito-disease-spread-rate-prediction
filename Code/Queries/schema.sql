@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS "WNV" (
 
 	season_year smallint NOT NULL,
 	week smallint NOT NULL,
-	test_id integer NOT NULL,
+	test_id character varying(10) NOT NULL,
 	block character varying(50),
 	trap character varying(5),
 	trap_type character varying(10),
