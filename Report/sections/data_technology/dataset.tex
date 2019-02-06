@@ -2,11 +2,28 @@
 % Descrizione delle modalità di scelta
 Il dataset \textbf{WNV Mosquito}, contenente l'elenco delle località e dei risultati dei test per i pool di zanzare, testati attraverso il programma di salute ambientale del Dipartimento della sanità pubblica di Chicago, è stato reperito dal sito \href{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}{Chicago Data Portal}.
 
-Il CDPH gestisce un programma di sorveglianza ambientale per il virus del Nilo occidentale (WNV), che include la raccolta di zanzare dalle trappole situate in tutta la città, l'identificazione e lo smistamento delle zanzare raccolte e il test di specifiche specie per WNV.\\
+Il CDPH gestisce un programma di sorveglianza ambientale per il virus del Nilo 
+occidentale (WNV), che include la raccolta di zanzare dalle trappole situate in 
+tutta la città, l'identificazione e lo smistamento delle zanzare raccolte e il 
+test di specifiche specie per WNV.\textbf{FIXME: descrivere gli anni coperti da 
+WNV}
+\\
 
-I dataset \textbf{Stations} e \textbf{Weather}, contenenti i NOAA Quality Controlled Local Climatological Data (QCLCD), sono stati ottenuti dal sito \href{https://www.ncdc.noaa.gov/orders/qclcd/}{Noaa gov} e gestiti attraverso uno script. 
-%qui tocca a te elia
+I dataset \textbf{Weather} e \textbf{Stations} provengono invece dal database 
+NOAA Quality Controlled Local Climatological Data (QCLCD) disponibile sul sito 
+dalla 
+\href{https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/quality-controlled-local-climatological-data-qclcd}{National
+Oceanic and Atmospheric Administration}. I dati grezzi sono formati da un file 
+CSV per ciascun mese, al cui interno sono presenti le rilevazioni di tutte le 
+stazioni meteorologiche degli Stati Uniti. 
+% FIXME: ci sono anche i file delle stazioni.
 
+Come prima cosa abbiamo scritto una serie di script Bash con i quali estrarre 
+esclusivamente le rilevazioni delle stazioni meteorologiche nei pressi 
+della città di Chicago e aggregarle in un unico file contenente l'intero arco 
+temporale di interesse. Attraverso un ulteriore script Bash abbiamo analizzato 
+le colonne presenti nei file CSV, per accertarci che la loro struttura fosse 
+rimasta costante negli anni.
 
 \section{Descrizione dei tre dataset}
 Vengono di seguito descritti gli attributi di ciascun dataset.
