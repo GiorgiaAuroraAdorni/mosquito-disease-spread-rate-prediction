@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS PostGIS;
+
 CREATE TABLE IF NOT EXISTS "Weather" (
 	
 	wban character varying(5) NOT NULL,
@@ -64,4 +66,57 @@ CREATE TABLE IF NOT EXISTS "Weather" (
 	code_sum_hail smallint,
 	
 	PRIMARY KEY (wban, year, week_of_year)
+);
+
+CREATE TABLE IF NOT EXISTS "Station" (
+	
+	wban character varying(5) NOT NULL,
+	wmo character varying(5),
+	call_sign character varying(3),
+	climate_division_code character varying(2),
+	climate_division_state_code character varying(2),
+	climate_division_station_code character varying(4),
+	name character varying(50),
+	state character varying(2),
+	location character varying(50),
+	latitude double precision,
+	longitude double precision,
+	ground_height double precision,
+	station_height double precision,
+	barometer double precision,
+	time_zone smallint,
+	
+	PRIMARY KEY (wban)
+);
+
+
+CREATE TABLE IF NOT EXISTS "Block" (
+	
+	block character varying(50) NOT NULL,
+	coordinate_distance double precision,
+	cleaned_latitude double precision,
+	cleaned_longitude double precision,
+	
+	PRIMARY KEY (block)
+);
+
+CREATE TABLE IF NOT EXISTS "WNV" (
+
+	season_year smallint NOT NULL,
+	week smallint NOT NULL,
+	test_id integer NOT NULL,
+	block character varying(50),
+	trap character varying(5),
+	trap_type character varying(10),
+	test_date timestamp,
+	number_of_mosquitoes smallint,
+	result boolean,
+	species character varying(50),
+	day_of_week smallint,
+	latitude double precision,
+	longitude double precision,
+	main_trap character varying(5),
+	sub_trap character varying(5),
+	
+	PRIMARY KEY (season_year, week, test_id)
 );
