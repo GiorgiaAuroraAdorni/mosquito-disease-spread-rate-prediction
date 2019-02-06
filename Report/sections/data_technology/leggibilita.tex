@@ -28,26 +28,35 @@ dataset per migliorarne la leggibilità.
                 forma \textit{dd/MM/yyyy}. Ad esempio la data 
                 \textit{20070501} è stata modificata in \textit{01/05/2007}.
         
-            \item \texttt{t\_max}, \texttt{t\_min}, \texttt{depart}, 
+            \item \texttt{t\_max}, \texttt{t\_min},  \texttt{t\_avg}, \texttt{depart}, 
             	\texttt{dew\_point}, \texttt{wet\_bulb}, \texttt{heat}, 
             	\texttt{cool}: i valori di temperatura sono stati convertiti da 
             	gradi Fahrenheit (\si{\degree F}) a gradi Celsius 
             	(\si{\celsius}).
 
+           	\item \texttt{snow\_depth}, \texttt{snow\_water}, \texttt{snow\_fall}, 
+           		\texttt{precip\_total}: i valori sono stati convertiti da pollici
+           		(inch) a millimetri (mm).
+
             \item \texttt{stn\_pressure}, \texttt{sea\_level}: i valori di 
                 pressione sono stati convertiti da pollici di mercurio (inHg) a 
                 millimetri di mercurio (mmHg).
 
-            \item \texttt{result\_speed}, \texttt{avg\_speed}, 
-            \texttt{max5\_speed}, \texttt{max2\_speed}: i valori di velocità 
-            sono stati convertiti da miglia orarie (mph) a chilometri orari 
-            (\si[per-mode=symbol]{\km\per\hour}).
-                
-            \item \texttt{code\_sum} %elia
-
+            \item \texttt{result\_speed}, \texttt{avg\_speed}, \texttt{max5\_speed}, 
+            	\texttt{max2\_speed}: i valori di velocità sono stati convertiti da
+            	miglia orarie (mph) a chilometri orari 
+            	(\si[per-mode=symbol]{\km\per\hour}).
+            
+            \item \texttt{code\_sum}: questo attributo corrisponde ad una lista di 
+            	codici che possono essere assegnati a ciascuna rilevazione, 
+            	corrispondenti ai diversi tipi di precipitazioni e altri fenomeni
+            	meteorologici (ad es. pioggia, neve, nebbia, \dots). Dato che a 
+            	ciascuna rilevazione può essere assegnato più di un codice, è stato
+            	necessario effettuare un parsing dei valori, creando una colonna per
+            	ogni codice utilizzato.
         \end{itemize}
 	
-	\item \textbf{WNV mosquito}:
+	\item \textbf{WNV Mosquito}:
 	
 	\begin{itemize}
 		
