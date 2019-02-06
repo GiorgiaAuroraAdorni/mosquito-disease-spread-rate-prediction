@@ -8,150 +8,283 @@ I dataset \textbf{Stations} e \textbf{Weather}, contenenti i NOAA Quality Contro
 %qui tocca a te elia
 
 
-\section{Descrizione del dataset}
+\section{Descrizione dei tre dataset}
 Vengono di seguito descritti gli attributi di ciascun dataset.
 
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lll}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
-		\midrule
-		\multirow{2}{*}{season\_year} & \multirow{2}{*}{anno del test} &  categorico \\
-							& &{2007} -- {2017}       	\\ \hline
-		\multirow{2}{*}{week}					&\multirow{2}{*}{settimana dell'anno del test}  & numerico    \\ 
-		& & {1} -- {52} ({20} -- {40})\\\hline
-		test\_id			& id del record &  numerico        	\\\hline 
-		\multirow{3}{*}{block}	& \multirow{3}{*}{indirizzo della trappola} & xxXX = numero del blocco \\
-		& & S = indirizzo	\\
-		& & xxXXS \\ \hline
-		\multirow{2}{*}{trap}	&\multirow{2}{*}{ della trappola} &  identificatore        	\\ 
-		&& T001X -- T925X\\\hline
-		\multirow{5}{*}{trap\_type}				& \multirow{5}{*}{tipologia di trappola} &  categorico        	\\ 
-		&& OVI\\
-		&& CVC\\
-		&& GRAVID\\
-		&& SENTINEL\\\hline
-		\multirow{2}{*}{test\_date}	&\multirow{2}{*}{data del test}   &  Data e ora        	\\ 
-		& & yyyy/mm/dd hh:mm:ss \\\hline
-		\multirow{2}{*}{number\_of\_mosquitoes}	& \multirow{2}{*}{numero di zanzare catturate} &  numerico        	\\ 
-		& & {1} -- {50} \\ \hline
-		\multirow{3}{*}{result}	& \multirow{3}{*}{risultato del test}   &  categorico \\
-		& & positive = WNV presente \\
-		& & negative = WNV non presente  	\\ \hline
-		\multirow{9}{*}{species}	& \multirow{9}{*}{specie di zanzare}	 &  categorico       	\\ 
-		& & CULEX PIPIENS/RESTAUANS \\
-		& & CULEX PIPIENS \\
-		& & CULEX RESTAUANS \\
-		& & CULEX ERRATICUS \\
-		& & CULEX SALINARIUS \\
-		& & CULEX TARSALIS \\
-		& & CULEX TERRITANS \\
-		& & UNSPECIFIED CULEX  \\	\hline
-		\multirow{2}{*}{latitude}				& \multirow{2}{*}{latitudine dell'indirizzo}	 &  decimale       \\ 
-		& & {40.00} -- {42.00}  \\ \hline
-		\multirow{2}{*}{longitude}				& \multirow{2}{*}{longitudine dell'indirizzo} &  decimale      	\\ 
-		&& {-87.00} -- {-88.00} \\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Attributi del dataset \textbf{WNV Mosquito}}
-	\label{tab:attributi wnv}
-\end{figure}
-
-
-\begin{longtable}{lccc}
+\begin{longtable}{lll}
 	\toprule
 	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
 	\midrule
 	\endfirsthead
-	\multicolumn{4}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
+	\multicolumn{3}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
 	\toprule
-	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
-	\midrule			
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\			
 	\endhead
-	\multicolumn{4}{l}{\footnotesize\itshape Continua nella pagina seguente} \\
+	\multicolumn{3}{l}{\footnotesize\itshape Continua nella pagina 
+		seguente} \\
 	\endfoot
 	\endlastfoot
-	wban				& 	 & 			 	\\	
-	year\_month\_day	& 	 & 			  	\\	
-	t\_max				& 	 & 		   	\\
-	t\_max\_flag		& 	 & 			   	\\	
-	t\_min				& 	 & 		   	\\
-	t\_min\_flag		& 	 & 			   	\\	
-	t\_avg				& 	 & 		   	\\
-	t\_avg\_flag		& 	 & 			   	\\	
-	depart				& 	 & 		   	\\
-	depart\_flag		& 	 & 			   	\\	
-	dew\_point			& 	 & 		   	\\
-	dew\_point\_flag	& 	 & 			   	\\		
-	wet\_bulb			& 	 & 		   	\\
-	wet\_bulb\_flag		& 	 & 			   	\\	
-	heat				& 	 & 		   	\\
-	heat\_flag			& 	 & 			   	\\	
-	cool				& 	 & 		   	\\
-	cool\_flag			& 	 & 			   	\\	
-	sunrise				& 	 & 		   	\\
-	sunrise\_flag		& 	 & 			   	\\	
-	sunset				& 	 & 		   	\\
-	sunset\_flag		& 	 & 		   	\\	
-	code\_sum			& 	 & 		   	\\
-	code\_sum\_flag		& 	 & 		   	\\	
-	depth				& 	 & 		 	\\
-	depth\_flag			& 	 & 		  	\\	
-	water1				& 	 & 				\\
-	water1\_flag		& 	 & 		  	\\	
-	snow\_fall			& 	 & 				\\	
-	snow\_fall\_flag	& 	 & 			\\		
-	precip\_total		& 	 & 			\\	
-	precip\_total\_flag	& 	 & 		  	\\		
-	stn\_pressure		& 	 & 			\\	
-	stn\_pressure\_flag	& 	 & 		  	\\		
-	sea\_level			& 	 & 			\\	
-	sea\_level\_flag	& 	 & 			\\		
-	result\_speed		& 	 & 		\\	
-	result\_speed\_flag	& 	 & 		  	\\		
-	result\_dir			& 	 & 		\\			
-	result\_dir\_flag	& 	 & 		  	\\		
-	avg\_speed			& 	 & 			\\	
-	avg\_speed\_flag	& 	 & 			\\		
-	max5\_speed			& 	 & 			\\	
-	max5\_speed\_flag	& 	 & 		  	\\		
-	max5\_dir			& 	 & 			\\
-	max5\_dir\_flag		& 	 & 			\\	
-	max2\_speed			& 	 & 			\\	
-	max2\_speed\_flag	& 	 & 		  	\\		
-	max2\_dir			& 	 & 			\\
-	max2\_dir\_flag		& 	 & 		  	\\	
-	\bottomrule
 	
+	\multirow{2}{*}{season\_year} & \multirow{2}{*}{anno del test} &  categorico \\
+	& &{2007} -- {2017}       	\\ \hline
+	\multirow{2}{*}{week}					&\multirow{2}{*}{settimana dell'anno del test}  & numerico    \\ 
+	& & {1} -- {52} ({20} -- {40})\\\hline
+	test\_id			& id del record &  numerico        	\\\hline 
+	\multirow{3}{*}{block}	& \multirow{3}{*}{indirizzo della trappola} & xxXX = numero del blocco \\
+	& & S = indirizzo	\\
+	& & xxXXS \\ \hline
+	\multirow{2}{*}{trap}	&\multirow{2}{*}{ della trappola} &  identificatore        	\\ 
+	&& T001X -- T925X\\\hline
+	\multirow{4}{*}{trap\_type}				& \multirow{4}{*}{tipologia di trappola} &     OVI\\
+	&& CVC\\
+	&& GRAVID\\
+	&& SENTINEL\\\hline
+	{test\_date}	&{data del test}   &   yyyy/mm/dd hh:mm:ss \\\hline
+	\multirow{2}{*}{number\_of\_mosquitoes}	& \multirow{2}{*}{numero di zanzare catturate} &  numerico        	\\ 
+	& & {1} -- {50} \\ \hline
+	\multirow{2}{*}{result}	& \multirow{2}{*}{risultato del test}   &  positive = WNV presente \\
+	& & negative = WNV non presente  	\\ \hline
+	\multirow{8}{*}{species}	& \multirow{8}{*}{specie di zanzare}	 & CULEX PIPIENS/RESTAUANS \\
+	& & CULEX PIPIENS \\
+	& & CULEX RESTAUANS \\
+	& & CULEX ERRATICUS \\
+	& & CULEX SALINARIUS \\
+	& & CULEX TARSALIS \\
+	& & CULEX TERRITANS \\
+	& & UNSPECIFIED CULEX  \\	\hline
+	\multirow{2}{*}{latitude}				& \multirow{2}{*}{latitudine dell'indirizzo}	 &  decimale       \\ 
+	& & {40.00} -- {42.00}  \\ \hline
+	\multirow{2}{*}{longitude}				& \multirow{2}{*}{longitudine dell'indirizzo} &  decimale      	\\ 
+	&& {-87.00} -- {-88.00} \\
+	\bottomrule
+\end{longtable}
+\captionof{table}{Attributi del dataset \textbf{WNV Mosquito}}
+\label{tab:attributi wnv}
+
+$\\$
+\begin{longtable}{lll}
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
+	\midrule
+	\endfirsthead
+	\multicolumn{3}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\			
+	\endhead
+	\multicolumn{3}{l}{\footnotesize\itshape Continua nella pagina seguente} \\
+	\endfoot
+	\endlastfoot
+	wban & id della stazione	 & numerico  \\ 
+	\hline	
+	{year\_month\_day} & {data della rilevazione}	 & dd mmmm,yyyy \\ \hline	
+	\multirow{2}{*}{t\_max}				& temperatura massima	 & numerico		   	\\
+	&giornaliera (\degree F) &(*) estremo del mese \\ \hline
+	\multirow{2}{*}{t\_max\_flag}		& \multirow{2}{*}{qualità t\_max} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ \hline	
+	\multirow{2}{*}{t\_min}				& temperatura minima  & numerico		   	\\
+	&giornaliera (\degree F) &(*) estremo del mese \\ \hline
+	\multirow{2}{*}{t\_min\_flag}		& \multirow{2}{*}{qualità t\_min} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ \hline		
+	\multirow{2}{*}{t\_avg}				& temperatura media  & \multirow{2}{*}{numerico}	   	\\ 
+	&giornaliera (\degree F)&	\\\hline
+	\multirow{2}{*}{t\_avg\_flag}		& \multirow{2}{*}{qualità t\_avg} & blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	\multirow{2}{*}{depart}				& scostamento dalla  	 & 	\multirow{2}{*}{numerico}   	\\ 
+	& temperatura normale (\degree F)&	\\
+	\hline
+	\multirow{2}{*}{depart\_flag}		& \multirow{2}{*}{qualità depart} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{3}{*}{dew\_point}	& temperatura, a pressione  	 & 	\multirow{3}{*}{numerico}	   	\\ 
+	&  costante, in cui l'aria  &\\
+	& diventa satura (\degree F) &		\\
+	\hline
+	\multirow{2}{*}{dew\_point\_flag}		& \multirow{2}{*}{qualità dew\_point} & blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{4}{*}{wet\_bulb}	& temperatura di equilibrio     & 	\multirow{4}{*}{numerico}	   	\\ 
+	& di scambio convettivo e di   &\\
+	& massa d'aria in moto & \\
+	& turbolento dell'acqua (\degree F)&\\
+	\hline
+	\multirow{2}{*}{wet\_bulb\_flag}		& \multirow{2}{*}{qualità wet\_bulb} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{5}{*}{heat}	& numero di gradi in cui la   & 	\multirow{5}{*}{numerico}	   	\\ 
+	& temperatura media giornaliera  &\\
+	& è inferiore a 65\degree F (temperatura   &\\
+	& al di sotto della quale gli edifici  & \\
+	& devono essere riscaldati) &\\
+	\hline
+	\multirow{2}{*}{heat\_flag}		& \multirow{2}{*}{qualità heat} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	\multirow{5}{*}{cool}	& numero di gradi in cui la    & 	\multirow{5}{*}{numerico}	   	\\ 
+	& temperatura media giornaliera   &\\
+	& è superiore a 65\degree F (temperatura  &\\
+	& al di sopra della quale gli edifici  &\\
+	& devono essere raffreddati) &\\
+	\hline
+	\multirow{2}{*}{cool\_flag}		& \multirow{2}{*}{qualità cool} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	sunrise				& ora dell'alba (LST)	 & hhmm		   	\\ 
+	\hline
+	\multirow{2}{*}{sunrise\_flag}		& \multirow{2}{*}{qualità sunrise} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	sunset				& ora del tramonto	 & hhmm		   	\\ 
+	\hline
+	\multirow{2}{*}{sunset\_flag}		& \multirow{2}{*}{qualità sunset} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{15}{*}{code\_sum}			& \multirow{15}{*}{ }	 & 	 BR = foschia \\
+	& & DU = polvere\\
+	& & DZ = pioggerella \\
+	& & FC = nubi a imbuto \\
+	& & FG = nebbia \\
+	& & FU = fumo \\
+	& lista di codici del tipo & GR = grandine \\
+	& di tempo giornaliero & GS = piccola grandine\\
+	& & HZ = foschia \\
+	& & PL = pioggia gelata\\
+	& & RA = pioggia \\
+	& & SN = neve \\
+	& & SQ = raffiche di vento\\
+	& & TS = temporale \\
+	& & UP = sconosciuto \\	\hline	   	
+	\multirow{2}{*}{code\_sum\_flag}		& \multirow{2}{*}{qualità code\_sum} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{2}{*}{depth}	& quantità di neve depositata  	 & \multirow{2}{*}{numerico}		 	\\ 
+	& a terra (millimetri) & \\
+	\hline
+	\multirow{2}{*}{depth\_flag}		& \multirow{2}{*}{qualità depth} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{3}{*}{water1}	& quantità di acqua ottenuta  	 & \multirow{3}{*}{numerico}		 	\\ 
+	& sciogliendo la neve a terra  & \\
+	&  (millimetri) & \\
+	\hline
+	\multirow{2}{*}{water1\_flag}		& \multirow{2}{*}{qualità water1} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{2}{*}{snow\_fall}			& quantità giornaliera di 	 & \multirow{2}{*}{decimale}				\\ 
+	& neve caduta (inch) &\\
+	\hline	
+	\\
+	\hline
+	\multirow{2}{*}{snow\_fall\_flag}		& \multirow{2}{*}{qualità snow\_fall} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{2}{*}{precip\_total}		& quantità di precipitazione 	 & \multirow{2}{*}{decimale}			\\ 
+	& giornaliera (inch) &\\\hline	
+	\multirow{2}{*}{precip\_total\_flag}		& \multirow{2}{*}{qualità precip\_total} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{2}{*}{stn\_pressure}		& pressione giornaliera	 & 	\multirow{2}{*}{decimale}		\\ 
+	&   (pollici di mercurio) &\\
+	\hline	
+	\multirow{2}{*}{stn\_pressure\_flag}		& \multirow{2}{*}{qualità stn\_pressure} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{3}{*}{sea\_level}			& pressione giornaliera 	 & 	\multirow{3}{*}{decimale}		\\ 
+	& del livello del mare &\\
+	& (pollici di mercurio)&\\
+	\hline	
+	\multirow{2}{*}{sea\_level\_flag}		& \multirow{2}{*}{qualità sea\_level} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline
+	\multirow{2}{*}{result\_speed}		& velocità di punta giornaliera 	 & 	\multirow{2}{*}{decimale}	\\ 
+	& del vento (miglia all'ora) &\\
+	\hline	
+	\multirow{2}{*}{result\_speed\_flag}		& \multirow{2}{*}{qualità result\_speed} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{2}{*}{result\_dir}			& direzione giornaliera del vento  & 	\multirow{2}{*}{numerico}	\\ 
+	& durante la velocità di punta &\\
+	\hline	
+	\multirow{2}{*}{result\_dir\_flag}		& \multirow{2}{*}{qualità result\_dir} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	\multirow{2}{*}{avg\_speed}		& velocità media giornaliera 	 & 	\multirow{2}{*}{decimale}	\\ 
+	& del vento (miglia all'ora) &\\
+	\hline	
+	\multirow{2}{*}{avg\_speed\_flag}		& \multirow{2}{*}{qualità avg\_speed} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	\multirow{3}{*}{max5\_speed}		& velocità massima giornaliera 	 & 	\multirow{3}{*}{numerico}	\\ 
+	& raggiunta dal vento per 5 &\\
+	& minuti (miglia all'ora) &\\
+	\hline	
+	\multirow{2}{*}{max5\_speed\_flag}		& \multirow{2}{*}{qualità max5\_speed} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline		
+	\multirow{3}{*}{max5\_dir}		& direzione giornaliera del vento  & 	\multirow{3}{*}{numerico}	\\ 
+	& durante la massima velocità  &\\
+	& raggiunta per 5 minuti &\\
+	\hline
+	\multirow{2}{*}{max5\_dir\_flag}		& \multirow{2}{*}{qualità max5\_dir} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline	
+	\multirow{3}{*}{max2\_speed}		& velocità massima giornaliera 	 & 	\multirow{3}{*}{numerico}	\\ 
+	& raggiunta dal vento per &\\
+	& 2 minuti (miglia all'ora) &\\
+	\hline		
+	\multirow{2}{*}{max2\_speed\_flag}		& \multirow{2}{*}{qualità max2\_speed} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\hline			
+	\multirow{3}{*}{max2\_dir}		& direzione giornaliera del vento  & 	\multirow{3}{*}{numerico}	\\ 
+	& durante la massima velocità  &\\
+	& raggiunta per 2 minuti &\\
+	\hline
+	\multirow{2}{*}{max2\_dir\_flag}		& \multirow{2}{*}{qualità max2\_dir} &  blank = valore non sospetto \\
+	& & s = valore sospetto			 \\ 
+	\bottomrule
 \end{longtable}
 \captionof{table}{Attributi del dataset \textbf{Weather}}
 \label{tab:attributi weather}
 
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{lccc}
-		\toprule
-		\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
-		\midrule
-		wban								&  & 	   		\\	
-		wmo									& 	& 		  		\\	
-		callsign							& 	 & 		     	\\
-		climate\_division\_code				& 	 & 		   		\\	
-		climate\_division\_state\_code		& 	 & 		     	\\
-		climate\_division\_station\_code	& 	 & 		   		\\	
-		name								& 	 & 		     	\\
-		state								& 	 & 		    	\\	
-		location							& 	 & 		     	\\
-		latitude							& 	 & 		    	\\	
-		longitude							& 	 & 		    	\\
-		ground\_height						& 	 & 		   	 \\		
-		station\_height						& 	 & 		     	\\
-		barometer							& 	 & 		   		\\	
-		time\_zone							& 	 & 		     	\\
-		\bottomrule
-	\end{tabular}
-	\captionof{table}{Attributi del dataset \textbf{Stations}}
-	\label{tab:attributi stations}
-\end{figure}
+$\\$
+\begin{longtable}{lll}
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
+	\midrule
+	\endfirsthead
+	\multicolumn{3}{l}{\footnotesize\itshape Continua dalla pagina precedente} \\
+	\toprule
+	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\			
+	\endhead
+	\multicolumn{3}{l}{\footnotesize\itshape Continua nella pagina seguente} \\
+	\endfoot
+	\endlastfoot
+	wban	&   id della stazione & numerico   			\\ \hline	
+	\multirow{3}{*}{wmo}	& 	codice della stazione   & \multirow{3}{*}{numerico}	\\ 
+	& secondo l'organizzazione  & \\
+	& meteorologica mondiale & \\ \hline	
+	\multirow{2}{*}{callsign}	& 	codice di denominazione  & \multirow{2}{*}{categorico}	    \\
+	& della stazione & \\ \hline
+	climate\_division\_code				&	codice ... 	& numerico	\\ \hline	
+	climate\_division\_state\_code		& 	 			& numerico	\\ \hline
+	climate\_division\_station\_code	& 	 			& numerico	\\ \hline	
+	name	& 	nome della stazione	 & 	categorico	     	\\ \hline
+	state		& 	sigla dello stato 			& categorico		\\ \hline	
+	location	& 	posizione della stazione 	& categorico     	\\ \hline
+	\multirow{2}{*}{latitude}	& \multirow{2}{*}{latitudine dell'indirizzo}	&  decimale    \\ 
+	& & {40.00} -- {42.00}  \\ \hline
+	\multirow{2}{*}{longitude}	& \multirow{2}{*}{longitudine dell'indirizzo} &  decimale     \\ 
+	& & {-87.00} -- {-88.00} \\ \hline 
+	\multirow{2}{*}{ground\_height}	& 	altitudine del terreno sul  & \multirow{2}{*}{decimale}	\\
+	& livello del mare (metri) &\\ \hline		
+	\multirow{2}{*}{station\_height}	& 	altitudine della stazione sul  &   \multirow{2}{*}{decimale} 	\\
+	& livello del mare (metri) & \\ \hline
+	\multirow{2}{*}{barometer}			& 	altitudine del barometro sul  & 	\multirow{2}{*}{decimale}		\\
+	& livello del mare (metri) &\\ \hline	
+	time\_zone		& 	fuso orario della stazione & numerico		  \\
+	\bottomrule
+\end{longtable}
+\captionof{table}{Attributi del dataset \textbf{Stations}}
+\label{tab:attributi stations}
+
 
