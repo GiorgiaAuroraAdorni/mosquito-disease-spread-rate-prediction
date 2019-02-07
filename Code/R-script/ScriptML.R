@@ -48,6 +48,23 @@ library(randomForest)
 model0 <- randomForest(result ~ ., data = TrainSet, importance = TRUE)
 model0
 
+#show tree
+getTree(model0, 1, labelVar=TRUE)
+
+if(!require("devtools")){
+  install.packages("devtools")
+}
+library(devtools)
+devtools::install_github('araastat/reprtree')
+
+
+if(!require("reprtree")){
+  install.packages("reprtree")
+}
+library(reprtree)
+
+reprtree:::plot.getTree(model0)
+
 # show model error
 plot(model0, ylim=c(0,0.36))
 legend('topright', colnames(model0$err.rate), col=1:3, fill=1:3)
