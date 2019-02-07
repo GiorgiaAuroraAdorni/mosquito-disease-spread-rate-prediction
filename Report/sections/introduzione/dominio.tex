@@ -1,41 +1,89 @@
-\section{Descrizione del dominio di riferimento}
+\section{Dominio di riferimento}
 
 Il virus del Nilo occidentale (noto anche come West Nile Virus, WNV) infetta 
 ogni anno migliaia di persone, provocando nel 20\% circa dei casi sintomi che 
 variano da forti febbri a gravi complicazioni neurologiche fino ad arrivare  
 anche alla morte.
 
-Oltre agli esseri umani il virus colpisce anche altri animali, tra cui 
-uccelli e cavalli, causando in questi ultimi tassi di mortalità che raggiungono 
-il 40\%. Isolato per la prima volta nel 1937 nel distretto di West Nile in 
-Uganda, da cui prende il nome, si è oggi diffuso in tutto il mondo.
+Oltre agli esseri umani, il virus colpisce anche animali quali uccelli e 
+cavalli, causando in questi ultimi tassi di mortalità che raggiungono il 40\%. 
+Isolato per la prima volta nel 1937 nel distretto di West Nile in Uganda, da 
+cui prende il nome, si è oggi diffuso in tutto il mondo.
 
 Per questi motivi, il controllo e la prevenzione delle infezioni da WNV 
 risultano essere argomenti di grande interesse. 
 
 Le zanzare infette costituiscono il principale vettore di trasmissione del 
-virus agli esseri umani. Quando i primi casi umani furono riportati a Chicago 
-nel 2002, il Dipartimento di Sanità Pubblica della città ha avviato un esteso 
+virus agli esseri umani. Quando nel 2002 furono riportati i primi casi umani a 
+Chicago, il Dipartimento di Sanità Pubblica della città ha avviato un esteso 
 programma di sorveglianza e controllo che resta tutt'oggi in vigore.
 
 Dalla fine della primavera all'inizio dell'autunno, numerose trappole per 
-zanzare vengono distribuite per la città, andando ogni settimana a testare la 
-presenza del virus negli esemplari catturati. 
-%I risultati di questi test influenzano quando e dove la città spruzzerà i pesticidi dispersi nell'aria per controllare le popolazioni di zanzare adulte.
+zanzare vengono distribuite sul territorio, andando ogni settimana a testare la 
+presenza del virus negli esemplari catturati. Sulla base di queste 
+informazioni, la città programma l'utilizzo di insetticidi per controllare la 
+popolazione di zanzare adulte.
 
-\textbf{FIXME: questo potremmo spostarlo nel capitolo Obiettivi no?} Grazie ai 
-dati relativi alle condizioni meteorologiche e all'ubicazione delle trappole il 
-nostro obiettivo è quello di prevedere se le zanzare risultino positive al 
-virus del Nilo occidentale.
+\section{Obiettivi}
 
-%quando e dove diverse specie di zanzare saranno testate positive per il virus del Nilo occidentale. 
+Con una media di 91 trappole attive per 14 settimane ogni anno, questo 
+programma presenta significativi costi di raccolta dei campioni ed esecuzione 
+dei test clinici per determinare la presenza del virus.
 
-%Un metodo più accurato di previsione dei focolai del virus del Nilo occidentale nelle zanzare aiuterà la città di Chicago e il CPHD ad allocare in modo più efficiente ed efficace le risorse per prevenire la trasmissione di questo virus potenzialmente letale.
+% select avg(traps.count)
+% from (
+%	select season_year, count(distinct trap) FROM "WNV" GROUP BY season_year
+% ) as traps
 
-% L’obiettivo di questo elaborato è ... sfruttando le moderne tecniche di machine learning.
+% select avg(min), avg(max), avg(count)
+% from (
+%	select season_year, trap, min(week), max(week), max(week) - min(week) as 
+%	count FROM "WNV" GROUP BY season_year, trap
+% ) as weeks
 
+L'obiettivo di questo elaborato è progettare un modello di classificazione 
+supervisionata capace di prevedere se ogni settimana verrà rilevato o meno il 
+virus in una certa trappola. Le predizioni di questo modello permetteranno di 
+indirizzare gli sforzi di raccolta verso quelle trappole in cui ci si aspetta 
+di trovare esemplari infetti con probabilità maggiore.
 
-\section{Scelte di design per la creazione del dataset}
+Dato che i test effettuati negli anni sono risultati positivi al virus solo 
+nell'8,6\% dei casi, un modello sufficientemente accurato ha le potenzialità di 
+ridurre fortemente il numero di trappole da analizzare ogni settimana e di 
+conseguenza i costi del programma. 
+
+% 2337 / (2337 + 24860) = 0,08592859507
+
+\textbf{FIXME} Grazie ai dati relativi alle condizioni meteorologiche e 
+all'ubicazione delle trappole il nostro obiettivo è quello di prevedere se le 
+zanzare risultino positive al virus del Nilo occidentale.
+
+\section{Design del dataset}
+
+Il problema descritto è stato proposto dalla città di Chicago sulla piattaforma 
+\href{https://www.kaggle.com/c/predict-west-nile-virus}{Kaggle} nel 2015. 
+Rispetto a quanto richiesto in quella competizione, per questo progetto abbiamo 
+però adottato una strategia leggermente diversa.
+
+Abbiamo potuto constatare che i dati forniti su Kaggle erano già stati oggetto 
+di un'elaborazione preliminare e le attività svolte si sovrapponevano 
+parzialmente a quanto richiesto per il modulo di Data Technology. Abbiamo 
+quindi deciso di non utilizzare questi dataset, ma piuttosto ricostruirli a 
+partire dalle loro fonti originali.
+
+Siamo riusciti ad individuare i dati necessari sui portali Open Data del 
+Dipartimento di Sanità Pubblica di Chicago (CDPH) e della National Oceanic and 
+Atmospheric Administration (NOAA). \textbf{FIXME descrivere brevemente cosa ci 
+abbiamo fatto}
+
+Ricostruendo i dataset, abbiamo inoltre potuto ottenere dati più recenti di 
+quelli pubblicati su Kaggle, permettendoci di analizzare il periodo 2007--2017 
+invece che limitarci agli anni 2007--2013.
+
+Uno svantaggio dell'approccio adottato è che, basandosi su dati differenti, i 
+nostri risultati non potranno essere confrontati direttamente con lo stato 
+dell'arte visibile sulla classifica della competizione. \textbf{FIXME 
+completare questa parte quando abbiamo effettivamente dei risultati}
 
 \section{Eventuali ipotesi o assunzioni}
 
