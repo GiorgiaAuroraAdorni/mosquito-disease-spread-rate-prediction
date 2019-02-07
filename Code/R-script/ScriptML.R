@@ -14,6 +14,23 @@ head(dataset)
 str(dataset)
 summary(dataset)
 
+if(!require("Amelia")){
+  install.packages("Amelia")
+}
+library(Amelia)
+
+if(!require("pscl")){
+  install.packages("pscl")
+}
+library(pscl)
+
+if(!require("lattice")){
+  install.packages("lattice")
+}
+library(lattice)
+
+missmap(dataset, main = "Missing values vs observed")
+
 # split into Train and Validation sets: 80 - 20 (random)
 set.seed(100)
 train <- sample(nrow(dataset_with_only_features_and_target), 0.8*nrow(dataset_with_only_features_and_target), replace = FALSE)
