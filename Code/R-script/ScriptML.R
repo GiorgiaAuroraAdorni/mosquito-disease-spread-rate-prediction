@@ -31,16 +31,21 @@ library(randomForest)
 model0 <- randomForest(result ~ ., data = TrainSet, importance = TRUE)
 model0
 
-## Check importance variable
+# show model error
+plot(model0, ylim=c(0,0.36))
+legend('topright', colnames(model0$err.rate), col=1:3, fill=1:3)
+## check importance variable
 importance(model0)        
 varImpPlot(model0) 
 
 predTrain0 <- predict(model0, TrainSet, type = "class")
-# Checking classification accuracy
+
+# checking classification accuracy
 table(predTrain0, TrainSet$result) 
 
-## Predicting on Validation set
+## predicting on Validation set
 predValid0 <- predict(model0, ValidSet, type = "class")
-# Checking classification accuracy
+
+# checking classification accuracy
 acc_m0<- mean(predValid0 == ValidSet$result)                    
 table(predValid0,ValidSet$result)
