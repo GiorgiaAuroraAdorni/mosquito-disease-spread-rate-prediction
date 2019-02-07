@@ -1,21 +1,22 @@
 \section{Acquisizione del dataset}
 % Descrizione delle modalità di scelta
-Il dataset \textbf{WNV Mosquito}, contenente l'elenco delle località e dei risultati dei test per i pool di zanzare, testati attraverso il programma di salute ambientale del Dipartimento della sanità pubblica di Chicago, è stato reperito dal sito \href{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}{Chicago Data Portal}.
-
-Il CDPH gestisce un programma di sorveglianza ambientale per il virus del Nilo 
-occidentale (WNV), che include la raccolta di zanzare dalle trappole situate in 
-tutta la città, l'identificazione e lo smistamento delle zanzare raccolte e il 
-test di specifiche specie per WNV.\textbf{FIXME: descrivere gli anni coperti da 
-WNV}
+Il dataset \textbf{WNV Mosquito} contiene la posizione di ogni trappola 
+installata nella città attraverso il programma di Salute Ambientale del 
+Dipartimento di Sanità Pubblica di Chicago negli anni tra il 2007 e il 2018. 
+Contiene inoltre la specie e il numero di zanzare trovate in ciascuna trappola 
+ogni settimana, nonchè i risultati del test per il virus del Nilo occidentali. 
+È stato reperito dal sito 
+\href{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}{Chicago
+ Data Portal}.
 \\
 
 I dataset \textbf{Weather} e \textbf{Stations} provengono invece dal database 
 NOAA Quality Controlled Local Climatological Data (QCLCD) disponibile sul sito 
 dalla 
 \href{https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/quality-controlled-local-climatological-data-qclcd}{National
-Oceanic and Atmospheric Administration}. I dati grezzi sono formati da un file 
+Oceanic and Atmospheric Administration}. I dati grezzi sono composti da un file 
 CSV per ciascun mese, al cui interno sono presenti le rilevazioni di tutte le 
-stazioni meteorologiche degli Stati Uniti. 
+stazioni meteorologiche degli Stati Uniti per il periodo 2007--2017. 
 % FIXME: ci sono anche i file delle stazioni.
 
 Come prima cosa abbiamo scritto una serie di script Bash con i quali estrarre 
@@ -24,6 +25,12 @@ della città di Chicago e aggregarle in un unico file contenente l'intero arco
 temporale di interesse. Attraverso un ulteriore script Bash abbiamo analizzato 
 le colonne presenti nei file CSV, per accertarci che la loro struttura fosse 
 rimasta costante negli anni.
+
+Si può notare che vi è una discrepanza nei periodi temporali coperti dalle due 
+fonti, in quanto i dati QCLCD 2018 non sono ad oggi disponibili online. Come 
+verrà descritto più in dettaglio nel Capitolo~\ref{chap:data-integration}, 
+questo ci ha costretto a limitarci al periodo 2007--2017, escludendo quindi 
+l'anno 2018 dak dataset WNV Mosquito.
 
 \section{Descrizione dei tre dataset}
 Vengono di seguito descritti gli attributi di ciascun dataset.
