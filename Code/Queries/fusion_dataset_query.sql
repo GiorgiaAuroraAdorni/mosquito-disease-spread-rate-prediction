@@ -9,6 +9,7 @@ WITH "BlockStationDistance" AS (
 			ST_GeogFromText('POINT(' || "Block".cleaned_longitude || ' ' || "Block".cleaned_latitude || ')'),
 			ST_GeogFromText('POINT(' || "Station".longitude || ' ' || "Station".latitude || ')')) as distance
 	FROM "Block", "Station"
+	WHERE "Station".wban NOT IN ('4807', '4879') -- Exclude these weather stations since they only became active in 2015
 )
 
 SELECT *
