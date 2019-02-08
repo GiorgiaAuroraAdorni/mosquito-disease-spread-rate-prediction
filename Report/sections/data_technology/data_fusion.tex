@@ -1,0 +1,13 @@
+Il processo di integrazione dei dati prevede due sostanziali fusioni: quella tra i dataset \textbf{WNV Mosquito} e \textbf{Stations} e quella tra i dataset \textbf{WNV Mosquito} dopo l'integrazione e \textbf{Weather}.\\ 
+
+Punto di partenza è la creazione di una tabella contenente i record distinti rispetto all'attributo \textsc{block} del dataset \textbf{WNV Mosquito} e le relative colonne \textsc{latitude} e \textsc{longitude}. 
+\textbf{Block Near Station} è il dataset risultante della fusione tra questa tabella e \textbf{Stations}, avvenuto utilizzando la funzione \textit{Table.Join} di Power Query M, in particolare attraverso un Full Outer Join. 
+
+Prima di procedere con l'integrazione tra \textbf{Block Near Station} e \textbf{WNV Mosquito}, viene calcolata la distanza geografica tra le coordinate degli indirizzi e quelle delle stazioni di rilevamento medio in \textbf{Block Near Station}, e eliminando tutti i record a meno di quello in cui la distanza sia minima.
+
+A questo punto viene effettuato un Left Outer Join (Inner Join) tra il dataset \textbf{WNV Mosquito} e \textbf{Block Near Station} utilizzando come chiave per la fusione la chiave \textsc{block} presente in entrambe le tabelle.\\
+
+
+L'ultima operazione effettuata consiste in un Inner Join tra la tabella appena generata e \textbf{Weather}, in particolare vengono utilizzate come chiavi gli attributi \textsc{wban} e \textsc{date}.
+
+La soluzione proposta è stata modellata utilizzando il software Power BI in particolare ricorrendo allo strumento Power Query.
