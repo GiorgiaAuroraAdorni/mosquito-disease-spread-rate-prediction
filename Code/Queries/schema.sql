@@ -396,6 +396,41 @@ SELECT
 		ELSE 'Errore'
 	END AS day_of_week,
 	to_char(test_date, 'dd/MM/yyyy alle HH24:MM:SS') AS test_date,
+	array_remove(ARRAY [ --TODO: fix names
+		CASE WHEN code_sum_ra > 0 THEN 'Pioggia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_br > 0 THEN 'Foschia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_hz > 0 THEN 'Foschia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_ts > 0 THEN 'Temporale'
+			ELSE null
+		END,
+		CASE WHEN code_sum_smoke > 0 THEN 'Pioggia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_dz > 0 THEN 'Pioggerella'
+			ELSE null
+		END,
+		CASE WHEN code_sum_wind > 0 THEN 'Pioggia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_fg > 0 THEN 'Nebbia'
+			ELSE null
+		END,
+		CASE WHEN code_sum_sn > 0 THEN 'Neve'
+			ELSE null
+		END,
+		CASE WHEN code_sum_up > 0 THEN null
+			ELSE null
+		END,
+		CASE WHEN code_sum_hail > 0 THEN 'Pioggia'
+			ELSE null
+		END
+	], null) AS weather_conditions,
 	block,
 	trap,
 	main_trap,
