@@ -4,7 +4,17 @@ if(!require("DataExplorer")){
 }
 library(DataExplorer)
 
-introduce(dataset)
+if(!require("cowplot")){
+  install.packages("cowplot")
+}
+require(cowplot)
+
+if(!require("ggplot2")){
+  install.packages("ggplot2")
+}
+library(ggplot2)
+
+require(tidyverse)
 
 pdf("DataExplorer/plot_intro.pdf") 
 plot_intro(dataset)
@@ -40,9 +50,9 @@ dev.off()
 
 pca <- na.omit(dataset[, colnames(dataset)])
 
-pdf("DataExplorer/plot_prcomp.pdf") 
-plot_prcomp(pca, variance_cap = 1)
-dev.off() 
+#pdf("DataExplorer/plot_prcomp.pdf") 
+#plot_prcomp(pca, variance_cap = 1)
+#dev.off() 
 
 pdf("DataExplorer/plot_boxplot.pdf") 
 plot_boxplot(dataset, by = "result")
