@@ -1,18 +1,23 @@
-Una volta terminata la valutazione dei dataset tramite le dimensioni qualità, è 
-stata eseguita una deduplicazione, ovvero l'identificazione di quelle coppie 
-o gruppi di tuple corrispondenti ad uno stesso oggetto del mondo reale.
+In seguito alla valutazione dei dataset tramite le dimensioni di qualità è 
+stata eseguita l'operazione di deduplicazione sui singoli dataset, ovvero 
+l'identificazione di quelle coppie o gruppi di tuple corrispondenti ad uno 
+stesso oggetto del mondo reale.
 
-La deduplicazione è stata eseguita tramite il software Power BI di Microsoft, 
-in particolare ricorrendo allo strumento Power Query per l'inserimento, la 
+È stato utilizzato il software Power BI di Microsoft, 
+in particolare ricorrendo allo strumento Power Query, per l'inserimento, la 
 trasformazione, l'integrazione e l'arricchimento dei dati.
-\\\\	
-È stata effettuata la deduplicazione del dataset \textbf{WNV Mosquito}, utilizzando analizzando l'attributo \textsc{block}. In particolare è stata riscontrata la presenza di alcune tuple duplicate, che differivano per i campi \textsc{latitude} e \textsc{longitude}. Calcolando la distanza tra le diverse coordinate abbiamo verificato che le differenze erano solo di alcuni metri.
+
+È stata effettuata la deduplicazione del dataset \textbf{WNV Mosquito}, 
+analizzando l'attributo \textsc{block}. In particolare è stata riscontrata 
+la presenza di alcune tuple duplicate, che differivano per i campi 
+\textsc{latitude} e \textsc{longitude}. Calcolando la distanza tra le diverse 
+coordinate abbiamo verificato che le differenze erano solo di alcuni metri.
 Dunque è stato deciso di tenere \textbf{FIXME randomicamente} una delle tuple 
 duplicate data la scarsa differenza tra le due e la poca importanza della 
 precisione, poiché nel nostro modello predittivo le coordinate di ogni 
 indirizzo vengono utilizzate solo per cercare una corrispondenza con la 
 stazione di rilevamento meteo più vicina.
-\\\\
+
 Sempre sul dataset \textbf{WNV Mosquito} è stata analizzata la duplicazione 
 delle colonne \textsc{latitude}, \textsc{longitude} e \textsc{block} rispetto a 
 \textsc{trap}. In questo caso abbiamo rilevato la presenza di una stessa 
