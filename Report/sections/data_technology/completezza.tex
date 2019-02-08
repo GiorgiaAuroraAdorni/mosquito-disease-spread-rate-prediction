@@ -39,7 +39,7 @@ Vengono in seguito mostrate le analisi relative ai dati di ciascun dataset.
 
 \subsubsection*{WNV Mosquito}
 \addcontentsline{toc}{subsubsection}{WNV Mosquito}
-Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \textit{latitude} e \textit{longitude}, presentano dei valori mancanti.\\
+Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \texttt{latitude} e \texttt{longitude}, presentano dei valori mancanti.\\
 In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
@@ -66,7 +66,7 @@ In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza r
 		Dataset  	&	   		326352 & 8216 	  & 97,48\% \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{WNV Mosquito}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{WNV Mosquito}}
 	\label{tab:completezza wnv}
 \end{figure}
 
@@ -147,7 +147,7 @@ In tabella \ref{tab:completezza weather} sono presentate le analisi di completez
 		\bottomrule
 		
 	\end{longtable}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{Weather}}
 	\label{tab:completezza weather}
 
 \subsubsection*{Stations}
@@ -156,8 +156,7 @@ Il dataset \textsc{Stations} presenta una completezza del 82,67\%. Esso risulta
 essere il meno completo tra i dataset presentati. In particolare quattro 
 attributi su 15 presentano dei valori mancanti. \textbf{FIXME: spiegare che 
 però tanto wmo, climate\_division\_code e climate\_division\_station\_code non 
-ci 
-servono}\\
+ci servono}\\
 In tabella \ref{tab:completezza stations} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
@@ -187,7 +186,7 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 		Dataset  					& 75 &	13  & 82,67\%		\\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Stations}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{Stations}}
 	\label{tab:completezza stations}
 \end{figure}
 
@@ -197,17 +196,17 @@ Per migliorare la completezza abbiamo effettuato un completamento dei dati
 mancanti con tecniche che sfruttano la conoscenza del dominio specifico.\\
 \textbf{FIXME questo non l'abbiamo fatto} In particolare, alcuni casi vengono 
 facilmente risolti derivando il valore di un specifico attributo da un set di 
-altri attributi, per esempio nel dataset \textbf{Weather} l'attributo 
-\textsc{t\_avg} può essere facilmente calcolato come la media degli attributi 
-\textsc{t\_min} e \textsc{t\_max}.
+altri attributi, per esempio nel dataset \textsc{Weather} l'attributo 
+\texttt{t\_avg} può essere facilmente calcolato come la media degli attributi 
+\texttt{t\_min} e \texttt{t\_max}.
 
 
 \subsubsection{Acquisizione di nuovi dati}
 Per quando riguarda il dataset \textsc{WNV Mosquito} è stato effettuato un 
-completamento dei valori \textit{latitude} e \textit{longitude} mancanti, 
+completamento dei valori \texttt{latitude} e \texttt{longitude} mancanti, 
 utilizzando il servizio di \textbf{Geocoding} offerto da Google.
 
-In particolare, dagli indirizzi presenti nella colonna \textsc{block} abbiamo 
+In particolare, dagli indirizzi presenti nella colonna \texttt{block} abbiamo 
 estratto le corrispondenti coppie di latitudine e longitudine. 
 Per verificare l'accuratezza delle posizioni ottenute è stata calcolata la 
 distanza geografica tra le coordinate presenti e quelle ottenute dal servizio. 
