@@ -13,14 +13,14 @@ riportato in Figura \ref{fig:er-schema} per le operazioni di record linkage, in
 particolare sono state definite le seguenti chiavi primarie per le entità:
 
 \begin{itemize}
-    \item \textbf{WNV}: (\texttt{test\_id}, \texttt{season\_year}, 
+    \item \textsc{WNV}: (\texttt{test\_id}, \texttt{season\_year}, 
     \texttt{week}).
 
-    \item \textbf{Block}: (\texttt{block}).
+    \item \textsc{Block}: (\texttt{block}).
     
-    \item \textbf{Station}: (\texttt{wban}).
+    \item \textsc{Station}: (\texttt{wban}).
     
-    \item \textbf{Weather}: (\texttt{wban}, \texttt{year}, 
+    \item \textsc{Weather}: (\texttt{wban}, \texttt{year}, 
     \texttt{week\_of\_year}).
 
 \end{itemize}
@@ -31,19 +31,19 @@ per la relazione \textbf{NearestNeighbour} sul concetto di vicinanza fra
 elementi distribuiti nello spazio.
 
 \begin{itemize}
-    \item \textbf{Trap}: \texttt{WNV}(\texttt{block}), 
-    \texttt{Block}(\texttt{block}).
+    \item \textbf{Trap}: \textsc{WNV}(\texttt{block}), 
+    \textsc{Block}(\texttt{block}).
 
-    \item \textbf{Report}:  \texttt{Weather}(\texttt{wban}), 
-    \texttt{Station}(\texttt{wban}).
+    \item \textbf{Observation}:  \textsc{Weather}(\texttt{wban}), 
+    \textsc{Station}(\texttt{wban}).
     
     \item \textbf{NearestNeighbour}: il concetto di vicinanza spaziale è 
     ottenuto effettuando il prodotto cartesiano per tutte le coppie
-    \texttt{Block}$\times$\texttt{Station} e calcolando la distanza tra le 
+    \textsc{Block}$\times$\textsc{Station} e calcolando la distanza tra le 
     coordinate geografiche ottenuti dagli attributi \texttt{latitude} e 
-    \texttt{longitude} sia di \texttt{Block} che di \texttt{Station},
-    coinvolgendo nella relazione solamente la \texttt{Station} più vicina ad 
-    un \texttt{Block}.
+    \texttt{longitude} sia di \textsc{Block} che di \textsc{Station},
+    coinvolgendo nella relazione solamente la \textsc{Station} più vicina ad 
+    un \textsc{Block}.
 
 \end{itemize}
 
