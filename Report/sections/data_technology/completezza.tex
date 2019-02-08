@@ -1,17 +1,22 @@
-La prima dimensione di qualità analizzata è la completezza, ovvero la copertura con cui vengono rappresentati gli insiemi di dati.
-In particolare sono state distinte la completezza di tupla, che specifica la presenza di valori nulli in una tupla, la completezza degli attributi ovvero la mancanza di valori in una colonna di attributo e infine la completezza della tabella, ovvero il numero totale di valori non nulli in una tabella.\\
-
-Le metriche utilizzate per la misurazione della completezza sono rispettivamente:
+La prima dimensione di qualità analizzata è la completezza, ovvero la copertura 
+con cui vengono rappresentati gli insiemi di dati. Le metriche misurate sono 
+rispettivamente:
 \begin{itemize}
-		\item[-] Completezza di tupla: il rapporto tra il numero di valori nulli nella tupla e la cardinalità della tupla (ovvero il numero di attributi);
-		\item[-] Completezza di attributo: il rapporto tra il numero di valori nulli della colonna e la cardinalità della colonna (ovvero il numero di tuple);
-		\item[-] Completezza di tabella: il rapporto tra il numero di valori nulli nella tabella e la cardinalità della tabella (data dal prodotto cartesiano tra righe e colonne).
+	\item Completezza di attributo: il rapporto tra il numero di valori non
+	nulli nella colonna e la cardinalità della colonna (ovvero il numero di 
+	tuple);
+	\item Completezza di tupla: il rapporto tra il numero di tuple che non 
+	contengono nessun valore nullo e il numero totale di tuple;
+	\item Completezza di tabella: il rapporto tra il numero di valori non nulli 
+	nella tabella e la cardinalità della tabella (ovvero il prodotto tra numero 
+	di tuple e numero di colonne).
 \end{itemize}
 
 % Motivo della scelta della dimensione di qualità
 % Con cosa è stato effettuato il conteggio dei valori null
 
-La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza delle tuple è solo del 34,96\%.
+La completezza complessiva dei quattro dataset è del 88,75\%, mentre la 
+completezza delle tuple è solo del 34,96\%.
 
 \begin{figure}[H]
 	\centering
@@ -188,7 +193,8 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 
 \subsection{Miglioramento}
 
-Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
+Per migliorare la completezza abbiamo effettuato un completamento dei dati 
+mancanti con tecniche che sfruttano la conoscenza del dominio specifico.\\
 \textbf{FIXME questo non l'abbiamo fatto} In particolare, alcuni casi vengono 
 facilmente risolti derivando il valore di un specifico attributo da un set di 
 altri attributi, per esempio nel dataset \textbf{Weather} l'attributo 
