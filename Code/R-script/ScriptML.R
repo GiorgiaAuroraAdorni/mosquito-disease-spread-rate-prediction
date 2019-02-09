@@ -42,6 +42,16 @@ if(!require("ROCR")){
 library(ROCR)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+# load input file
+dataset <- read.table("features_dataset_final.csv", header = TRUE, sep =",", dec = ".")
+dataset_with_only_features_and_target <- get_features_dataset(dataset)
+
+# some statistics ...
+head(dataset)
+str(dataset)
+summary(dataset)
+
 missmap(dataset, main = "Missing values vs observed")
 
 # split into Train and Validation sets: 80 - 20 (random)
@@ -62,7 +72,7 @@ getTree(model0, 1, labelVar=TRUE)
 reprtree:::plot.getTree(model0)
 
 # show model error
-plot(model0, ylim=c(0,0.36))
+plot(model0, ylim=c(0,1.2))
 legend('topright', colnames(model0$err.rate), col=1:3, fill=1:3)
 ## check importance variable
 importance(model0)        
