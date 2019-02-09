@@ -1,34 +1,5 @@
-Dopo le operazioni di integrazione dei quattro dataset, tre iniziali e uno 
-generato, sono state selezionate 70 features.
-
-In particolare sono stati eliminati dal dataset \textsc{Stations} i record 
-relativi alle stazioni con identificativo \texttt{wban} {4807} e {4879}, poiché 
-le rilevazioni meteo disponibili, relative a queste stazioni, hanno raccolto 
-dati solo a partire dal 2015, lasciando scoperti i primi 8 anni in cui sono 
-stati effettuati i test del WNV.
-
-Per quanto riguarda il dataset \textsc{Weather}, sono stati eliminati gli 
-attributi \texttt{snow\_water}, \texttt{snow\_depth}, \texttt{depart}, 
-\texttt{sunrise}, \texttt{sunset}, \texttt{snow\_fall} e le relative colonne 
-\texttt{flag}, poiché per le stazioni in esame non sono stati misurati questi 
-parametri.
-
-Le colonne del dataset \textsc{Block} non sono state utilizzate all'interno del 
-database integrato, poiché duplicate nella tabella \textsc{WNV Mosquito}.\\
-\\
-Dopo l'integrazione, il database risultante contiene 25482 righe e 70 colonne, 
-in particolare, analizzando dataset per dataset si hanno:
-\begin{itemize}
-	\item \textsc{WNV Mosquito}: contenente 27196 righe e 12 attributi;
-	\item \textsc{Weather}: contenente 1701 righe e 50 attributi;
-	\item \textsc{Station}: contenente 3 righe e 8 attributi.
-\end{itemize}
-
-%Di questi attributi ... potrebbero influire sulla predizione dell'algoritmo di 
-%Machine Learning.
-
 \section{Completezza}
-In seguito alla selezione delle 70 features, la completezza complessiva del 
+In seguito alla selezione delle 66 features, la completezza complessiva del 
 dataset risulta del 100\%, così come quella di attributo e di tupla.
 
 \section{Leggibilità}
