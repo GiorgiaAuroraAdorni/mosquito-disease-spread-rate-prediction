@@ -20,11 +20,6 @@ set.seed(100)
 #Create 10 equally size folds
 folds <- cut(seq(1,nrow(dataset_with_only_features_and_target)),breaks=10,labels=FALSE)
 
-Models = list()
-TrainPredictions =  list()
-ValidPredictions = list()
-Accs = list()
-
 #Perform 10 fold cross validation
 for(i in 1:10){
   #Segement your data by fold using the which() function 
@@ -35,29 +30,25 @@ for(i in 1:10){
   #Use the test and train data partitions however you desire...
   
   # this model use as features all the columns except for that with more than 53 categories
-  model0 <- randomForest(result ~ ., data = CrossTrainSet, importance = TRUE)
-  model0
-  Models[[length(Models)+1]] = model0
+  model0[i] <- randomForest(result ~ ., data = CrossTrainSet, importance = TRUE)
+  model0[i]
   
   # show model error
-  plot(model0, ylim=c(0,1.2))
-  legend('topright', colnames(model0$err.rate), col=1:3, fill=1:3)
+  plot(model0[i], ylim=c(0,1.2))
+  legend('topright', colnames(model0[i]$err.rate), col=1:3, fill=1:3)
   ## check importance variable
-  importance(model0)        
-  varImpPlot(model0) 
+  importance(model0[i])        
+  varImpPlot(model0[i]) 
   
-  predTrain0 <- predict(model0, CrossTrainSet, type = "class")
-  TrainPredictions[[length(TrainPredictions)+1]] = predTrain0
+  predTrain0[i] <- predict(model0[i], CrossTrainSet, type = "class")
   
   # checking classification accuracy
-  table(predTrain0, CrossTrainSet$result) 
+  table(predTrain0[i], CrossTrainSet$result) 
   
   ## predicting on Validation set
-  predValid0 <- predict(model0, CrossValidSet, type = "class")
-  ValidPredictions[[length(ValidPredictions)+1]] = predValid0
+  predValid0[i] <- predict(model0[i], CrossValidSet, type = "class")
   
   # checking classification accuracy
-  acc_m0 <- mean(predValid0 == CrossValidSet$result) 
-  Accs[[length(Accs)+1]] = acc_m0
-  table(predValid0,CrossValidSet$result)
+  acc_m0 <- mean(predValid0[i] == CrossValidSet$result) 
+  table(predValid0[i],CrossValidSet$result)
 }
