@@ -68,3 +68,4 @@ rsconnect/
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+.Rproj.user

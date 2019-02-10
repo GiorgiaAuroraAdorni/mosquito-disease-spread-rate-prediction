@@ -1,0 +1,53 @@
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\columnwidth}
+    \scalebox{.5}{
+        \input{images/ER.pdf_tex}
+    }
+    \label{fig:er-schema}
+    \caption{Schema concettuale per il record linkage}
+\end{figure}
+
+L'analisi dei dataset ha portato alla stesura dello schema concettuale 
+riportato in Figura \ref{fig:er-schema} per le operazioni di record linkage, in 
+particolare sono state definite le seguenti chiavi primarie per le entità:
+
+\begin{itemize}
+    \item \textsc{WNV}: (\texttt{test\_id}, \texttt{season\_year}, 
+    \texttt{week}).
+
+    \item \textsc{Block}: (\texttt{block}).
+    
+    \item \textsc{Station}: (\texttt{wban}).
+    
+    \item \textsc{Weather}: (\texttt{wban}, \texttt{year}, 
+    \texttt{week\_of\_year}).
+
+\end{itemize}
+
+
+Le relazioni tra entità invece si basano sulle seguenti chiavi e in particolare 
+per la relazione \textbf{NearestNeighbour} sul concetto di vicinanza fra 
+elementi distribuiti nello spazio.
+
+\begin{itemize}
+    \item \textbf{Trap}: \textsc{WNV}(\texttt{block}), 
+    \textsc{Block}(\texttt{block}).
+
+    \item \textbf{Observation}:  \textsc{Weather}(\texttt{wban}), 
+    \textsc{Station}(\texttt{wban}).
+    
+    \item \textbf{NearestNeighbour}: il concetto di vicinanza spaziale è 
+    ottenuto effettuando il prodotto cartesiano per tutte le coppie
+    \textsc{Block}$\times$\textsc{Station} e calcolando la distanza tra le 
+    coordinate geografiche ottenuti dagli attributi \texttt{latitude} e 
+    \texttt{longitude} sia di \textsc{Block} che di \textsc{Station},
+    coinvolgendo nella relazione solamente la \textsc{Station} più vicina ad 
+    un \textsc{Block}.
+
+\end{itemize}
+
+È stato scelto di utilizzare la tecnica di record linkage empirico, dato che 
+le chiavi scelte per le relazioni non presentano errori, dunque la distanza di 
+edit pari a zero tra le possibili corrispondenze porta sempre ad un matching 
+esatto delle chiavi.

@@ -1,29 +1,35 @@
 \section{Acquisizione del dataset}
 % Descrizione delle modalità di scelta
-Il dataset \textbf{WNV Mosquito}, contenente l'elenco delle località e dei risultati dei test per i pool di zanzare, testati attraverso il programma di salute ambientale del Dipartimento della sanità pubblica di Chicago, è stato reperito dal sito \href{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}{Chicago Data Portal}.
-
-Il CDPH gestisce un programma di sorveglianza ambientale per il virus del Nilo 
-occidentale (WNV), che include la raccolta di zanzare dalle trappole situate in 
-tutta la città, l'identificazione e lo smistamento delle zanzare raccolte e il 
-test di specifiche specie per WNV.\textbf{FIXME: descrivere gli anni coperti da 
-WNV}
+Il dataset \textsc{WNV Mosquito} contiene la posizione di ogni trappola 
+installata nella città attraverso il programma di Salute Ambientale del 
+Dipartimento di Sanità Pubblica di Chicago negli anni tra il 2007 e il 2018. 
+Contiene inoltre la specie e il numero di zanzare trovate in ciascuna trappola 
+ogni settimana, nonchè i risultati dei test per il virus del Nilo occidentale. 
+È stato reperito dal sito Chicago Data 
+Portal\footnote{\url{https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/data}}.
 \\
 
-I dataset \textbf{Weather} e \textbf{Stations} provengono invece dal database 
+I dataset \textsc{Weather} e \textsc{Stations} provengono invece dal database 
 NOAA Quality Controlled Local Climatological Data (QCLCD) disponibile sul sito 
-dalla 
-\href{https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/quality-controlled-local-climatological-data-qclcd}{National
-Oceanic and Atmospheric Administration}. I dati grezzi sono formati da un file 
-CSV per ciascun mese, al cui interno sono presenti le rilevazioni di tutte le 
-stazioni meteorologiche degli Stati Uniti. 
+dalla National Oceanic and Atmospheric 
+Administration\footnote{\url{https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/quality-controlled-local-climatological-data-qclcd}}.
+I dati grezzi sono composti da un file CSV per ciascun mese nel periodo 
+2007--2017, al cui interno sono presenti le rilevazioni di tutte le stazioni 
+meteorologiche degli Stati Uniti.
 % FIXME: ci sono anche i file delle stazioni.
 
 Come prima cosa abbiamo scritto una serie di script Bash con i quali estrarre 
-esclusivamente le rilevazioni delle stazioni meteorologiche nei pressi 
-della città di Chicago e aggregarle in un unico file contenente l'intero arco 
-temporale di interesse. Attraverso un ulteriore script Bash abbiamo analizzato 
-le colonne presenti nei file CSV, per accertarci che la loro struttura fosse 
-rimasta costante negli anni.
+esclusivamente le stazioni meteorologiche nei pressi della città di Chicago e 
+aggregarle in un unico file contenente l'intero arco temporale di interesse. 
+Attraverso un ulteriore script Bash abbiamo analizzato le colonne presenti nei 
+file CSV, per accertarci che la loro struttura fosse rimasta costante negli 
+anni.
+
+Si può notare che vi è una discrepanza nei periodi temporali coperti dalle due 
+fonti, in quanto i dati QCLCD 2018 non sono ad oggi disponibili online. Come 
+verrà descritto più in dettaglio nella Sezione~\ref{sec:data-fusion}, 
+questo ci ha costretto a limitarci al periodo 2007--2017, escludendo quindi 
+l'anno 2018 dal dataset WNV Mosquito.
 
 \section{Descrizione dei tre dataset}
 Vengono di seguito descritti gli attributi di ciascun dataset.
@@ -47,16 +53,18 @@ Vengono di seguito descritti gli attributi di ciascun dataset.
 	\multirow{2}{*}{week}					&\multirow{2}{*}{settimana dell'anno del test}  & numerico    \\ 
 	& & {1} -- {52} ({20} -- {40})\\\hline
 	test\_id			& id del record &  numerico        	\\\hline 
-	\multirow{3}{*}{block}	& \multirow{3}{*}{indirizzo della trappola} & xxXX = numero del blocco \\
-	& & S = indirizzo	\\
-	& & xxXXS \\ \hline
-	\multirow{2}{*}{trap}	&\multirow{2}{*}{ della trappola} &  identificatore        	\\ 
+	\multirow{3}{*}{block}	& \multirow{3}{*}{indirizzo della trappola} & xxXX 
+	= numero civico \\
+	& & STREET = nome della via	\\
+	& & xxXX STREET \\ \hline
+	\multirow{2}{*}{trap}	&\multirow{2}{*}{id della trappola} &  
+	identificatore        	\\ 
 	&& T001X -- T925X\\\hline
 	\multirow{4}{*}{trap\_type}				& \multirow{4}{*}{tipologia di trappola} &     OVI\\
 	&& CVC\\
 	&& GRAVID\\
 	&& SENTINEL\\\hline
-	{test\_date}	&{data del test}   &   yyyy/mm/dd hh:mm:ss \\\hline
+	{test\_date}	&{data del test}   &   mm/dd/yyyy hh:mm:ss P \\\hline
 	\multirow{2}{*}{number\_of\_mosquitoes}	& \multirow{2}{*}{numero di zanzare catturate} &  numerico        	\\ 
 	& & {1} -- {50} \\ \hline
 	\multirow{2}{*}{result}	& \multirow{2}{*}{risultato del test}   &  positive = WNV presente \\
@@ -75,7 +83,7 @@ Vengono di seguito descritti gli attributi di ciascun dataset.
 	&& {-87.00} -- {-88.00} \\
 	\bottomrule
 \end{longtable}
-\captionof{table}{Attributi del dataset \textbf{WNV Mosquito}}
+\captionof{table}{Attributi del dataset \textsc{WNV Mosquito}}
 \label{tab:attributi wnv}
 
 $\\$
@@ -93,7 +101,7 @@ $\\$
 	\endlastfoot
 	wban & id della stazione	 & numerico  \\ 
 	\hline	
-	{year\_month\_day} & {data della rilevazione}	 & dd mmmm,yyyy \\ \hline	
+	{year\_month\_day} & {data della rilevazione}	 & yyyymmdd \\ \hline	
 	\multirow{2}{*}{t\_max}				& temperatura massima	 & numerico		   	\\
 	&giornaliera (\degree F) &(*) estremo del mese \\ \hline
 	\multirow{2}{*}{t\_max\_flag}		& \multirow{2}{*}{qualità t\_max} &  blank = valore non sospetto \\
@@ -130,7 +138,7 @@ $\\$
 	\hline
 	\multirow{5}{*}{heat}	& numero di gradi in cui la   & 	\multirow{5}{*}{numerico}	   	\\ 
 	& temperatura media giornaliera  &\\
-	& è inferiore a 65\degree F (temperatura   &\\
+	& è inferiore a 65 \degree F (temperatura   &\\
 	& al di sotto della quale gli edifici  & \\
 	& devono essere riscaldati) &\\
 	\hline
@@ -139,7 +147,7 @@ $\\$
 	\hline		
 	\multirow{5}{*}{cool}	& numero di gradi in cui la    & 	\multirow{5}{*}{numerico}	   	\\ 
 	& temperatura media giornaliera   &\\
-	& è superiore a 65\degree F (temperatura  &\\
+	& è superiore a 65 \degree F (temperatura  &\\
 	& al di sopra della quale gli edifici  &\\
 	& devono essere raffreddati) &\\
 	\hline
@@ -151,7 +159,7 @@ $\\$
 	\multirow{2}{*}{sunrise\_flag}		& \multirow{2}{*}{qualità sunrise} &  blank = valore non sospetto \\
 	& & s = valore sospetto			 \\ 
 	\hline	
-	sunset				& ora del tramonto	 & hhmm		   	\\ 
+	sunset				& ora del tramonto (LST) & hhmm		   	\\ 
 	\hline
 	\multirow{2}{*}{sunset\_flag}		& \multirow{2}{*}{qualità sunset} &  blank = valore non sospetto \\
 	& & s = valore sospetto			 \\ 
@@ -162,8 +170,8 @@ $\\$
 	& & FC = nubi a imbuto \\
 	& & FG = nebbia \\
 	& & FU = fumo \\
-	& lista di codici del tipo & GR = grandine \\
-	& di tempo giornaliero & GS = piccola grandine\\
+	& lista di condizioni & GR = grandine \\
+	& meteorologiche giornaliere & GS = piccola grandine\\
 	& & HZ = foschia \\
 	& & PL = pioggia gelata\\
 	& & RA = pioggia \\
@@ -190,24 +198,27 @@ $\\$
 	\multirow{2}{*}{snow\_fall}			& quantità giornaliera di 	 & \multirow{2}{*}{decimale}				\\ 
 	& neve caduta (inch) &\\
 	\hline	
-	\\
+	\\ % FIXME 
 	\hline
 	\multirow{2}{*}{snow\_fall\_flag}		& \multirow{2}{*}{qualità snow\_fall} &  blank = valore non sospetto \\
 	& & s = valore sospetto			 \\ 
 	\hline
-	\multirow{2}{*}{precip\_total}		& quantità di precipitazione 	 & \multirow{2}{*}{decimale}			\\ 
-	& giornaliera (inch) &\\\hline	
+	\multirow{2}{*}{precip\_total}		& quantità di precipitazioni 	 & 
+	\multirow{2}{*}{decimale}			\\ 
+	& giornaliere (inch) &\\\hline	
 	\multirow{2}{*}{precip\_total\_flag}		& \multirow{2}{*}{qualità precip\_total} &  blank = valore non sospetto \\
 	& & s = valore sospetto			 \\ 
 	\hline	
-	\multirow{2}{*}{stn\_pressure}		& pressione giornaliera	 & 	\multirow{2}{*}{decimale}		\\ 
+	\multirow{2}{*}{stn\_pressure}		& pressione media giornaliera	 & 	
+	\multirow{2}{*}{decimale}		\\ 
 	&   (pollici di mercurio) &\\
 	\hline	
 	\multirow{2}{*}{stn\_pressure\_flag}		& \multirow{2}{*}{qualità stn\_pressure} &  blank = valore non sospetto \\
 	& & s = valore sospetto			 \\ 
 	\hline	
-	\multirow{3}{*}{sea\_level}			& pressione giornaliera 	 & 	\multirow{3}{*}{decimale}		\\ 
-	& del livello del mare &\\
+	\multirow{3}{*}{sea\_level}			& pressione media giornaliera 	 & 	
+	\multirow{3}{*}{decimale}		\\ 
+	& a livello del mare &\\
 	& (pollici di mercurio)&\\
 	\hline	
 	\multirow{2}{*}{sea\_level\_flag}		& \multirow{2}{*}{qualità sea\_level} &  blank = valore non sospetto \\
@@ -260,7 +271,7 @@ $\\$
 	& & s = valore sospetto			 \\ 
 	\bottomrule
 \end{longtable}
-\captionof{table}{Attributi del dataset \textbf{Weather}}
+\captionof{table}{Attributi del dataset \textsc{Weather}}
 \label{tab:attributi weather}
 
 $\\$
@@ -274,34 +285,37 @@ $\\$
 	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\			
 	\endhead
 	\multicolumn{3}{l}{\footnotesize\itshape Continua nella pagina seguente} \\
+	% FIXME
 	\endfoot
 	\endlastfoot
-	wban	&   id della stazione & numerico   			\\ \hline	
-	\multirow{3}{*}{wmo}	& 	codice della stazione   & \multirow{3}{*}{numerico}	\\ 
-	& secondo l'organizzazione  & \\
-	& meteorologica mondiale & \\ \hline	
-	\multirow{2}{*}{callsign}	& 	codice di denominazione  & \multirow{2}{*}{categorico}	    \\
-	& della stazione & \\ \hline
-	climate\_division\_code				&	codice ... 	& numerico	\\ \hline	
-	climate\_division\_state\_code		& 	 			& numerico	\\ \hline
-	climate\_division\_station\_code	& 	 			& numerico	\\ \hline	
+	wban	&   codice WBAN della stazione & numerico   			\\ \hline	
+	wmo		& 	codice WMO della stazione  & numerico				\\ \hline	
+	\multirow{2}{*}{callsign}	& 	codice IATA dell'aeroporto  & 
+	\multirow{2}{*}{categorico}	    \\
+	& in cui si trova la stazione & \\ \hline
+	climate\_division\_code			& codici che identificano la & numerico	\\	
+	climate\_division\_state\_code	& regione climatica a cui    & numerico	\\ 
+	climate\_division\_station\_code& la stazione appartiene     & numerico	\\ 
+	\hline	
 	name	& 	nome della stazione	 & 	categorico	     	\\ \hline
 	state		& 	sigla dello stato 			& categorico		\\ \hline	
 	location	& 	posizione della stazione 	& categorico     	\\ \hline
-	\multirow{2}{*}{latitude}	& \multirow{2}{*}{latitudine dell'indirizzo}	&  decimale    \\ 
+	\multirow{2}{*}{latitude}	& \multirow{2}{*}{latitudine della stazione}	
+	&  decimale    \\ 
 	& & {40.00} -- {42.00}  \\ \hline
-	\multirow{2}{*}{longitude}	& \multirow{2}{*}{longitudine dell'indirizzo} &  decimale     \\ 
+	\multirow{2}{*}{longitude}	& \multirow{2}{*}{longitudine della stazione} 
+	&  decimale     \\ 
 	& & {-87.00} -- {-88.00} \\ \hline 
 	\multirow{2}{*}{ground\_height}	& 	altitudine del terreno sul  & \multirow{2}{*}{decimale}	\\
-	& livello del mare (metri) &\\ \hline		
+	& livello del mare (piedi) &\\ \hline		
 	\multirow{2}{*}{station\_height}	& 	altitudine della stazione sul  &   \multirow{2}{*}{decimale} 	\\
-	& livello del mare (metri) & \\ \hline
+	& livello del mare (piedi) & \\ \hline
 	\multirow{2}{*}{barometer}			& 	altitudine del barometro sul  & 	\multirow{2}{*}{decimale}		\\
-	& livello del mare (metri) &\\ \hline	
+	& livello del mare (piedi) &\\ \hline	
 	time\_zone		& 	fuso orario della stazione & numerico		  \\
 	\bottomrule
 \end{longtable}
-\captionof{table}{Attributi del dataset \textbf{Stations}}
+\captionof{table}{Attributi del dataset \textsc{Stations}}
 \label{tab:attributi stations}
 
 

@@ -1,0 +1,34 @@
+Per migliorare la completezza, nel dataset \textsc{WNV Mosquito} è stato 
+possibile effettuare un completamento dei valori \texttt{latitude} e 
+\texttt{longitude} mancanti, utilizzando il servizio di \textbf{Geocoding} 
+offerto da Google.
+
+In particolare, dagli indirizzi presenti nella colonna \texttt{block} abbiamo 
+estratto le corrispondenti coppie di latitudine e longitudine. 
+Per verificare l'accuratezza delle posizioni ottenute è stata calcolata la 
+distanza geografica tra le coordinate presenti e quelle ottenute dal servizio. 
+In questo modo abbiamo potuto verificare che il 95\% delle istanze si trova ad 
+una distanza inferiore a 925 metri.
+
+Essendo queste posizioni utilizzate principalmente per individuare le stazioni 
+meteorologiche più vicine ad una data trappola, abbiamo ritenuto sufficiente 
+l'accuratezza dei risultati del servizio di Geocoding. Quindi, sfruttando 
+le coordinate ottenute, sono stati popolati i campi mancanti nel dataset 
+originale, raggiungendo una completezza di schema, tupla e attributi pari al 
+100,00\%.
+\\
+Sempre in questo dataset abbiamo voluto aggiungere l'attributo 
+\texttt{day\_of\_week} che corrisponde al giorno della settimana in cui è stato 
+effettuato il test. questo è stato utile anche per derivare delle statistiche, 
+come per esempio il giorno della settimana in cui è stato effettuato il maggior 
+numero di test. 
+\\
+
+Nel dataset \textsc{Weather}, a seguito dell'aggregazione delle osservazioni 
+giornaliere in settimanali, è stata aggiunta la colonna 
+\texttt{days\_per\_week}, rappresentante il numero di giorni settimanali 
+aggregati. Nella maggior parte dei casi questo valore corrisponde a 7, ovvero 
+l'aggregazione di tutti i giorni della settimana.
+
+%fixme 
+% aggiungere parte su code_sum 

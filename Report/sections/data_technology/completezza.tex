@@ -1,17 +1,22 @@
-La prima dimensione di qualità analizzata è la completezza, ovvero la copertura con cui vengono rappresentati gli insiemi di dati.
-In particolare sono state distinte la completezza di tupla, che specifica la presenza di valori nulli in una tupla, la completezza degli attributi ovvero la mancanza di valori in una colonna di attributo e infine la completezza della tabella, ovvero il numero totale di valori non nulli in una tabella.\\
-
-Le metriche utilizzate per la misurazione della completezza sono rispettivamente:
+La prima dimensione di qualità analizzata è la completezza, ovvero la copertura 
+con cui vengono rappresentati gli insiemi di dati. Le metriche misurate sono 
+rispettivamente:
 \begin{itemize}
-		\item[-] Completezza di tupla: il rapporto tra il numero di valori nulli nella tupla e la cardinalità della tupla (ovvero il numero di attributi);
-		\item[-] Completezza di attributo: il rapporto tra il numero di valori nulli della colonna e la cardinalità della colonna (ovvero il numero di tuple);
-		\item[-] Completezza di tabella: il rapporto tra il numero di valori nulli nella tabella e la cardinalità della tabella (data dal prodotto cartesiano tra righe e colonne).
+	\item Completezza di attributo: il rapporto tra il numero di valori non
+	nulli nella colonna e la cardinalità della colonna (ovvero il numero di 
+	tuple);
+	\item Completezza di tupla: il rapporto tra il numero di tuple che non 
+	contengono nessun valore nullo e il numero totale di tuple;
+	\item Completezza di tabella: il rapporto tra il numero di valori non nulli 
+	nella tabella e la cardinalità della tabella (ovvero il prodotto tra numero 
+	di tuple e numero di colonne).
 \end{itemize}
 
 % Motivo della scelta della dimensione di qualità
 % Con cosa è stato effettuato il conteggio dei valori null
 
-La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza delle tuple è solo del 34,96\%.
+La completezza complessiva dei quattro dataset è del 93,72\%, mentre la 
+completezza delle tuple è solo del 56,86\%.
 
 \begin{figure}[H]
 	\centering
@@ -23,7 +28,7 @@ La completezza totale dei quattro dataset è del 71,43\%, mentre la completezza 
 		Weather 	 &		 0,00\% 	& 86,09\%  \\ 
 		Stations 	 &		20,00\% 	& 82,67\%  \\ 
 		\midrule
-		Totale 		 &	    34,96\%     & 88,75\%  \\
+		Totale 		 &	    56,86\%     & 93,72\%  \\
 		\bottomrule
 	\end{tabular}
 	\captionof{table}{Analisi di completezza sui tre dataset}
@@ -34,7 +39,7 @@ Vengono in seguito mostrate le analisi relative ai dati di ciascun dataset.
 
 \subsubsection*{WNV Mosquito}
 \addcontentsline{toc}{subsubsection}{WNV Mosquito}
-Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \textit{latitude} e \textit{longitude}, presentano dei valori mancanti.\\
+Il dataset \textsc{WNV Mosquito} presenta una completezza del 97,48\%. Esso risulta essere il più completo tra i dataset presentati. In particolare solo due attributi su dodici, \texttt{latitude} e \texttt{longitude}, presentano dei valori mancanti.\\
 In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
@@ -61,7 +66,7 @@ In tabella \ref{tab:completezza wnv} sono presentate le analisi di completezza r
 		Dataset  	&	   		326352 & 8216 	  & 97,48\% \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{WNV Mosquito}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{WNV Mosquito}}
 	\label{tab:completezza wnv}
 \end{figure}
 
@@ -142,12 +147,16 @@ In tabella \ref{tab:completezza weather} sono presentate le analisi di completez
 		\bottomrule
 		
 	\end{longtable}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Weather}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{Weather}}
 	\label{tab:completezza weather}
 
 \subsubsection*{Stations}
 \addcontentsline{toc}{subsubsection}{Stations}
-Il dataset \textsc{Stations} presenta una completezza del 82,67\%. Esso risulta essere il meno completo tra i dataset presentati. In particolare quattro attributi su 15 presentano dei valori mancanti.\\
+Il dataset \textsc{Stations} presenta una completezza del 82,67\%. Esso risulta 
+essere il meno completo tra i dataset presentati. In particolare quattro 
+attributi su 15 presentano dei valori mancanti. \textbf{FIXME: spiegare che 
+però tanto wmo, climate\_division\_code e climate\_division\_station\_code non 
+ci servono}\\
 In tabella \ref{tab:completezza stations} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
 
 \begin{figure}[H]
@@ -177,34 +186,17 @@ In tabella \ref{tab:completezza stations} sono presentate le analisi di complete
 		Dataset  					& 75 &	13  & 82,67\%		\\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di completezza sul dataset \textbf{Stations}}
+	\captionof{table}{Analisi di completezza sul dataset \textsc{Stations}}
 	\label{tab:completezza stations}
 \end{figure}
 
 \subsection{Miglioramento}
 
-Per il miglioramento della completezza verrà effettuato un completamento di dati incompleti con tecniche specifiche che sfruttano la conoscenza dei dati.\\
+Per migliorare la completezza abbiamo effettuato un completamento dei dati 
+mancanti con tecniche che sfruttano la conoscenza del dominio specifico.\\
 \textbf{FIXME questo non l'abbiamo fatto} In particolare, alcuni casi vengono 
 facilmente risolti derivando il valore di un specifico attributo da un set di 
-altri attributi, per esempio nel dataset \textbf{Weather} l'attributo 
-\textsc{t\_avg} può essere facilmente calcolato come la media degli attributi 
-\textsc{t\_min} e \textsc{t\_max}.
+altri attributi, per esempio nel dataset \textsc{Weather} l'attributo 
+\texttt{t\_avg} può essere facilmente calcolato come la media degli attributi 
+\texttt{t\_min} e \texttt{t\_max}.
 
-
-\subsubsection{Acquisizione di nuovi dati}
-Per quando riguarda il dataset \textsc{WNV Mosquito} è stato effettuato un 
-completamento dei valori \textit{latitude} e \textit{longitude} mancanti, 
-utilizzando il servizio di \textbf{Geocoding} offerto da Google.
-
-In particolare, dagli indirizzi presenti nella colonna \textsc{block} abbiamo 
-estratto le corrispondenti coppie di latitudine e longitudine. 
-Per verificare l'accuratezza delle posizioni ottenute è stata calcolata la 
-distanza geografica tra le coordinate presenti e quelle ottenute dal servizio. 
-In questo modo abbiamo potuto verificare che il 95\% delle istanze si trova ad 
-una distanza inferiore a 925 metri.
-
-Essendo queste posizioni utilizzate principalmente per individuare le stazioni 
-meteorologiche più vicine ad una data trappola, abbiamo ritenuto sufficiente 
-l'accuratezza dei risultati del servizio di Geocoding. Abbiamo quindi sfruttato 
-le coordinate ottenute per popolare i campi mancanti nel dataset originale, 
-raggiungendo una completezza di schema, tupla e attributi pari al 100,00\%.

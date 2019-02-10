@@ -14,7 +14,7 @@ dataset per migliorarne la leggibilità.
 
 \begin{itemize}
 
-    \item \textbf{Weather}: Il dataset utilizza il valore \textit{M} per 
+    \item \textsc{Weather}: Il dataset utilizza il valore \textit{M} per 
         indicare un valore mancante per un attributo, in questo caso è stato 
         scelto di sostituire a \textit{M} il valore \textit{null} poichè viene 
         riconosciuto correttamente come valore mancante dai software per 
@@ -56,7 +56,14 @@ dataset per migliorarne la leggibilità.
 				ogni codice utilizzato.
         \end{itemize}
 	
-	\item \textbf{WNV Mosquito}:
+	\item \textsc{Station}:
+	\begin{itemize}
+    	\item \texttt{ground\_height}, \texttt{station\_height}, 
+    	\texttt{barometer}: i valori di altitudine sono stati convertiti da
+    	piedi (feet) a metri (m).
+	\end{itemize}
+		
+	\item \textsc{WNV Mosquito}:
 	
 	\begin{itemize}
 		
@@ -74,12 +81,12 @@ dataset per migliorarne la leggibilità.
 		testuali, \textit{positive} e \textit{negative}, che sono stati 
 		trasformati in valori booleani.  
 		
-		\item \texttt{number\_of\_mosquito}: \textbf{FIXME questo era già così 
-		nel dataset originale, non l'abbiamo fatto noi.} nel caso di numero di 
-		zanzare superiore a 50, questo viene diviso in un altro record con gli 
-		stessi attributi in modo tale che il numero di zanzare sia limitato a 
-		50.  
-
+    \item \texttt{number\_of\_mosquitoes}: \textbf{FIXME questo era già 
+		così nel dataset originale, non l'abbiamo fatto noi.} nel caso di 
+		numero di zanzare superiore a 50, questo viene diviso in un altro 
+		record con gli stessi attributi in modo tale che il numero di zanzare 
+		sia limitato a 50.  
+			
 	\end{itemize}
 	
 	\item \textbf{Dataset finale}: il dataset finale contiene per lo più 
@@ -155,3 +162,4 @@ dataset per migliorarne la leggibilità.
 
 \end{itemize}
 
+%FIXME metriche???
