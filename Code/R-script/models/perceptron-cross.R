@@ -77,8 +77,8 @@ for (i in 1:fold_count) {
   train.x <- data.matrix(dataset[is_train,])
   train.y <- target[is_train]
   
-  test.x <- data.matrix(dataset[-is_train,])
-  test.y <- target[-is_train]
+  test.x <- data.matrix(dataset[!is_train,])
+  test.y <- target[!is_train]
   
   tic("Tempo di addestramento:")
   
