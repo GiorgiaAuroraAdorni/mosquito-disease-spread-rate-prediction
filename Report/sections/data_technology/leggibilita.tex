@@ -1,59 +1,63 @@
-La leggibilità è una dimensione di qualità utile per permettere a chi vuole 
-utilizzare una collezione di dati di analizzare almeno sommariamente le 
-informazioni in modo da poter prendere determinate decisioni riguardanti 
-l'utilizzo dei dati, come ad esempio quali informazioni potrebbero essere più 
-significative per un modello predittivo di machine learning.
+La leggibilità è una dimensione di qualità che misura la facilità e 
+l'immediatezza di comprensione di una determinata rappresentazione dei dati. 
+Una rappresentazione dalla buona leggibilità si presta ad analisi (almeno 
+sommarie) da parte degli utilizzatori dei dati, che possono in questo modo 
+trarne informazioni utili ai loro processi decisionali.
 
-I dataset scelti per il progetto utilizzano unità di misura del sistema 
-anglosassone, dunque di difficile lettura per chi utilizza il sistema 
-internazionale, oppure vengono impiegate sigle alfanumeriche per indicare un 
-determinato tipo di valori. 
+I dataset grezzi scelti per il progetto presentano diverse problematiche sotto 
+questo punto di vista. In primo luogo, le unità di misura utilizzate sono 
+quelle del sistema anglosassone, che risultano di difficile lettura al di fuori 
+degli Stati Uniti. Inoltre, vi sono attributi che impiegano codici alfanumerici 
+impossibili da interpretare senza consultare la documentazione.
 
-Di seguito verranno discusse le modifiche apportate agli attributi dei vari 
-dataset per migliorarne la leggibilità.
+Nel seguito discutiamo le modifiche che abbiamo apportato ai vari dataset per 
+migliorarne la leggibilità.
 
 \begin{itemize}
 
-    \item \textsc{Weather}: Il dataset utilizza il valore \textit{M} per 
-        indicare un valore mancante per un attributo, in questo caso è stato 
-        scelto di sostituire a \textit{M} il valore \textit{null} poichè viene 
-        riconosciuto correttamente come valore mancante dai software per 
-        l'import/export dei dati e dai DBMS.
+    \item \textsc{Weather}: 
         
         \begin{itemize}
+            \item Questo dataset utilizza il carattere \texttt{M} per indicare 
+            i valori mancanti. È stato scelto di sostituirlo con il valore 
+            \texttt{null} poiché più esplicito e poiché riconosciuto 
+            automaticamente anche dai software di analisi dei dati e dai DBMS.
             
             \item \texttt{date}: inizialmente l'attributo rappresentava una 
                 data attraverso il pattern \textit{yyyyMMdd}, per migliorarne 
-                la leggibilità è stato cambiato il pattern e utilizzato nella 
-                forma \textit{dd/MM/yyyy}. Ad esempio la data 
-                \textit{20070501} è stata modificata in \textit{01/05/2007}.
+                la leggibilità è stato trasformato nella forma 
+                \textit{dd/MM/yyyy}. Ad esempio la data \textit{20070501} è 
+                stata modificata in \textit{01/05/2007}.
         
-            \item \texttt{t\_max}, \texttt{t\_min},  \texttt{t\_avg}, \texttt{depart}, 
-            	\texttt{dew\_point}, \texttt{wet\_bulb}, \texttt{heat}, 
-            	\texttt{cool}: i valori di temperatura sono stati convertiti da 
-            	gradi Fahrenheit (\si{\degree F}) a gradi Celsius 
-            	(\si{\celsius}).
+            \item \texttt{t\_max}, \texttt{t\_min},  \texttt{t\_avg}, 
+            \texttt{depart}, \texttt{dew\_point}, \texttt{wet\_bulb}, 
+            \texttt{heat}, \texttt{cool}: i valori di temperatura sono stati 
+            convertiti da gradi Fahrenheit (\si{\degree F}) a gradi Celsius 
+            (\si{\celsius}).
 
-           	\item \texttt{snow\_depth}, \texttt{snow\_water}, \texttt{snow\_fall}, 
-           		\texttt{precip\_total}: i valori sono stati convertiti da pollici
-           		(inch) a millimetri (mm).
+           	\item \texttt{snow\_depth}, \texttt{snow\_water}, 
+           	\texttt{snow\_fall}, \texttt{precip\_total}: i valori sono stati 
+           	convertiti da pollici (inch) a millimetri (mm).
 
             \item \texttt{stn\_pressure}, \texttt{sea\_level}: i valori di 
-                pressione sono stati convertiti da pollici di mercurio (inHg) a 
-                millimetri di mercurio (mmHg).
+            pressione sono stati convertiti da pollici di mercurio (inHg) a 
+            millimetri di mercurio (mmHg).
 
-            \item \texttt{result\_speed}, \texttt{avg\_speed}, \texttt{max5\_speed}, 
-            	\texttt{max2\_speed}: i valori di velocità sono stati convertiti da
-            	miglia orarie (mph) a chilometri orari 
-            	(\si[per-mode=symbol]{\km\per\hour}).
+            \item \texttt{result\_speed}, \texttt{avg\_speed}, 
+            \texttt{max5\_speed}, \texttt{max2\_speed}: i valori di velocità 
+            sono stati convertiti da miglia orarie (mph) a chilometri orari 
+            (\si[per-mode=symbol]{\km\per\hour}).
             
-            \item \texttt{code\_sum}: questo attributo corrisponde ad una lista di 
-            	codici che possono essere assegnati a ciascuna rilevazione, 
-            	corrispondenti ai diversi tipi di precipitazioni e altri fenomeni
-            	meteorologici (ad es. pioggia, neve, nebbia, \dots). Dato che a 
-            	ciascuna rilevazione può essere assegnato più di un codice, è stato
-            	necessario effettuare un parsing dei valori, creando una colonna per
-				ogni codice utilizzato.
+            \item \texttt{code\_sum}: questo attributo corrisponde ad una lista 
+            di codici che possono essere assegnati a ciascuna rilevazione, 
+            indicanti i diversi tipi di precipitazioni e altri fenomeni
+            meteorologici. I codici alfanumerici originali sono stati 
+            trasformati nei corrispondenti nomi in linguaggio naturale (ad es. 
+            pioggia, neve, nebbia, \dots). Inoltre, dato che a ciascuna 
+            rilevazione può essere assegnato più di un codice, abbiamo 
+            trasformato la singola colonna del dataset originale in una colonna 
+            per ciascun codice possibile, in cui un valore booleano indica la 
+            presenza o l'assenza della rispettiva condizione meteo.
         \end{itemize}
 	
 	\item \textsc{Station}:
@@ -79,28 +83,21 @@ dataset per migliorarne la leggibilità.
 		
 		\item \texttt{result}: inizialmente la colonna conteneva dei valori  
 		testuali, \textit{positive} e \textit{negative}, che sono stati 
-		trasformati in valori booleani.  
-		
-    \item \texttt{number\_of\_mosquitoes}: \textbf{FIXME questo era già 
-		così nel dataset originale, non l'abbiamo fatto noi.} nel caso di 
-		numero di zanzare superiore a 50, questo viene diviso in un altro 
-		record con gli stessi attributi in modo tale che il numero di zanzare 
-		sia limitato a 50.  
-			
+		trasformati in valori booleani.			
 	\end{itemize}
 	
 	\item \textbf{Dataset finale}: il dataset finale contiene per lo più 
 	attributi di tipo numerico che esprimono valori di grandezze fisiche 
 	(distanze, temperature, velocità), che sono autoesplicativi. Potrebbe 
 	essere utile invece rendere immediata all'utente la visualizzazione del 
-	risultato delle analisi, del gioro in cui sono state effettuate e 
-	soprattutto le condizioni meteo poichè ora vengono utilizzati dei codici 
+	risultato delle analisi, del giorno in cui sono state effettuate e 
+	soprattutto le condizioni meteo poiché ora vengono utilizzati dei codici 
 	numerici. A causa di ciò è stato pensato di utilizzare una vista SQL per 
 	evidenziare questi dati. Una query sugli attributi discussi in precedenza 
-	produce i risultati visibile in Tabella \ref{tab:dataset-before-view}, 
-	mentre applicando la query SQL mostrata nel Listing \ref{code:sql-view} 
+	produce i risultati visibile in Tabella~\ref{tab:dataset-before-view}, 
+	mentre applicando la query SQL mostrata nel Listing~\ref{code:sql-view} 
 	vengono restituiti i record mostrati nella 
-	Tabella \ref{tab:dataset-after-view}.
+	Tabella~\ref{tab:dataset-after-view}.
 
 	\vspace{.5em}
 	\begin{centering}
@@ -136,11 +133,11 @@ SELECT test_id,
 FROM "ReadableFusedDataset";
 	\end{lstlisting}
 
-	In particolare è possibile notare come gli attributi \texttt{cod\_sum\_ra} e 
-	\texttt{cod\_sum\_ts} sono stati collassati in un unico attributo 
-	\texttt{weather\_conditions} visibile nella Tabella 
-	\ref{tab:dataset-after-view} che racchiude la rappresentazione testuale di 
-	tutti i fenomeni meteorologici registrati durante il test.
+	In particolare è possibile notare come gli attributi \texttt{code\_sum\_ra} 
+	e \texttt{code\_sum\_ts} sono stati collassati in un unico attributo 
+	\texttt{weather\_conditions} visibile nella 
+	Tabella~\ref{tab:dataset-after-view} che racchiude la rappresentazione 
+	testuale di tutti i fenomeni meteorologici registrati durante il test.
 
 	\vspace{.5em}
 	\begin{centering}
@@ -160,4 +157,3 @@ FROM "ReadableFusedDataset";
 
 \end{itemize}
 
-%FIXME metriche???
