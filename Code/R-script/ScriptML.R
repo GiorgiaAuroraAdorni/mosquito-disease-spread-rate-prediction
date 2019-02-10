@@ -6,6 +6,7 @@ setwd("~/MosquitoDiseaseSpreadRatePrediction/Code/R-script")
 source("categorical.R")
 source("utilities.R")
 source("data_exploration.R")
+source("holdout.R")
 
 # Libraries
 libraries_list <- c("DataExplorer", "Amelia", "pscl", "devtools", "lattice", "reprtree", "randomForest", "ROCR", "cowplot", "ggplot2")
@@ -24,8 +25,6 @@ save_data_exploration_plot(dataset)
 head(dataset)
 str(dataset)
 summary(dataset)
-
-missmap(dataset, main = "Missing values vs observed")
 
 holdout(dataset_with_only_features_and_target)
 crossValidation(dataset_with_only_features_and_target)

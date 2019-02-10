@@ -45,7 +45,4 @@ save_data_exploration_plot <- function(dataset) {
   pdf("DataExplorer/plot_scatterplot.pdf") 
   plot_scatterplot(dataset, by = "result", sampled_rows = 26000L)
   dev.off() 
-  
-  create_report(dataset)
-  create_report(dataset, y="result")
 }
