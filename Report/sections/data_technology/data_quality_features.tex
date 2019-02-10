@@ -9,21 +9,23 @@ Dopo le modifiche apportate al dataset, in particolare quelle per convertire le
 unità di misura dal sistema anglosassone a quello internazionale e ... la 
 leggibilità risulta notevolmente migliorata.
 
-\item \textbf{Dataset finale}: il dataset finale contiene per lo più 
-attributi di tipo numerico che esprimono valori di grandezze fisiche 
-(distanze, temperature, velocità), che sono autoesplicativi. Potrebbe 
-essere utile invece rendere immediata all'utente la visualizzazione del 
-risultato delle analisi, del giorno in cui sono state effettuate e 
-soprattutto le condizioni meteo poiché ora vengono utilizzati dei codici 
-numerici. A causa di ciò è stato pensato di utilizzare una vista SQL per 
+Il dataset finale contiene per lo più attributi di tipo numerico che esprimono 
+valori di grandezze fisiche (distanze, temperature, velocità), che sono 
+autoesplicativi. Potrebbe essere utile invece rendere immediata all'utente la 
+visualizzazione del risultato delle analisi, del giorno in cui sono state 
+effettuate e soprattutto le condizioni meteo poiché ora vengono utilizzati dei 
+codici numerici. 
+
+A causa di ciò è stato pensato di utilizzare una vista SQL per 
 evidenziare questi dati. Una query sugli attributi discussi in precedenza 
-produce i risultati visibile in Tabella~\ref{tab:dataset-before-view}, 
+produce i risultati visibili in Tabella~\ref{tab:dataset-before-view}, 
 mentre applicando la query SQL mostrata nel Listing~\ref{code:sql-view} 
 vengono restituiti i record mostrati nella 
 Tabella~\ref{tab:dataset-after-view}.
 
-\vspace{.5em}
-\begin{centering}
+
+\begin{figure}[H]
+	\centering
 	\begin{tabular}{lcccc}
 		\toprule
 		test\_id & result & day\_of\_week & cod\_sum\_ra & cod\_sum\_ts \\
@@ -36,18 +38,22 @@ Tabella~\ref{tab:dataset-after-view}.
 	\end{tabular}
 	\captionof{table}{Risultato query dataset senza view}
 	\label{tab:dataset-before-view}
-\end{centering}
+\end{figure}
 
 \begin{lstlisting}[
 label={code:sql-view},
 caption={Query SQL per la leggibilità degli attributi},
 captionpos=b,
+breaklines=true,                                    
 language=SQL,
-showspaces=false,
-basicstyle=\ttfamily,
-numbers=none,
-commentstyle=\color{gray},
-autogobble=false,
+frame=ltrb,
+framesep=5pt,
+basicstyle=\normalsize,
+keywordstyle=\ttfamily\color{OliveGreen},
+identifierstyle=\ttfamily\color{MidnightBlue}\bfseries,
+commentstyle=\color{Brown},
+stringstyle=\ttfamily,
+showstringspaces=false
 ]
 SELECT test_id, 
 result, 
@@ -62,8 +68,8 @@ e \texttt{code\_sum\_ts} sono stati collassati in un unico attributo
 Tabella~\ref{tab:dataset-after-view} che racchiude la rappresentazione 
 testuale di tutti i fenomeni meteorologici registrati durante il test.
 
-\vspace{.5em}
-\begin{centering}
+\begin{figure}[H]
+	\centering
 	\begin{tabular}{lccc}
 		\toprule
 		test\_id & result & day\_of\_week & weather\_conditions \\
@@ -76,6 +82,4 @@ testuale di tutti i fenomeni meteorologici registrati durante il test.
 	\end{tabular}
 	\captionof{table}{Risultato query dataset attraverso la view}
 	\label{tab:dataset-after-view}
-\end{centering}
-
-\end{itemize}
+\end{figure}
