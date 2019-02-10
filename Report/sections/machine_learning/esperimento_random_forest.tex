@@ -121,17 +121,46 @@ ad ogni fold e in tabella \ref{tab:rf_cv_performance} le misure complessive.
 Vengono infine mostrate le curve ROC per ognuno dei fold, sia sul traning che 
 sul validation set:
 
+%\begin{figure}[htb]
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_1}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_2}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_3}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_4}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_5}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_6}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_7}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_8}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_9}
+%	
+%\includegraphics[width=.25\textwidth]{images/ml/random_forest/CrossValidationRF/train/auc_10}
+%	\caption{ROC sul training set}
+%	\label{fig:rf_cv_roc_train}
+%\end{figure}
+
 \begin{figure}[htb]
-	\centering
-	\begin{subfigure}[t]{1\textwidth}
-		\begin{minipage}[t]{0.475\textwidth}
-			\includegraphics[width=\textwidth]{images/ml/random_forest/HoldoutRF/auc_train}
-		\end{minipage}
-		\hfill
-		\begin{minipage}[t]{0.475\textwidth}
-			\includegraphics[width=\textwidth]{images/ml/random_forest/HoldoutRF/auc_test}
-		\end{minipage}
-	\end{subfigure}
-	\caption{ROC sul training e validation set}
-	\label{fig:rf_h_roc}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_1}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_2}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_3}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_4}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_5}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_6}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_7}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_8}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_9}
+	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_10}
+	\caption{ROC sul validation set}
+	\label{fig:rf_cv_roc_valid}
 \end{figure}
+
+Possiamo vedere che in nessun fold il modello ha un valore di Area Under Curve 
+(AUC) inferiore al valore 0,80, che viene considerato come un indice di buone 
+prestazioni. Mediamente si ha un valore di 0,85.
