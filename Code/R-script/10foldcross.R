@@ -56,7 +56,7 @@ crossValidation <- function(dataset) {
     
     # checking classification accuracy
     acc_mV0[i] <<- mean(predValid0Class == CrossValidSet$result) 
-    capture.output(acc_mT0, file = paste("CrossValidationRF/acc_mV0_", i, ".txt", sep=""))
+    capture.output(acc_mV0, file = paste("CrossValidationRF/acc_mV0_", i, ".txt", sep=""))
     capture.output(table(predValid0Class, CrossValidSet$result), file = paste("CrossValidationRF/valid_accuracy_class_", i, ".txt", sep=""))
     
     # plot auc
