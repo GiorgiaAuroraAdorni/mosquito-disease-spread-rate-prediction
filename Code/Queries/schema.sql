@@ -396,7 +396,7 @@ SELECT
 		ELSE 'Errore'
 	END AS day_of_week,
 	to_char(test_date, 'dd/MM/yyyy alle HH24:MM:SS') AS test_date,
-	array_remove(ARRAY [ --TODO: fix names
+	array_remove(ARRAY [
 		CASE WHEN code_sum_ra > 0 THEN 'Pioggia'
 			ELSE null
 		END,
@@ -409,13 +409,13 @@ SELECT
 		CASE WHEN code_sum_ts > 0 THEN 'Temporale'
 			ELSE null
 		END,
-		CASE WHEN code_sum_smoke > 0 THEN 'Pioggia'
+		CASE WHEN code_sum_smoke > 0 THEN 'Fumo'
 			ELSE null
 		END,
 		CASE WHEN code_sum_dz > 0 THEN 'Pioggerella'
 			ELSE null
 		END,
-		CASE WHEN code_sum_wind > 0 THEN 'Pioggia'
+		CASE WHEN code_sum_wind > 0 THEN 'Forte vento'
 			ELSE null
 		END,
 		CASE WHEN code_sum_fg > 0 THEN 'Nebbia'
@@ -424,10 +424,10 @@ SELECT
 		CASE WHEN code_sum_sn > 0 THEN 'Neve'
 			ELSE null
 		END,
-		CASE WHEN code_sum_up > 0 THEN null
+		CASE WHEN code_sum_up > 0 THEN 'Precipitazioni Sconosciute'
 			ELSE null
 		END,
-		CASE WHEN code_sum_hail > 0 THEN 'Pioggia'
+		CASE WHEN code_sum_hail > 0 THEN 'Grandine'
 			ELSE null
 		END
 	], null) AS weather_conditions,
