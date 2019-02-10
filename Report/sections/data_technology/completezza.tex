@@ -156,8 +156,8 @@ Il dataset \textsc{Stations} presenta una completezza del 82,67\%. In
 percentuale esso risulta essere il meno completo tra i dataset presentati, in 
 valori assoluti è però molto più piccolo degli altri, dato che contiene solo 5 
 tuple. Inoltre, dei quattro attributi su 15 che presentano dei valori mancanti, 
-possiamo trascurare \textt{wmo}, \textt{climate\_division\_code} e 
-\textt{climate\_division\_station\_code}, trattandosi di codici identificativi 
+possiamo trascurare \texttt{wmo}, \texttt{climate\_division\_code} e 
+\texttt{climate\_division\_station\_code}, trattandosi di codici identificativi 
 delle stazioni meteorologiche che non sono importanti per i nostri scopi. \\
 
 In tabella \ref{tab:completezza stations} sono presentate le analisi di 
@@ -193,3 +193,26 @@ completezza relative a ciascun attributo, alle tuple e all'intero schema.
 	\captionof{table}{Analisi di completezza sul dataset \textsc{Stations}}
 	\label{tab:completezza stations}
 \end{figure}
+
+\subsection{Acquisizione di nuovi dati}
+Per migliorare la completezza abbiamo effettuato un completamento dei dati 
+mancanti con tecniche che sfruttano la conoscenza del dominio specifico.
+
+Nel dataset \textsc{WNV Mosquito} è stato possibile popolare i valori 
+\texttt{latitude} e \texttt{longitude} mancanti, utilizzando il servizio di 
+\textbf{Geocoding}\footnote{\url{https://developers.google.com/maps/documentation/geocoding/start}}
+offerto da Google Maps.
+
+In particolare, abbiamo richiesto le coppie di latitudine e longitudine 
+corrispondenti agli indirizzi presenti nella colonna \texttt{block}. Per 
+verificare l'accuratezza delle posizioni ottenute è stata calcolata la distanza 
+geografica tra le coordinate presenti e quelle ottenute dal servizio. In questo 
+modo abbiamo potuto verificare che il 95\% delle istanze si trova ad una 
+distanza inferiore a 925 metri.
+
+Essendo queste posizioni utilizzate principalmente per individuare le stazioni 
+meteorologiche più vicine ad una data trappola, abbiamo ritenuto sufficiente 
+l'accuratezza dei risultati del servizio di Geocoding. Quindi, sfruttando 
+le coordinate ottenute, sono stati popolati i campi mancanti nel dataset 
+originale, raggiungendo una completezza di schema, tupla e attributi pari al 
+100,00\%.
