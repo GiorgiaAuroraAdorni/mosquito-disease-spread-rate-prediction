@@ -96,38 +96,7 @@ acc_m0<- mean(predValid0_2 == ValidSet$result)
 table(predValid0_2, ValidSet$result)
 
 # # # # # # # # # # # # 
-confmat = table(predValid0_2, ValidSet$result)
 
-# Precision: tp/(tp+fp):
-precision_positive = confmat[2,2]/sum(confmat[2,1:2])
-
-# Recall: tp/(tp + fn):
-recall_positive = confmat[2,2]/sum(confmat[1:2,2])
-
-# F-Score: 2 * precision * recall /(precision + recall):
-f.score_positive =  2 * precision_positive * recall_positive / (precision_positive + recall_positive)
-
-# Precision: tn/(tn+fn):
-precision_negative = confmat[1,1]/sum(confmat[1,1:2])
-
-# Recall: tn/(tn + fp):
-recall_negative = confmat[1,1]/sum(confmat[1:2,1])
-
-# F-Score: 2 * precision * recall /(precision + recall):
-f.score_negative =  2 * precision_negative * recall_negative / (precision_negative + recall_negative)
-
-#VALIDATION
-roc_preds = ROCR::prediction(labels = as.numeric(ValidSet$result), predictions = as.numeric(predValid0_2))
-
-perf.rocr = performance(roc_preds, measure = "auc", x.measure = "cutoff")
-perf.tpr.rocr = performance(roc_preds, "tpr", "fpr")
-
-plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
-
-#TRAIN
-roc_preds = ROCR::prediction(labels = as.numeric(TrainSet$result), predictions = as.numeric(predTrain0_2))
-
-perf.rocr = performance(roc_preds, measure = "auc", x.measure = "cutoff")
-perf.tpr.rocr = performance(roc_preds, "tpr", "fpr")
-
-plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
+# plot auc
+plot_auc(predTrain0_2, TrainSet$result, 1) # train
+plot_auc(predValid0_2, ValidSet$result, 1) # valid
