@@ -1,0 +1,32 @@
+È stato scelto di provare ad utilizzare il modello di classificazione 
+Support Vector Machine (SVM) poichè la classificazione di un dataset contenente 
+dati reali e comprensivo di circa 70 features potrebbe risultare difficile, a 
+causa della bassa possibilità che i dati siano linearmente separabili. 
+Con SVM è possibile utilizzare il metodo Kernel tramite delle funzioni 
+che permettono di aumentare la dimensionalità dei dati senza dover 
+calcolare nuovamente la loro posizione all'interno del feature space; in questo 
+modo è possibile trovare un iperpiano di separazione in grado di classificare 
+i dati.
+
+La funzione kernel (K) utilizzata è di tipo 
+Radial Basis Function (RBF) ed è definita nell'Equazione \ref{eq:rbf}.
+
+\begin{equation}\label{eq:rbf}
+    K(x, x') = e^{- \gamma \|x - x'\|^2}
+\end{equation}
+
+Il classificatore può essere addestrato utilizzando due parametri per 
+controllare il grado di linearità dell'iperpiano ($\gamma$) e il margine ($C$) 
+tra i vettori di supporto:
+
+\begin{itemize}
+    \item $\gamma$: è il parametro della funzione kernel \ref{eq:rbf}, minore è 
+    il valore e maggiormente l'iperpiano assumerà una forma lineare. 
+    Aumentando troppo questo valore si rischia l'overfitting del modello.
+    \item $C$: è responsabile di controllare l'ampiezza del margine tra i 
+    vettori di supporto, maggiore è il suo valore minore sarà l'ampiezza del 
+    margine portando a una diminuzione della proprietà di generalizzazione.
+\end{itemize}
+
+Attraverso il processo di tuning del modello è stato scelto di utilizzare il 
+valore $0.01$ per il parametro $\gamma$ e $10$ per $C$.
