@@ -40,6 +40,13 @@ holdout <- function(dataset) {
   acc_m0 <<- mean(predValid0_True == ValidSet$result)                    
   table(predValid0_True, ValidSet$result)
   
+  precision_positive <<- list()
+  recall_positive <<- list()
+  f.score_positive <<- list()
+  precision_negative <<- list()
+  recall_negative <<- list()
+  f.score_negative <<- list()
+  
   # plot auc
   plot_auc(predTrain0_True, TrainSet$result, 1) # train
   plot_auc(predValid0_True, ValidSet$result, 1) # valid

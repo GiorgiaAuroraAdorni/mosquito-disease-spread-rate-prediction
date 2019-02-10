@@ -7,6 +7,7 @@ source("categorical.R")
 source("utilities.R")
 source("data_exploration.R")
 source("holdout.R")
+source("10foldcross.R")
 
 # Libraries
 libraries_list <- c("DataExplorer", "Amelia", "pscl", "devtools", "lattice", "reprtree", "randomForest", "ROCR", "cowplot", "ggplot2")
