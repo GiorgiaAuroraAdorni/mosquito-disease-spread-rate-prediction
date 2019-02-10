@@ -79,3 +79,44 @@ testuale di tutti i fenomeni meteorologici registrati durante il test.
 \end{centering}
 
 \end{itemize}
+
+\section{Accuratezza}
+È stata anche eseguita un'analisi di accuratezza per quanto riguarda le 
+feature per le quali è stato possibile individuare un dominio ben definito, 
+nella Tabella \ref{tab:features-accuracy} sono mostrati i risultati ottenuti e come è 
+possibile notare tutte le feature analizzate rispettano il dominio di 
+riferimento. 
+
+\vspace{.5em}
+\begin{centering}
+	\begin{tabular}{lccc}
+		\toprule
+		feature & dominio & \% valori esterni al dominio \\
+		\midrule
+		season\_year & $[2007, 2107]$ & $0$ \\
+		week &	$[1, 52]$ & $0$ \\
+		number\_of\_mosquitoes &	$\geq 0$ & $0$ \\
+		day\_of\_week &	$[0, 6]$ & $0$ \\
+		precip\_total &	$\geq 0$ & $0$ \\
+		stn\_pressure &	$\geq 0$ & $0$ \\
+		sea\_level &	$\geq 0$ & $0$ \\
+		result\_speed &	$\geq 0$ & $0$ \\
+		result\_dir &	$[0, 360]$ & $0$ \\
+		avg\_speed &	$\geq 0$ & $0$ \\
+		max5\_speed &	$\geq 0$ & $0$ \\
+		max5\_dir &	$[0, 360]$ & $0$ \\
+		max2\_speed &	$\geq 0$ & $0$ \\
+		max2\_dir &	$[0, 360]$ & $0$ \\
+		station\_latitude & $[-90, 90]$ & $0$ \\
+		station\_longitude & $[-180, 180]$ & $0$ \\
+		station\_ground\_height &	$\geq 0$ & $0$ \\
+		station\_height & $\geq 0$ & $0$ \\
+		avg\_speed & $\geq 0$ & $0$ \\
+		block\_latitude & $[-90, 90]$ & $0$ \\
+		block\_longitude & $[-180, 180]$ & $0$ \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi di accuratezza delle features per dominio 
+		di riferimento}
+	\label{tab:features-accuracy}
+\end{centering}
