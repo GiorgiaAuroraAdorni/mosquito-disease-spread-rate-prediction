@@ -152,12 +152,16 @@ In tabella \ref{tab:completezza weather} sono presentate le analisi di completez
 
 \subsubsection*{Stations}
 \addcontentsline{toc}{subsubsection}{Stations}
-Il dataset \textsc{Stations} presenta una completezza del 82,67\%. Esso risulta 
-essere il meno completo tra i dataset presentati. In particolare quattro 
-attributi su 15 presentano dei valori mancanti. \textbf{FIXME: spiegare che 
-però tanto wmo, climate\_division\_code e climate\_division\_station\_code non 
-ci servono}\\
-In tabella \ref{tab:completezza stations} sono presentate le analisi di completezza relative a ciascun attributo e la percentuale della completezza di tupla e di schema.
+Il dataset \textsc{Stations} presenta una completezza del 82,67\%. In 
+percentuale esso risulta essere il meno completo tra i dataset presentati, in 
+valori assoluti è però molto più piccolo degli altri, dato che contiene solo 5 
+tuple. Inoltre, dei quattro attributi su 15 che presentano dei valori mancanti, 
+possiamo trascurare \textt{wmo}, \textt{climate\_division\_code} e 
+\textt{climate\_division\_station\_code}, trattandosi di codici identificativi 
+delle stazioni meteorologiche che non sono importanti per i nostri scopi. \\
+
+In tabella \ref{tab:completezza stations} sono presentate le analisi di 
+completezza relative a ciascun attributo, alle tuple e all'intero schema.
 
 \begin{figure}[H]
 	\centering

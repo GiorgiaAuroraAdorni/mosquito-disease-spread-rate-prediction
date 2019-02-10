@@ -129,13 +129,11 @@ dataset per migliorarne la leggibilità.
 		commentstyle=\color{gray},
 		autogobble=false,
 	 ]
-
-	 SELECT test_id, 
-		 result, 
-		day_of_week, 
-		weather_conditions
-	 FROM "ReadableFusedDataset";
-
+SELECT test_id, 
+       result, 
+       day_of_week, 
+       weather_conditions
+FROM "ReadableFusedDataset";
 	\end{lstlisting}
 
 	In particolare è possibile notare come gli attributi \texttt{cod\_sum\_ra} e 
