@@ -1,4 +1,4 @@
-% fixme cambiare nome?
+% fixme cambiare nome / spostare?
 
 Nel dataset \textsc{WNV Mosquito} abbiamo voluto aggiungere l'attributo 
 \texttt{day\_of\_week} che corrisponde al giorno della settimana in cui è stato 
@@ -7,11 +7,31 @@ come per esempio il giorno della settimana in cui è stato effettuato il maggior
 numero di test. 
 \\
 
-Nel dataset \textsc{Weather}, a seguito dell'aggregazione delle osservazioni 
+Un analisi del dataset \textsc{Weather} ha mostrato come alcuni codici della 
+colonna \texttt{code\_sum} comparissero molto raramente. Per rendere questi 
+valori più adatti all'utilizzo come feature, abbiamo deciso di aggregarli 
+manualmente in categorie più ampie, in base alla somiglianza dei fenomeni 
+meteorologici rappresentati:
+\begin{itemize}
+	\item I codici \texttt{GR} (grandine, 1 occorrenza), \texttt{GS} (piccola 
+	grandine, 3 occorrenze) e \texttt{PL} (pioggia gelata, 33 occorrenze) sono 
+	stati trasformati nel codice aggregato \texttt{HAIL} (grandine, 37 
+	occorrenze).
+	
+	\item I codici \texttt{SQ} (raffiche di vento, 8 occorrenze), \texttt{FC} 
+	(nubi a imbuto, 1 occorrenza) sono stati trasformati nel codice aggregato 
+	\texttt{WIND} (forte vento, 9 occorrenze).
+	
+	\item I codici \texttt{FU} (fumo, 19 occorrenze), \texttt{DU} (polvere, 1 
+	occorrenza) e sono stati trasformati nel codice aggregato \texttt{SMOKE} 
+	(fumo e polvere, 20 occorrenze).
+	
+	\item Tutti i rimanenti codici compaiono più di 110 volte nell'arco 
+	temporale analizzato e sono stati mantenuti invariati.
+\end{itemize}
+
+Nello stesso dataset, a seguito dell'aggregazione delle osservazioni 
 giornaliere in settimanali, è stata aggiunta la colonna 
 \texttt{days\_per\_week}, rappresentante il numero di giorni settimanali 
 aggregati. Nella maggior parte dei casi questo valore corrisponde a 7, ovvero 
 l'aggregazione di tutti i giorni della settimana.
-
-%fixme 
-% aggiungere parte su code_sum 
