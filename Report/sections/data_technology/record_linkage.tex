@@ -1,4 +1,4 @@
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \def\svgwidth{\columnwidth}
     \scalebox{.5}{
@@ -9,12 +9,17 @@
 \end{figure}
 
 L'analisi dei dataset ha portato alla stesura dello schema concettuale 
-riportato in Figura~\ref{fig:er-schema} per le operazioni di record linkage, in 
-particolare sono state definite le seguenti chiavi primarie per le entità:
+riportato in Figura~\ref{fig:er-schema}. 
+
+\textbf{FIXME} I record di weather e wnv descrivono proprietà dell'ambiente 
+misurate in un certo momento temporale: in un caso le condizioni 
+meteorologiche, nell'altro quante zanzare sono state catturate.
+
+Per le operazioni di record linkage, 
+in particolare sono state definite le seguenti chiavi primarie per le entità:
 
 \begin{itemize}
-    \item \textsc{WNV}: (\texttt{test\_id}, \texttt{season\_year}, 
-    \texttt{week}).
+    \item \textsc{WNV}: (\texttt{test\_id}).
 
     \item \textsc{Block}: (\texttt{block}).
     

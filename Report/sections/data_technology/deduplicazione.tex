@@ -12,11 +12,11 @@ analizzando l'attributo \texttt{block}. In particolare è stata riscontrata
 la presenza di alcune tuple duplicate, che differivano per i campi 
 \texttt{latitude} e \texttt{longitude}. Calcolando la distanza tra le diverse 
 coordinate abbiamo verificato che le differenze erano solo di alcuni metri.
-Dunque è stato deciso di tenere \textbf{FIXME randomicamente} una delle tuple 
-duplicate data la scarsa differenza tra le due e la poca importanza della 
-precisione, poiché nel nostro modello predittivo le coordinate di ogni 
-indirizzo vengono utilizzate solo per cercare una corrispondenza con la 
-stazione di rilevamento meteo più vicina.
+Dunque è stato deciso in modo arbitrario di tenere una delle tuple duplicate 
+data la scarsa differenza tra le due e la poca importanza della precisione, 
+poiché nel nostro modello predittivo le coordinate di ogni indirizzo vengono 
+utilizzate solo per cercare una corrispondenza con la stazione di rilevamento 
+meteo più vicina.
 
 Sempre sul dataset \textsc{WNV Mosquito} è stata analizzata la duplicazione 
 delle colonne \texttt{latitude}, \texttt{longitude} e \texttt{block} rispetto a 
@@ -29,3 +29,5 @@ negli anni.
 Una situazione analoga si verifica analizzando il campo \texttt{trap\_type} 
 rispetto a \texttt{trap}. Vengono rilevate 17 tuple duplicate, ma ancora una 
 volta è possibile discriminarle attraverso l'attributo \texttt{season\_year}.
+
+%fixme speigazione della creazione di block

@@ -2,31 +2,27 @@ Il processo di data fusion consiste nell'esecuzione di una query di join
 fra le entità definite nella Sezione \ref{sec:record-linkage} attraverso le 
 corrispondenti relazioni individuate e descritte.
 
+\textbf{FIXME: dobbiamo spiegare che delle stazioni meteo ne abbiamo potute 
+	tenere solo 2 e che di WNV abbiamo dovuto escludere il 2018 perché non 
+	avevamo 
+	il meteo}
+Prima dell'esecuzione della query, sono stati eliminati dal dataset 
+\textsc{Stations} i record relativi alle stazioni con identificativo 
+\texttt{wban} {4807} e {4879}, poiché essendo attive dal 2015 non forniscono 
+alcuna rilevazione dei dati meteo per i primi 8 anni in cui sono stati 
+effettuati i test del WNV.\\
+
 Non è stato necessario applicare nessuna tecnica di risoluzione dei conflitti 
 poiché nei dataset utilizzati non vi sono ambiguità.
 
-\textbf{FIXME} I record di weather e wnv descrivono proprietà dell'ambiente 
-misurate in un certo momento temporale: in un caso le condizioni 
-meteorologiche, nell'altro quante zanzare sono state catturate.
-
 \textbf{FIXME bo magari dovremmo scrivere qualche altra cosa}
-
-\textbf{FIXME: dobbiamo spiegare che delle stazioni meteo ne abbiamo potute 
-tenere solo 2 e che di WNV abbiamo dovuto escludere il 2018 perché non avevamo 
-il meteo}
-
-%FIXME aggiungere spiegazione sulla trasformazione di weather da daily a weakly
 
 %FIXME: non mi convince il nome
 \subsection{Features}
 Dopo le operazioni di integrazione dei quattro dataset, tre iniziali e uno 
 generato, sono state selezionate 66 features.
 
-In particolare sono stati eliminati dal dataset \textsc{Stations} i record 
-relativi alle stazioni con identificativo \texttt{wban} {4807} e {4879}, poiché 
-essendo attive dal 2015 non forniscono alcuna rilevazione dei dati meteo per i 
-primi 8 anni in cui sono stati effettuati i test del WNV.\\
-Inoltre di questa tabella non sono state considerate come features le colonne 
+In particolare sono stati eliminati dal dataset \textsc{Stations} le colonne 
 \texttt{wban}, \texttt{wmo}, \texttt{call\_sign}, 
 \texttt{climate\_division\_code}, \texttt{climate\_division\_state\_code}, \\
 \texttt{climate\_division\_station\_code}, \texttt{name} e \texttt{state}, 
