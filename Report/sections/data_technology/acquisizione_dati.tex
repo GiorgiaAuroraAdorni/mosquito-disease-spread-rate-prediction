@@ -1,14 +1,16 @@
-Per migliorare la completezza, nel dataset \textsc{WNV Mosquito} è stato 
-possibile effettuare un completamento dei valori \texttt{latitude} e 
-\texttt{longitude} mancanti, utilizzando il servizio di \textbf{Geocoding} 
-offerto da Google.
+Per migliorare la completezza abbiamo effettuato un completamento dei dati 
+mancanti con tecniche che sfruttano la conoscenza del dominio specifico.
 
-In particolare, dagli indirizzi presenti nella colonna \texttt{block} abbiamo 
-estratto le corrispondenti coppie di latitudine e longitudine. 
-Per verificare l'accuratezza delle posizioni ottenute è stata calcolata la 
-distanza geografica tra le coordinate presenti e quelle ottenute dal servizio. 
-In questo modo abbiamo potuto verificare che il 95\% delle istanze si trova ad 
-una distanza inferiore a 925 metri.
+Nel dataset \textsc{WNV Mosquito} è stato possibile effettuare un completamento 
+dei valori \texttt{latitude} e \texttt{longitude} mancanti, utilizzando il 
+servizio di \textbf{Geocoding} offerto da Google.
+
+In particolare, abbiamo richiesto le coppie di latitudine e longitudine 
+corrispondenti agli indirizzi presenti nella colonna \texttt{block}. Per 
+verificare l'accuratezza delle posizioni ottenute è stata calcolata la distanza 
+geografica tra le coordinate presenti e quelle ottenute dal servizio. In questo 
+modo abbiamo potuto verificare che il 95\% delle istanze si trova ad una 
+distanza inferiore a 925 metri.
 
 Essendo queste posizioni utilizzate principalmente per individuare le stazioni 
 meteorologiche più vicine ad una data trappola, abbiamo ritenuto sufficiente 
