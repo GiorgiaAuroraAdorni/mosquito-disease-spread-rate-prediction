@@ -5,19 +5,19 @@ save_data_exploration_plot <- function(dataset) {
   dev.off() 
   
   pdf("DataExplorer/plot_bar.pdf") 
-  plot_bar(dataset)
+  plot_bar(dataset, nrow=1L, ncol=1L)
   dev.off() 
   
   pdf("DataExplorer/plot_histogram.pdf") 
-  plot_histogram(dataset)
+  plot_histogram(dataset, nrow=3L, ncol=3L)
   dev.off() 
   
   pdf("DataExplorer/plot_qq.pdf") 
-  plot_qq(dataset, sampled_rows = 26000L)
+  plot_qq(dataset, sampled_rows = 26000L, nrow=2L, ncol=2L)
   dev.off() 
   
   pdf("DataExplorer/plot_qq_byname.pdf") 
-  plot_qq(dataset, by = "result", sampled_rows = 26000L)
+  plot_qq(dataset, by = "result", sampled_rows = 26000L, nrow=2L, ncol=2L )
   dev.off() 
   
   pdf("DataExplorer/plot_correlation.pdf") 
@@ -39,10 +39,10 @@ save_data_exploration_plot <- function(dataset) {
   #dev.off() 
   
   pdf("DataExplorer/plot_boxplot.pdf") 
-  plot_boxplot(dataset, by = "result")
+  plot_boxplot(dataset, by = "result", nrow=2L, ncol=2L)
   dev.off() 
   
   pdf("DataExplorer/plot_scatterplot.pdf") 
-  plot_scatterplot(dataset, by = "result", sampled_rows = 26000L)
+  plot_scatterplot(dataset, by = "result", sampled_rows = 26000L, nrow=2L, ncol=2L)
   dev.off() 
 }

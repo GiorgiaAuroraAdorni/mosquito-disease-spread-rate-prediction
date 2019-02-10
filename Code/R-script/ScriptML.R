@@ -23,9 +23,13 @@ dataset_with_only_features_and_target <- get_features_dataset(dataset)
 # some statistics
 save_data_exploration_plot(dataset) 
 
-head(dataset)
-str(dataset)
-summary(dataset)
+head <- head(dataset)
+str <- str(dataset)
+summary <- summary(dataset)
+
+capture.output(head, file = "head.txt")
+capture.output(str, file = "str.txt")
+capture.output(summary, file = "summary.txt")
 
 holdout(dataset_with_only_features_and_target)
 crossValidation(dataset_with_only_features_and_target)

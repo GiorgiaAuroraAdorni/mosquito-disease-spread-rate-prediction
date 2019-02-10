@@ -1,0 +1,56 @@
+  season_year week trap_type           test_date number_of_mosquitoes                species day_of_week main_trap sub_trap days_per_week
+1        2007   38       CDC 2007-09-25 00:09:00                    7 CULEX PIPIENS/RESTUANS           1      T138                      7
+2        2008   30    GRAVID 2008-07-29 00:07:00                    3          CULEX PIPIENS           1      T138                      7
+3        2008   29    GRAVID 2008-07-24 00:07:00                   50 CULEX PIPIENS/RESTUANS           3      T138                      7
+4        2007   34       CDC 2007-08-28 00:08:00                   50          CULEX PIPIENS           1      T138                      7
+5        2007   34       CDC 2007-08-28 00:08:00                   50          CULEX PIPIENS           1      T138                      7
+6        2007   35       CDC 2007-09-06 00:09:00                   39          CULEX PIPIENS           3      T138                      7
+     t_max t_max_is_suspicious    t_min t_min_is_suspicious    t_avg t_avg_is_suspicious dew_point dew_point_is_suspicious wet_bulb
+1 32.22222                   0 12.77778                   0 22.30159                   0  12.14286                       0 16.42857
+2 29.44444                   0 15.55556                   0 23.01587                   0  14.76190                       0 18.17460
+3 32.77778                   0 16.66667                   0 25.87302                   0  18.33333                       0 20.79365
+4 32.22222                   0 16.11111                   0 23.88889                   0  18.96825                       0 20.55556
+5 32.22222                   0 16.11111                   0 23.88889                   0  18.96825                       0 20.55556
+6 32.22222                   0 13.88889                   0 22.46032                   0  14.60317                       0 17.85714
+  wet_bulb_is_suspicious heat heat_is_suspicious     cool cool_is_suspicious code_sum_is_suspicious precip_total precip_total_is_suspicious
+1                      0    0                  0 3.968254                  0                      0   0.00000000                          0
+2                      0    0                  0 4.682540                  0                      0   0.68942857                          0
+3                      0    0                  0 7.539683                  0                      0   6.00528571                          0
+4                      0    0                  0 5.555556                  0                      0  13.71600000                          0
+5                      0    0                  0 5.555556                  0                      0  13.71600000                          0
+6                      0    0                  0 4.126984                  0                      0   0.01814286                          0
+  stn_pressure stn_pressure_is_suspicious sea_level sea_level_is_suspicious result_speed result_speed_is_suspicious result_dir
+1     747.4131                          0  763.8143                       0     7.385714                          0   14.85714
+2     744.8731                          0  761.1654                       0     6.171429                          0   20.14286
+3     744.8006                          0  760.9114                       0     5.400000                          0   23.85714
+4     743.3491                          0  759.5326                       0     4.185714                          0   16.85714
+5     743.3491                          0  759.5326                       0     4.185714                          0   16.85714
+6     748.1389                          0  764.5763                       0     6.085714                          0   11.57143
+  result_dir_is_suspicious avg_speed avg_speed_is_suspicious max5_speed max5_speed_is_suspicious max5_dir max5_dir_is_suspicious max2_speed
+1                        0    14.835                       0      39.79                        0 205.7143                      0      28.75
+2                        0    12.282                       0      35.42                        0 188.5714                      0      26.91
+3                        0    12.236                       0      41.63                        0 262.8571                      0      31.51
+4                        0    10.971                       0      45.08                        2 257.1429                      0      31.97
+5                        0    10.971                       0      45.08                        2 257.1429                      0      31.97
+6                        0    11.569                       0      34.27                        0 107.1429                      0      25.30
+  max2_speed_is_suspicious max2_dir max2_dir_is_suspicious code_sum_ra code_sum_br code_sum_hz code_sum_ts code_sum_smoke code_sum_dz
+1                        0 220.0000                      0           0           0           1           0              0           0
+2                        0 200.0000                      0           2           1           0           1              0           0
+3                        0 204.2857                      0           3           1           0           0              0           0
+4                        1 188.5714                      0           5           6           1           3              0           0
+5                        1 188.5714                      0           5           6           1           3              0           0
+6                        0 122.8571                      0           0           0           0           0              0           0
+  code_sum_wind code_sum_fg code_sum_sn code_sum_up code_sum_hail         station_location station_latitude station_longitude
+1             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+2             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+3             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+4             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+5             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+6             0           0           0           0             0 CHICAGO MIDWAY INTL ARPT         41.78611         -87.75222
+  station_ground_height station_height station_barometer block_latitude block_longitude block_station_distance result
+1                   187            188               189       41.71054       -87.58456               16276.38  False
+2                   187            188               189       41.71054       -87.58456               16276.38  False
+3                   187            188               189       41.71054       -87.58456               16276.38  False
+4                   187            188               189       41.71054       -87.58456               16276.38  False
+5                   187            188               189       41.71054       -87.58456               16276.38  False
+6                   187            188               189       41.71054       -87.58456               16276.38  False
