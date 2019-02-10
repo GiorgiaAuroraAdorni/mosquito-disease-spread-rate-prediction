@@ -9,9 +9,9 @@ import_libaries <- function(libraries_list) {
 }
 
 # Plot auc fucntion and save 
-plot_auc <- function(prediction, label, i, type) {
+plot_auc <- function(prediction, label, i, type, prediction_class) {
   
-  confmat <<- table(prediction, label)
+  confmat <<- table(prediction_class, label)
   
   # Precision: tp/(tp+fp):
   precision_positive[i] <<- confmat[2,2]/sum(confmat[2,1:2])
@@ -31,6 +31,9 @@ plot_auc <- function(prediction, label, i, type) {
   # F-Score: 2 * precision * recall /(precision + recall):
   f.score_negative[i] <<- 2 * precision_negative[[i]]  * recall_negative[[i]]  / (precision_negative[[i]]  + recall_negative[[i]])
   
+  # accuracy
+  accuracy[i] <<- (confmat[2,2] + confmat[1,1]) / (confmat[1,1] + confmat[1,2] + confmat[2,1] + confmat[2,2])
+  
   # auc
   roc_preds <<- ROCR::prediction(labels = as.numeric(label), predictions = as.numeric(prediction))
   
@@ -41,6 +44,8 @@ plot_auc <- function(prediction, label, i, type) {
   plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
   dev.off() 
   
+  capture.output(confmat, file = paste(type, "/confmat_", i, ".txt", sep=""))
+  capture.output(accuracy[i], file = paste(type, "/accuracy_", i, ".txt", sep=""))
   capture.output(recall_positive[i], file = paste(type, "/recall_positive_", i, ".txt", sep=""))
   capture.output(recall_negative[i], file = paste(type, "/recall_negative_", i, ".txt", sep=""))
   capture.output(f.score_positive[i], file = paste(type, "/f.score_positive_", i, ".txt", sep=""))

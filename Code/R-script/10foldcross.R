@@ -14,6 +14,7 @@ crossValidation <- function(dataset) {
   precision_negative <<- list()
   recall_negative <<- list()
   f.score_negative <<- list()
+  accuracy <<- list()
   
   #Perform 10 fold cross validation
   for(i in 1:10){
@@ -41,23 +42,25 @@ crossValidation <- function(dataset) {
     
     predTrain0 <<- predict(model0[[i]], CrossTrainSet, type = "prob")
     predTrain0_True <<- predTrain0[,2]
+    predTrain0Class <<- predict(model0[[i]], CrossTrainSet, type = "class")
     
     # checking classification accuracy
-    acc_mT0[i] <<- mean(predTrain0_True == CrossTrainSet$result) 
+    acc_mT0[i] <<- mean(predTrain0Class == CrossTrainSet$result) 
     capture.output(acc_mT0, file = paste("CrossValidationRF/acc_mT0_2", i, ".txt", sep=""))
-    capture.output(table(predTrain0_True, CrossTrainSet$result), file = paste("CrossValidationRF/train_accuracy_", i, ".txt", sep=""))
+    capture.output(table(predTrain0Class, CrossTrainSet$result), file = paste("CrossValidationRF/train_accuracy_class_", i, ".txt", sep=""))
     
     ## predicting on Validation set
     predValid0 <<- predict(model0[[i]], CrossValidSet, type = "prob")
     predValid0_True <<- predValid0[,2]
+    predValid0Class <<- predict(model0[[i]], CrossValidSet, type = "class")
     
     # checking classification accuracy
-    acc_mV0[i] <<- mean(predValid0_True == CrossValidSet$result) 
+    acc_mV0[i] <<- mean(predValid0Class == CrossValidSet$result) 
     capture.output(acc_mT0, file = paste("CrossValidationRF/acc_mV0_", i, ".txt", sep=""))
-    capture.output(table(predValid0_True, CrossValidSet$result), file = paste("CrossValidationRF/valid_accuracy_", i, ".txt", sep=""))
+    capture.output(table(predValid0Class, CrossValidSet$result), file = paste("CrossValidationRF/valid_accuracy_class_", i, ".txt", sep=""))
     
     # plot auc
-    plot_auc(predTrain0_True, CrossTrainSet$result, i, "CrossValidationRF/train") # train
-    plot_auc(predValid0_True, CrossValidSet$result, i, "CrossValidationRF/validation") # valid
+    plot_auc(predTrain0_True, CrossTrainSet$result, i, "CrossValidationRF/train", predTrain0Class) # train
+    plot_auc(predValid0_True, CrossValidSet$result, i, "CrossValidationRF/validation", predValid0Class) # valid
   }
 }

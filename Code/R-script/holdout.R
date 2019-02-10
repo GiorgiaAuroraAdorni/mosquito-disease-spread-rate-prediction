@@ -6,8 +6,11 @@ holdout <- function(dataset) {
   ValidSet <<- dataset_with_only_features_and_target[-train,]
   
   # statistics
-  summary(TrainSet)
-  summary(ValidSet)
+  summary_TS <<- summary(TrainSet$result)
+  summary_VS <<- summary(ValidSet$result)
+    
+  capture.output(summary_TS, file="HoldoutRF/train_set.txt")
+  capture.output(summary_VS, file="HoldoutRF/validation_set.txt")
   
   # this model use as features all the columns except for that with more than 53 categories
   model1 <<- randomForest(result ~ ., data = TrainSet, importance = TRUE)
@@ -31,20 +34,22 @@ holdout <- function(dataset) {
   
   predTrain1 <<- predict(model1, TrainSet, type = "prob")
   predTrain1_True <<- predTrain1[,2]
+  predTrain1Class <<- predict(model1, TrainSet, type = "class")
   
   # checking classification accuracy
-  capture.output(table(predTrain1_True, TrainSet$result), file = "HoldoutRF/train_accuracy.txt")
-  acc_mT1 <<- mean(predTrain1_True == TrainSet$result)   
+  capture.output(table(predTrain1Class, TrainSet$result), file = "HoldoutRF/train_accuracy_class.txt")
+  acc_mT1 <<- mean(predTrain1Class == TrainSet$result)   
   capture.output(acc_mT1, file = "HoldoutRF/acc_mT1.txt")
   
   ## predicting on Validation set
   predValid1 <<- predict(model1, ValidSet, type = "prob")
   predValid1_True <<- predValid1[,2]
+  predValid1Class <<- predict(model1, ValidSet, type = "class")
   
   # checking classification accuracy
-  acc_mV1 <<- mean(predValid1_True == ValidSet$result)                    
+  acc_mV1 <<- mean(predValid1Class == ValidSet$result)                    
   capture.output(acc_mV1, file = "HoldoutRF/acc_mV1.txt")
-  capture.output(table(predValid1_True, ValidSet$result), file = "HoldoutRF/valid_accuracy.txt")
+  capture.output(table(predValid1Class, ValidSet$result), file = "HoldoutRF/validation_accuracy_class.txt")
   
   precision_positive <<- list()
   recall_positive <<- list()
@@ -52,8 +57,9 @@ holdout <- function(dataset) {
   precision_negative <<- list()
   recall_negative <<- list()
   f.score_negative <<- list()
+  accuracy <<- list()
   
   # plot auc
-  plot_auc(predTrain1_True, TrainSet$result, 1, "HoldoutRF/train") # train
-  plot_auc(predValid1_True, ValidSet$result, 1, "HoldoutRF/validation") # valid
+  plot_auc(predTrain1_True, TrainSet$result, 1, "HoldoutRF/train", predTrain1Class) # train
+  plot_auc(predValid1_True, ValidSet$result, 1, "HoldoutRF/validation", predValid1Class) # valid
 }

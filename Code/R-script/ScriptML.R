@@ -27,9 +27,9 @@ head <- head(dataset)
 str <- str(dataset)
 summary <- summary(dataset)
 
-capture.output(head, file = "head.txt")
-capture.output(str, file = "str.txt")
-capture.output(summary, file = "summary.txt")
+capture.output(head, file = "DataExplorer/head.txt")
+capture.output(str(dataset), file = "DataExplorer/str.txt")
+capture.output(summary, file = "DataExplorer/summary.txt")
 
 holdout(dataset_with_only_features_and_target)
 crossValidation(dataset_with_only_features_and_target)
