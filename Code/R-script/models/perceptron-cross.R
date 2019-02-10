@@ -51,7 +51,7 @@ mx.callback.train.stop <- function(tol = 1e-3,
              iteration > min.iter) | 
             acc.train == 1) {
           cat("Training finished with final accuracy: ", 
-              round(acc.train * 100, 2), " %\n", sep = "")
+              round(acc.train * 100, 2), " %\n", sep = "", file="crossval.log", append=TRUE)
           continue <- FALSE 
         }
         env$acc.log <- c(env$acc.log, acc.train)
@@ -70,7 +70,7 @@ fold_count = 10
 folds <- cut(seq(1, nrow(dataset)), breaks=fold_count, labels=FALSE)
 
 for (i in 1:fold_count) {
-  cat("Cross Validation fold ", i, "\n")
+  cat("Cross Validation fold ", i, "\n", file="crossval.log", append=TRUE)
   
   is_train = (folds != i)
   
@@ -110,7 +110,7 @@ for (i in 1:fold_count) {
   confmat = table(pred.label, test.y)
   
   accuracy = mean(pred.label == test.y)
-  print(accuracy)
+  cat("Test accuracy:", accuracy, "\n", file="crossval.log", append=TRUE)
   
   toc()
   
@@ -123,9 +123,10 @@ for (i in 1:fold_count) {
   # F-Score: 2 * precision * recall /(precision + recall):
   f.score =  2 * precision * recall / (precision + recall)
   
-  cat("Precision: ", precision, "\n")
-  cat("Recall: ", recall, "\n")
-  cat("F-Measure: ", f.score, "\n")
+  cat("Confmat: ", confmat, "\n", file="crossval.log", append=TRUE)
+  cat("Precision: ", precision, "\n", file="crossval.log", append=TRUE)
+  cat("Recall: ", recall, "\n", file="crossval.log", append=TRUE)
+  cat("F-Measure: ", f.score, "\n", file="crossval.log", append=TRUE)
   
   # ROC
   preds = ROCR::prediction(labels = test.y, predictions=pred.probs)
@@ -136,4 +137,6 @@ for (i in 1:fold_count) {
   pdf(paste("roc-", i, ".pdf", sep=""))
   plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
   dev.off()
+  
+  cat("\n", file="crossval.log", append=TRUE)
 }
