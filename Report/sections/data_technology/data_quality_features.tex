@@ -1,10 +1,81 @@
 \section{Completezza}
+% FIXME espandere
 In seguito alla selezione delle 66 features, la completezza complessiva del 
 dataset risulta essere del 100\%, così come quella di attributo e di tupla.
 
 \section{Leggibilità}
-% non ho la minima idea di cosa scrivere 
+% FIXME rivedere
 Dopo le modifiche apportate al dataset, in particolare quelle per convertire le 
 unità di misura dal sistema anglosassone a quello internazionale e ... la 
 leggibilità risulta notevolmente migliorata.
-%FIXME metriche???
+
+\item \textbf{Dataset finale}: il dataset finale contiene per lo più 
+attributi di tipo numerico che esprimono valori di grandezze fisiche 
+(distanze, temperature, velocità), che sono autoesplicativi. Potrebbe 
+essere utile invece rendere immediata all'utente la visualizzazione del 
+risultato delle analisi, del giorno in cui sono state effettuate e 
+soprattutto le condizioni meteo poiché ora vengono utilizzati dei codici 
+numerici. A causa di ciò è stato pensato di utilizzare una vista SQL per 
+evidenziare questi dati. Una query sugli attributi discussi in precedenza 
+produce i risultati visibile in Tabella~\ref{tab:dataset-before-view}, 
+mentre applicando la query SQL mostrata nel Listing~\ref{code:sql-view} 
+vengono restituiti i record mostrati nella 
+Tabella~\ref{tab:dataset-after-view}.
+
+\vspace{.5em}
+\begin{centering}
+	\begin{tabular}{lcccc}
+		\toprule
+		test\_id & result & day\_of\_week & cod\_sum\_ra & cod\_sum\_ts \\
+		\midrule
+		23505 & 0 & 2 & 3 & 0 \\
+		23109 &	0 & 2 & 0 & 0 \\
+		45618 &	1 & 3 & 1 & 2 \\
+		40026 &	1 & 4 & 1 & 0 \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Risultato query dataset senza view}
+	\label{tab:dataset-before-view}
+\end{centering}
+
+\begin{lstlisting}[
+label={code:sql-view},
+caption={Query SQL per la leggibilità degli attributi},
+captionpos=b,
+language=SQL,
+showspaces=false,
+basicstyle=\ttfamily,
+numbers=none,
+commentstyle=\color{gray},
+autogobble=false,
+]
+SELECT test_id, 
+result, 
+day_of_week, 
+weather_conditions
+FROM "ReadableFusedDataset";
+\end{lstlisting}
+
+In particolare è possibile notare come gli attributi \texttt{code\_sum\_ra} 
+e \texttt{code\_sum\_ts} sono stati collassati in un unico attributo 
+\texttt{weather\_conditions} visibile nella 
+Tabella~\ref{tab:dataset-after-view} che racchiude la rappresentazione 
+testuale di tutti i fenomeni meteorologici registrati durante il test.
+
+\vspace{.5em}
+\begin{centering}
+	\begin{tabular}{lccc}
+		\toprule
+		test\_id & result & day\_of\_week & weather\_conditions \\
+		\midrule
+		23505 & Negativo & Mercoledì & {Pioggia} \\
+		23109 &	Negativo & Mercoledì & {} \\
+		45618 &	Positivo & Giovedì & {Pioggia,Temporale} \\
+		40026 &	Positivo & Venerdì & {Pioggia} \\
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Risultato query dataset attraverso la view}
+	\label{tab:dataset-after-view}
+\end{centering}
+
+\end{itemize}
