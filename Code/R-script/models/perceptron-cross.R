@@ -34,16 +34,6 @@ dataset <- dataset[, varying_columns]
 set.seed(42)
 mx.set.seed(42)
 
-# split into Train and Validation sets: 80 - 20 (random)
-proportion = 0.8
-is_train <- sample(nrow(dataset), proportion*nrow(dataset), replace = FALSE)
-
-train.x <- data.matrix(dataset[is_train,])
-train.y <- target[is_train]
-
-test.x <- data.matrix(dataset[-is_train,])
-test.y <- target[-is_train]
-
 mx.callback.train.stop <- function(tol = 1e-3, 
                                    mean.n = 1e2, 
                                    period = 100, 
@@ -75,14 +65,23 @@ mx.callback.train.stop <- function(tol = 1e-3,
   }
 }
 
-tic("Tempo di addestramento:")
+# create cross validation folds
+fold_count = 10
+folds <- cut(seq(1, nrow(dataset)), breaks=fold_count, labels=FALSE)
 
-model_name = "models/perceptron-v1-sigmoid.RData"
-
-if (file.exists(model_name)) {
-  load(model_name)
-  model <- mx.unserialize(model_data)
-} else {
+for (i in 1:fold_count) {
+  cat("Cross Validation fold ", i, "\n")
+  
+  is_train = (folds != i)
+  
+  train.x <- data.matrix(dataset[is_train,])
+  train.y <- target[is_train]
+  
+  test.x <- data.matrix(dataset[-is_train,])
+  test.y <- target[-is_train]
+  
+  tic("Tempo di addestramento:")
+  
   # define the neural network architecture
   model <- mx.mlp(
     train.x,
@@ -102,32 +101,39 @@ if (file.exists(model_name)) {
     ctx = mx.cpu(0)
   )
   
-  model_data <- mx.serialize(model)
-  save(model_data, file=model_name)
+  # evaluate the performance on the test set
+  preds = predict(model, test.x, array.layout="rowmajor")
+  pred.label = max.col(t(preds)) - 1
+  pred.probs = t(preds)[,2]
+  
+  pred.label = factor(pred.label, levels=0:1)
+  confmat = table(pred.label, test.y)
+  
+  accuracy = mean(pred.label == test.y)
+  print(accuracy)
+  
+  toc()
+  
+  # Precision: tp/(tp+fp):
+  precision = confmat[2,2]/sum(confmat[2,1:2])
+  
+  # Recall: tp/(tp + fn):
+  recall = confmat[2,2]/sum(confmat[1:2,2])
+  
+  # F-Score: 2 * precision * recall /(precision + recall):
+  f.score =  2 * precision * recall / (precision + recall)
+  
+  cat("Precision: ", precision, "\n")
+  cat("Recall: ", recall, "\n")
+  cat("F-Measure: ", f.score, "\n")
+  
+  # ROC
+  preds = ROCR::prediction(labels = test.y, predictions=pred.probs)
+  
+  perf.rocr = performance(preds, measure = "auc", x.measure = "cutoff")
+  perf.tpr.rocr = performance(preds, "tpr", "fpr")
+  
+  pdf(paste("roc-", i, ".pdf", sep=""))
+  plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
+  dev.off()
 }
-
-# evaluate the performance on the test set
-preds = predict(model, test.x, array.layout="rowmajor")
-pred.label = max.col(t(preds)) - 1
-pred.probs = t(preds)[,2]
-confmat = table(pred.label, test.y)
-
-accuracy = mean(pred.label == test.y)
-print(accuracy)
-
-toc()
-
-# Precision: tp/(tp+fp):
-precision = confmat[2,2]/sum(confmat[2,1:2])
-
-# Recall: tp/(tp + fn):
-recall = confmat[2,2]/sum(confmat[1:2,2])
-
-# F-Score: 2 * precision * recall /(precision + recall):
-f.score =  2 * precision * recall / (precision + recall)
-
-preds = ROCR::prediction(labels = test.y, predictions=pred.probs)
-
-perf.rocr = performance(preds, measure = "auc", x.measure = "cutoff")
-perf.tpr.rocr = performance(preds, "tpr", "fpr")
-plot(perf.tpr.rocr, colorize = T, main = paste("AUC:", (perf.rocr@y.values)))
