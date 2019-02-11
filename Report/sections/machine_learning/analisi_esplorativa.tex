@@ -29,7 +29,11 @@ variabili continue.
 	\caption{GRAFICI bar}
 	\label{fig:plot_bar}
 \end{figure}
-$\\\\$
+Come visibile in figura \ref{fig:plot_bar}, le variabili \texttt{trap\_type} e 
+\texttt{result}, che sarebbe il target del nostro modello, hanno una 
+distribuzione dei valori non ottimale: quasi la totalità delle trappole sono di 
+tipo Gravid, mentre per quanto riguarda \texttt{result}, la maggior parte dei 
+test effettuati risultano negativi.
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.49\textwidth}
@@ -57,7 +61,21 @@ $\\\\$
 \label{fig:plot_histogram}
 \end{figure}
 
-Da questa analisi si evince che ...
+La variabile \texttt{number\_of\_mosquitoes} risulta fortemente sbilanciata 
+verso valori bassi, ma presenta anche un picco sul valore 50. Questo 
+probabilmente deriva del fatto che nel dataset, in caso venga catturato un 
+numero di zanzare superiore a 50, questo viene diviso in un altro record con 
+gli stessi attributi in modo tale che il numero di zanzare sia limitato a 50.  
+
+Per quanto riguarda l'attributo \texttt{day\_of\_week}, è interessante 
+osservare che tutti i test effettuati avvengono nei giorni lavorativi, in 
+particolare il giovedì e il venerdì. 
+
+
+
+ Da questa analisi si evince inoltre che i valori cosiddetti 
+ \texttt{suspicious} sono sempre pochi o addirittura non si prestano.
+
 % distribuzione delle variabili, 
 
 
@@ -75,6 +93,21 @@ In figura \ref{fig:plot_correlation} viene mostrato il risultato.
 	\label{fig:plot_correlation}
 \end{figure}
 
-Nell'analisi di questa matrice poniamo particolare attenzione alla variabile 
-\texttt{result}, ovvero il target del nostro modello.
-% analisi...
+Nell'analisi di questa matrice notiamo la presenza di alcuni cluster di forte 
+correlazione, motivati dal fatto che si riferiscono alla due stazioni di 
+rilevamento che sono solamente due, e di conseguenza  \textbf{FIXME}.
+
+Alcuni dati riguardanti le feature delle rilevazioni meteo risultano essere più 
+correlati di altri, come ad esempio vento e pressione oppure umidità e 
+temperatura.
+
+Ponendo l'attenzione sulla variabile \texttt{result}, ovvero il target del 
+nostro modello, non sembrerebbe esserci particolari correlazioni con le 
+features, eccetto una correlazione poco accentuata con il numero di 
+zanzare catturate. Questo è motivato dal fatto che, ipotizzando che prese due 
+zanzare, l'evento zanzara infetta o meno sia indipendente, allora è naturale 
+che la probabilità che un insieme di zanzare contenga almeno una zanzara 
+infetta, cresce linearmente con il numero di zanzare in esso contenute.
+
+Infine è possibile notare un correlazione ancora più lieve tra il target e le 
+misure di temperatura. 
