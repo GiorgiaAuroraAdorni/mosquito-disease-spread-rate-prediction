@@ -2,20 +2,18 @@ Il processo di data fusion consiste nell'esecuzione di una query di join
 fra le entità definite nella Sezione \ref{sec:record-linkage} attraverso le 
 corrispondenti relazioni individuate e descritte.
 
-\textbf{FIXME: dobbiamo spiegare che delle stazioni meteo ne abbiamo potute 
-	tenere solo 2 e che di WNV abbiamo dovuto escludere il 2018 perché non 
-	avevamo il meteo}
-
 Prima dell'esecuzione della query, sono stati eliminati dal dataset 
 \textsc{Stations} i record relativi alle stazioni \textit{Gary/Chicago Airport} 
 e \textit{Lansing Municipal Airport}, poiché essendo attive dalla fine del 2015 
 non forniscono i dati meteo per i primi 8 anni in cui sono stati effettuati i 
-test del WNV.\\
+test del WNV.
 
-Non è stato necessario applicare nessuna tecnica di risoluzione dei conflitti 
+Inoltre è stato necessario eliminare i record del dataset \textsc{WNV Mosquito} 
+che fanno riferimento all'anno 2018 poichè i dati contenuti nel dataset 
+\textsc{Weather} sono disponibili solamente fino all'anno 2017.
+
+Infine non è stato necessario applicare nessuna tecnica di risoluzione dei conflitti 
 poiché nei dataset utilizzati non vi sono ambiguità.
-
-\textbf{FIXME bo magari dovremmo scrivere qualche altra cosa}
 
 %FIXME: non mi convince il nome
 \subsection{Features}
