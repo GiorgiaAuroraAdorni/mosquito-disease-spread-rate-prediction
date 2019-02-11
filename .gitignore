@@ -69,3 +69,6 @@ rsconnect/
 *.synctex.gz(busy)
 *.pdfsync
 .Rproj.user
+
+# Google Drive
+Icon\r
