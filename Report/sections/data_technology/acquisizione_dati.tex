@@ -41,17 +41,23 @@ il dataset a \textsc{WNV Mosquito}, nel quale i test seguono una cadenza
 settimanale. A partire dai dati meteo giornalieri sono state calcolate una 
 serie di colonne aggregate, usando diverse strategie:
 \begin{itemize}
-	\item Per tutte le colonne numeriche è stato calcolato il valore medio 
-	settimanale.
-	\item Delle colonne \texttt{t\_max} e \texttt{t\_min} sono stati calcolati 
-	rispettivamente il massimo e il minimo settimanale.
-	\item Le colonne booleane \texttt{*\_is\_suspicious} e 
-	\texttt{code\_sum\_*} sono state trasformate in colonne numeriche 
-	contenenti il numero di valori \texttt{true} di quella settimana.
+	\item La colonna \texttt{year\_month\_day} è stata aggregata in 
+	\texttt{year} e \texttt{week\_of\_year}.
+	
 	\item È stata aggiunta la colonna \texttt{days\_per\_week}, rappresentante 
 	il numero di giorni utilizzati nell'aggregazione. Questo perché i giorni a 
 	cavallo tra un anno ed il successivo vengono aggregati in due record 
 	distinti (ad esempio settimana 53 del 2017 e settimana 1 del 2018). Questa 
 	colonna ci ha permesso di verificare che nel nostro periodo di interesse 
 	(maggio--ottobre) l'aggregazione fosse sempre completa.
+	
+	\item Per tutte le colonne numeriche è stato calcolato il valore medio 
+	settimanale.
+	
+	\item Delle colonne \texttt{t\_max} e \texttt{t\_min} sono stati calcolati 
+	rispettivamente il massimo e il minimo settimanale.
+	
+	\item Le colonne booleane \texttt{*\_is\_suspicious} e 
+	\texttt{code\_sum\_*} sono state trasformate in colonne numeriche 
+	contenenti il numero di valori \texttt{true} di quella settimana.
 \end{itemize}

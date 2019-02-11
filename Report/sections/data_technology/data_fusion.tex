@@ -1,24 +1,23 @@
 Il processo di data fusion consiste nell'esecuzione di una query di join 
-fra le entità definite nella Sezione \ref{sec:record-linkage} attraverso le 
+fra le entità definite nella Sezione \ref{sec:record-linkage} sfruttando le 
 corrispondenti relazioni individuate e descritte.
 
-Prima dell'esecuzione della query, sono stati eliminati dal dataset 
-\textsc{Stations} i record relativi alle stazioni \textit{Gary/Chicago Airport} 
-e \textit{Lansing Municipal Airport}, poiché essendo attive dalla fine del 2015 
-non forniscono i dati meteo per i primi 8 anni in cui sono stati effettuati i 
+Prima dell'esecuzione della query, sono stati eliminati i record relativi alle 
+stazioni meteorologiche \textit{Gary/Chicago Airport} e \textit{Lansing 
+	Municipal Airport} poiché, essendo attive solo dalla fine del 2015, non 
+forniscono i dati meteo per i primi 8 anni in cui sono stati effettuati i 
 test del WNV.
 
 Inoltre è stato necessario eliminare i record del dataset \textsc{WNV Mosquito} 
-che fanno riferimento all'anno 2018 poiché i dati contenuti nel dataset 
-\textsc{Weather} sono disponibili solamente fino all'anno 2017.
+riguardanti l'anno 2018, poiché i dati contenuti nel dataset \textsc{Weather} 
+sono disponibili solamente fino all'anno 2017.
 
-Infine non è stato necessario applicare nessuna tecnica di risoluzione dei conflitti 
-poiché nei dataset utilizzati non vi sono ambiguità.
+Infine non è stato necessario applicare alcuna tecnica di risoluzione dei 
+conflitti, dato che i dataset utilizzati non presentano ambiguità.
 
-%FIXME: non mi convince il nome
-\subsection{Features}
+\section{Selezione delle Feature}
 Dopo le operazioni di integrazione dei quattro dataset, tre iniziali e uno 
-generato, sono state selezionate 66 features.
+generato, sono state selezionate 66 feature da includere nel dataset finale.
 
 In particolare sono stati eliminati dal dataset \textsc{Stations} le colonne 
 \texttt{wban}, \texttt{wmo}, \texttt{call\_sign}, 
@@ -27,25 +26,23 @@ In particolare sono stati eliminati dal dataset \textsc{Stations} le colonne
 poiché abbiamo ritenuto che non fornissero dati rilevanti per il nostro 
 obiettivo.
 
-% fixare magari con i nomi delle colonne modificate (es. year\_month\_day era 
-% stata scomposta in due colonne, year e week_of_year) 
 Per quanto riguarda il dataset \textsc{Weather}, sono stati eliminati gli 
 attributi \texttt{snow\_water}, 
 \texttt{snow\_depth}, \texttt{depart}, \texttt{sunrise}, \texttt{sunset}, 
-\texttt{snow\_fall} e le relative colonne \texttt{flag}, poiché per le stazioni 
-in esame non sono stati misurati questi parametri e inoltre anche 
-\texttt{year\_month\_day} poiché non influisce sulla predizione.
+\texttt{snow\_fall} e le relative colonne \texttt{flag}, poiché questi 
+parametri non sono stati misurati per le stazioni 
+in esame.
 
 Del dataset \textsc{Block} sono state utilizzate come feature solamente le 
 colonne \texttt{block\_latitude}, \texttt{block\_longitude} e 
-\texttt{distance}, mentre le altre sono state rimosse poiché duplicate a 
+\texttt{distance}, mentre le altre sono state rimosse poiché ridondanti a 
 seguito dell'integrazione.
 
 Dal dataset \textsc{WNV Mosquito} sono state escluse solamente le colonne 
 \texttt{latitude} e \texttt{longitude} poiché sostituite da 
 \texttt{block\_latitude} e \texttt{block\_longitude} derivanti dal dataset  
 \textsc{Block}.\\
-\\
+
 Dopo l'integrazione, il database risultante contiene 25482 righe e 66 colonne, 
 in particolare, analizzando dataset per dataset si hanno:
 \begin{itemize}
@@ -55,7 +52,7 @@ in particolare, analizzando dataset per dataset si hanno:
 	\item \textsc{Block}: contenente 3 righe e 3 attributi.
 \end{itemize}
 $\\$
-Vengono di seguito descritte le features scelte:
+Vengono di seguito descritte le feature scelte:
 \begin{longtable}{lll}
 	\toprule
 	\textbf{Attributo} \quad & \textbf{Descrizione} & \textbf{Valori} \\
@@ -164,7 +161,7 @@ Vengono di seguito descritte le features scelte:
 	\multirow{3}{*}{numerico} \\
 	& settimana in cui occorre & \\ 	 
 	& la condizione DZ & \\ \hline
-	\\\hline
+	\\ \hline %fixme
 	\multirow{3}{*}{code\_sum\_wind}	& numero di giorni della &	 	 
 	\multirow{3}{*}{numerico} \\
 	& settimana in cui occorrono & \\ 
@@ -272,7 +269,7 @@ Vengono di seguito descritte le features scelte:
 	& e il blocco (metri) &\\  
 	\bottomrule
 \end{longtable}
-\captionof{table}{Features}
+\captionof{table}{Descrizione delle colonne scelte come feature}
 \label{tab:features}
 
 %Di questi attributi ... potrebbero influire sulla predizione dell'algoritmo di 
