@@ -56,12 +56,23 @@ validation set:
 	\label{fig:mlp_h_s_roc}
 \end{figure}
 
+Possiamo notare come il modello che usa la sigmoide come funzione di 
+attivazione ottenga risultati leggermente migliori: AUC sul validation set di 
+0,8995 rispetto a 0,8801 del modello ReLU. 
+
 \subsection{10-fold Cross Validation}
 
-Vengono mostrate nella Tabella~\ref{tab:mlp_cv_fold_performance} i dati 
-relativi ai singoli fold e in tabella \ref{tab:mlp_cv_performance} le misure 
-complessive di accuracy, precision, recall e F-measure, calcolate come media 
-delle misure di ogni fold. 
+Sul modello sigmoide abbiamo effettuato anche la valutazione delle prestazioni 
+utilizzando la 10-fold cross validation. Vengono mostrate nella 
+Tabella~\ref{tab:mlp_cv_fold_performance} i dati relativi ai singoli fold e in 
+tabella \ref{tab:mlp_cv_performance} le misure complessive di accuracy, 
+precision, recall e F-measure, calcolate come media delle misure di ogni fold. 
+
+Vengono infine mostrate le curve ROC per ciascun fold, sia sul training che 
+sul validation set. Possiamo notare come in nessun fold il modello abbia un 
+valore di Area Under Curve (AUC) inferiore al valore 0,80, che viene 
+considerato come un indice di buone prestazioni. Si ha un valore medio di 
+0,869 con deviazione standard di 0,025.
 
 \begin{figure}[H]
 	\centering
@@ -113,12 +124,6 @@ delle misure di ogni fold.
 	\captionof{table}{Analisi performance complessive con cross validation}
 	\label{tab:mlp_cv_performance}
 \end{figure}
-
-Vengono infine mostrate le curve ROC per ciascun fold, sia sul training che 
-sul validation set. Possiamo notare come in nessun fold il modello abbia un 
-valore di Area Under Curve (AUC) inferiore al valore 0,80, che viene 
-considerato come un indice di buone prestazioni. Si ha un valore medio di 
-0,869 con deviazione standard di 0,025.
 
 \begin{figure}[p]
 	\includegraphics[width=.32\textwidth]{images/ml/mlp/crossval/roc-1.pdf}
