@@ -1,28 +1,24 @@
 \section{Completezza}
-% FIXME espandere
-In seguito alla selezione delle 66 features, la completezza complessiva del 
-dataset risulta essere del 100\%, così come quella di attributo e di tupla.
+In seguito alla selezione delle 66 feature finali, la completezza complessiva 
+del dataset risulta essere del 100\%, così come quella di attributo e di tupla.
 
 \section{Leggibilità}
-% FIXME rivedere
-Dopo le modifiche apportate al dataset, in particolare quelle per convertire le 
-unità di misura dal sistema anglosassone a quello internazionale e ... la 
-leggibilità risulta notevolmente migliorata.
+Grazie alle modifiche apportate al dataset, in particolare la conversione delle 
+unità di misura, la leggibilità risulta notevolmente migliorata.
 
-Il dataset finale contiene per lo più attributi di tipo numerico, che esprimono 
-valori di grandezze fisiche (distanze, temperature, velocità), che sono 
-autoesplicativi. Potrebbe essere utile invece rendere immediata all'utente la 
-visualizzazione del risultato delle analisi, del giorno in cui sono state 
-effettuate e soprattutto le condizioni meteo poiché ora vengono utilizzati dei 
-codici numerici. 
+Il dataset finale contiene soprattutto attributi di tipo numerico che esprimono 
+valori di grandezze fisiche (distanze, temperature, velocità, \dots), per lo 
+più autoesplicativi.
 
-A causa di ciò è stato pensato di utilizzare una vista SQL per 
-evidenziare questi dati. Una query sugli attributi discussi in precedenza 
-produce i risultati visibili in Tabella~\ref{tab:dataset-before-view}, 
-mentre applicando la query SQL mostrata nel Listing~\ref{code:sql-view} 
-vengono restituiti i record mostrati nella 
+Potrebbe essere utile invece migliorare la visualizzazione del risultato delle 
+analisi, del giorno in cui sono state effettuate e delle condizioni meteo. Per 
+ottenere una rappresentazione più intuitiva di questi attributi abbiamo creato 
+una vista SQL chiamata \textsc{ReadableFusedDataset}.
+
+Una query sulle colonne elencate produce i risultati visibili in 
+Tabella~\ref{tab:dataset-before-view}, mentre eseguendo la query SQL mostrata 
+nel Listing~\ref{code:sql-view} vengono restituiti i record mostrati nella 
 Tabella~\ref{tab:dataset-after-view}.
-
 
 \begin{figure}[H]
 	\centering
@@ -36,7 +32,7 @@ Tabella~\ref{tab:dataset-after-view}.
 		40026 &	1 & 4 & 1 & 0 \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Risultato query dataset senza view}
+	\captionof{table}{Risultato della query sul dataset senza view}
 	\label{tab:dataset-before-view}
 \end{figure}
 
@@ -56,16 +52,15 @@ stringstyle=\ttfamily,
 showstringspaces=false
 ]
 SELECT test_id, 
-result, 
-day_of_week, 
-weather_conditions
+	result, 
+	day_of_week, 
+	weather_conditions
 FROM "ReadableFusedDataset";
 \end{lstlisting}
 
-In particolare è possibile notare come gli attributi \texttt{code\_sum\_ra} 
-e \texttt{code\_sum\_ts} sono stati collassati in un unico attributo 
-\texttt{weather\_conditions} visibile nella 
-Tabella~\ref{tab:dataset-after-view} che racchiude la rappresentazione 
+In particolare è possibile notare come gli attributi \texttt{code\_sum\_*} 
+siano riuniti in un unico attributo \texttt{weather\_conditions} nella 
+Tabella~\ref{tab:dataset-after-view}, che racchiude la rappresentazione 
 testuale di tutti i fenomeni meteorologici registrati durante il test.
 
 \begin{figure}[H]
@@ -86,7 +81,7 @@ testuale di tutti i fenomeni meteorologici registrati durante il test.
 
 \section{Accuratezza}
 È stata anche eseguita un'analisi di accuratezza delle feature per le quali è 
-stato possibile individuare un dominio ben definito, nella Tabella 
+stato possibile individuare un dominio ben definito e nella Tabella 
 \ref{tab:features-accuracy} sono mostrati i risultati ottenuti. Come è 
 possibile notare, tutte le feature analizzate rispettano il dominio di 
 riferimento. 
