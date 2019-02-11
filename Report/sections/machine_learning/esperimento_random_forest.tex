@@ -1,8 +1,9 @@
 \section{Random Forest}
-Per l'addestramento è stato utilizzato il package R \texttt{RandomForest}.
+Per l'addestramento del modello è stato utilizzato il package R 
+\texttt{RandomForest}.
 
 \subsection{Holdout}
-La stima degli errori di classificazione OOB è del 7,06\%.\\
+La stima degli errori di classificazione out-of-bag (OOB) è del 7,06\%.\\
 
 Le misure di accuracy, precision, recall e F-measure sono le seguenti:
 \begin{figure}[H]
@@ -16,7 +17,7 @@ Le misure di accuracy, precision, recall e F-measure sono le seguenti:
 		Validation	& 93,11\% & 70,41\% & 28,33\% & 40,41\%   	\\ 
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi performance dell'holdout}
+	\captionof{table}{Analisi performance con holdout}
 	\label{tab:rf_h_performance}
 \end{figure}
 
@@ -27,13 +28,15 @@ Di seguito vengono mostrate le curve ROC per il training e il validation set:
 	\begin{subfigure}[t]{1\textwidth}
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/random_forest/HoldoutRF/auc_train}
+			\captionof{figure}{Train ROC}
 		\end{minipage}
 		\hfill
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/random_forest/HoldoutRF/auc_test}
+			\captionof{figure}{Validation ROC}
 		\end{minipage}
 	\end{subfigure}
-	\caption{ROC sul training e validation set}
+	\caption{Curve ROC sul training e validation set}
 	\label{fig:rf_h_roc}
 \end{figure}
 
@@ -57,7 +60,7 @@ per ogni fold.
 		& 6,82\% & 6,75\%  	\\ 
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Stima degli errori di classificazione OOB}
+	\captionof{table}{Stima degli errori di classificazione out-of-bag}
 	\label{tab:rf_cv_OOB}
 \end{figure}
 
@@ -99,7 +102,7 @@ ad ogni fold e in Tabella~\ref{tab:rf_cv_performance} le misure complessive.
 		& Fold10 & 89,76\% & 66,67\% & 36,36\% & 47,06\% \\
 		\bottomrule 
 	\end{tabular}
-	\captionof{table}{Analisi di performance per ogni fold}
+	\captionof{table}{Analisi delle performance per ogni fold}
 	\label{tab:rf_cv_fold_performance}
 \end{figure}
 
@@ -114,12 +117,14 @@ ad ogni fold e in Tabella~\ref{tab:rf_cv_performance} le misure complessive.
 		Validation	&  92,62\% & 70,85\% & 18,38\%	& 27,22\%	\\ 
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi performance cross validation}
+	\captionof{table}{Analisi performance complessive con cross validation}
 	\label{tab:rf_cv_performance}
 \end{figure}
 
 Vengono infine mostrate le curve ROC per ognuno dei fold, sia sul training che 
-sul validation set:
+sul validation set. Possiamo vedere che in nessun fold il modello ha un valore 
+di Area Under Curve (AUC) inferiore al valore 0,80, che viene considerato come 
+un indice di buone prestazioni. Mediamente si ha un valore di 0,85.
 
 %\begin{figure}[htb]
 %	
@@ -157,10 +162,8 @@ sul validation set:
 	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_8}
 	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_9}
 	\includegraphics[width=.32\textwidth]{images/ml/random_forest/CrossValidationRF/valid/auc_10}
-	\caption{ROC sul validation set}
+	\caption{Curve ROC sul validation set}
 	\label{fig:rf_cv_roc_valid}
 \end{figure}
 
-Possiamo vedere che in nessun fold il modello ha un valore di Area Under Curve 
-(AUC) inferiore al valore 0,80, che viene considerato come un indice di buone 
-prestazioni. Mediamente si ha un valore di 0,85.
+% FIXME: ci vorrebbe un page break qui

@@ -1,8 +1,8 @@
 \section{Multi-Layer Perceptron}
-Per l'addestramento è stato utilizzato il package R \texttt{mxnet}.
+Per l'addestramento dei modelli è stato utilizzato il package R \texttt{mxnet}.
 
 \subsection{Holdout}
-Le misure di accuracy, precision, recall e F-measure sono le seguenti:
+Le misure di accuracy, precision, recall e F-measure ottenute sono le seguenti:
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{llcccc}
@@ -31,10 +31,12 @@ validation set:
 	\begin{subfigure}[t]{1\textwidth}
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/mlp/holdout/relu-training}
+			\captionof{figure}{Train ROC}
 		\end{minipage}
 		\hfill
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/mlp/holdout/relu-test}
+			\captionof{figure}{Validation ROC}
 		\end{minipage}
 	\end{subfigure}
 	\caption{Curve ROC del modello ReLU su training e validation set}
@@ -46,10 +48,12 @@ validation set:
 	\begin{subfigure}[t]{1\textwidth}
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/mlp/holdout/sigmoid-training}
+			\captionof{figure}{Train ROC}
 		\end{minipage}
 		\hfill
 		\begin{minipage}[t]{0.475\textwidth}
 			\includegraphics[width=\textwidth]{images/ml/mlp/holdout/sigmoid-test}
+			\captionof{figure}{Validation ROC}
 		\end{minipage}
 	\end{subfigure}
 	\caption{Curve ROC del modello sigmoide su training e validation set}
