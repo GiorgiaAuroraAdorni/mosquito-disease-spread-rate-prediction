@@ -1,21 +1,45 @@
 \setcounter{chapter}{0}
 \part{Machine Learning}
-\chapter{Creazione dei training set}
+\chapter{Creazione del training set}
 \sections{machine_learning/creazione}
+Per ogni modello, la creazione dei set di training e validation è stata 
+realizzata utilizzando due tecniche diverse: in un primo esperimento è stato 
+utilizzato un \textit{holdout} 80--20, in un secondo si è ricorso ad una 
+\textit{10-fold cross validation}.
+
+Le features utilizzate per i modelli sono le seguenti:
+\begin{itemize}
+	\item \textbf{Random Forest}: è stato deciso di utilizzare tutte quelle 
+	disponibili, eliminando solamente le colonne \texttt{test\_date} e 
+	\texttt{main\_trap}, poiché contenenti più di 53 categorie;
+	\item \textbf{Support Vector Machine}: sono state utilizzate solamente le 
+	colonne numeriche, eliminando quelle che assumono sempre lo stesso 
+	valore sull'intero dataset;
+	\item \textbf{Neural Network}: ancora una vota vengono utilizzate solamente 
+	le colonne numeriche, eliminando quelle che mantengono lo stesso valore 
+	sull'intero set di dati, e	normalizzando le restanti secondo una 
+	distribuzione normale standard.
+\end{itemize} 
 
 \chapter{Analisi esplorativa del training set}
 \sections{machine_learning/analisi_esplorativa}
 
-\chapter{Descrizione e motivazione dei modelli di machine learning utilizzati}
-\section{Random Forest}
-\sections{machine_learning/random_forest}
-\section{Support Vector Machine}
-\sections{machine_learning/svm}
-\section{Neural Network}
-\sections{machine_learning/nn}
+\chapter{Modelli utilizzati}
+
+\sections{machine_learning/modello_random_forest}
+\sections{machine_learning/modello_svm}
+\sections{machine_learning/modello_mlp}
 
 \chapter{Esperimenti}
-\sections{machine_learning/esperimenti}
+% FIXME: rivedere se per ogni modello...
+Per ogni modello, la creazione di training e validation set è stata realizzata 
+utilizzando due tecniche diverse: è stato effettuato un esperimento in cui 
+viene utilizzato un \textit{holdout} 80--20 ed uno che ricorre ad una 
+\textit{10-fold cross validation} con dataset tutti della stessa dimensione.
+
+\sections{machine_learning/esperimento_random_forest}
+\sections{machine_learning/esperimento_svm}
+\sections{machine_learning/esperimento_mlp}
 
 \chapter{Analisi dei risultati ottenuti}
 \sections{machine_learning/risultati}

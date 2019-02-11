@@ -1,17 +1,57 @@
-% fixme cambiare nome?
-
 Nel dataset \textsc{WNV Mosquito} abbiamo voluto aggiungere l'attributo 
 \texttt{day\_of\_week} che corrisponde al giorno della settimana in cui è stato 
-effettuato il test. questo è stato utile anche per derivare delle statistiche, 
+effettuato il test. Questo è stato utile per derivare delle statistiche, 
 come per esempio il giorno della settimana in cui è stato effettuato il maggior 
-numero di test. 
+numero di test, nonché come feature da fornire ai modelli addestrati.
 \\
 
-Nel dataset \textsc{Weather}, a seguito dell'aggregazione delle osservazioni 
-giornaliere in settimanali, è stata aggiunta la colonna 
-\texttt{days\_per\_week}, rappresentante il numero di giorni settimanali 
-aggregati. Nella maggior parte dei casi questo valore corrisponde a 7, ovvero 
-l'aggregazione di tutti i giorni della settimana.
+Inoltre, è stato creato un nuovo dataset contenente esclusivamente le colonne 
+\textsc{Block}, \textsc{Latitude} e \textsc{Longitude} del dataset \textbf{WNV 
+Mosquito}. La tabella risultante è stata denominata \textsc{Block} e verrà 
+utilizzata durante il processo di integrazione dei dati.
+\\
 
-%fixme 
-% aggiungere parte su code_sum 
+Un analisi del dataset \textsc{Weather} ha poi mostrato come alcuni codici 
+della colonna \texttt{code\_sum} comparissero molto raramente. Per rendere 
+questi valori più adatti all'utilizzo come feature, abbiamo deciso di 
+aggregarli manualmente in categorie più ampie, in base alla somiglianza dei 
+fenomeni meteorologici rappresentati:
+\begin{itemize}
+	\item I codici \texttt{GR} (grandine, 1 occorrenza), \texttt{GS} (piccola 
+	grandine, 3 occorrenze) e \texttt{PL} (pioggia gelata, 33 occorrenze) sono 
+	stati trasformati nel codice aggregato \texttt{HAIL} (grandine, 37 
+	occorrenze).
+	
+	\item I codici \texttt{SQ} (raffiche di vento, 8 occorrenze), \texttt{FC} 
+	(nubi a imbuto, 1 occorrenza) sono stati trasformati nel codice aggregato 
+	\texttt{WIND} (forte vento, 9 occorrenze).
+	
+	\item I codici \texttt{FU} (fumo, 19 occorrenze), \texttt{DU} (polvere, 1 
+	occorrenza) e sono stati trasformati nel codice aggregato \texttt{SMOKE} 
+	(fumo e polvere, 20 occorrenze).
+	
+	\item Tutti i rimanenti codici compaiono più di 110 volte nell'arco 
+	temporale analizzato e sono stati mantenuti invariati.
+\end{itemize}
+
+Un'ulteriore operazione effettuata su \textsc{Weather} è stata aggregare le 
+rilevazioni giornaliere originali in rilevazioni settimanali, in preparazione 
+della successiva fase di Data Fusion. Questo è stato necessario per allineare 
+il dataset a \textsc{WNV Mosquito}, nel quale i test seguono una cadenza 
+settimanale. A partire dai dati meteo giornalieri sono state calcolate una 
+serie di colonne aggregate, usando diverse strategie:
+\begin{itemize}
+	\item Per tutte le colonne numeriche è stato calcolato il valore medio 
+	settimanale.
+	\item Delle colonne \texttt{t\_max} e \texttt{t\_min} sono stati calcolati 
+	rispettivamente il massimo e il minimo settimanale.
+	\item Le colonne booleane \texttt{*\_is\_suspicious} e 
+	\texttt{code\_sum\_*} sono state trasformate in colonne numeriche 
+	contenenti il numero di valori \texttt{true} di quella settimana.
+	\item È stata aggiunta la colonna \texttt{days\_per\_week}, rappresentante 
+	il numero di giorni utilizzati nell'aggregazione. Questo perché i giorni a 
+	cavallo tra un anno ed il successivo vengono aggregati in due record 
+	distinti (ad esempio settimana 53 del 2017 e settimana 1 del 2018). Questa 
+	colonna ci ha permesso di verificare che nel nostro periodo di interesse 
+	(maggio--ottobre) l'aggregazione fosse sempre completa.
+\end{itemize}

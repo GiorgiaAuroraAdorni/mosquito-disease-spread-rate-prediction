@@ -17,6 +17,7 @@
 \usepackage[detect-all]{siunitx}
 \usepackage{gensymb}
 \usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[backend=bibtex,sorting=none, backref=true]{biblatex}
 \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
 \usepackage[hidelinks]{hyperref}
@@ -24,7 +25,7 @@
 
 \def\sections#1{\input{sections/#1}}
 
-\title{Mosquito Disease Spread Rate Prediction}								% Title
+\title{West Nile Virus Spread Rate~Prediction}				% Title
 \author{Adorni, Cereda, Nisoli}								% Author
 \date{23 Gen 2019}											% Date
 
@@ -43,6 +44,24 @@
 \@addtoreset{chapter}{part}
 \makeatother
 
+\newcommand{\quotes}[1]{``#1''}
+\usepackage{catchfile}
+\usepackage{listings}
+\usepackage{adjustbox}
+\usepackage{makecell}
+
+\lstdefinestyle{sql}{
+	breaklines=true,                                    
+	language=SQL,
+	frame=ltrb,
+	framesep=5pt,
+	basicstyle=\normalsize,
+	keywordstyle=\ttfamily\color{OliveGreen},
+	identifierstyle=\ttfamily\color{MidnightBlue}\bfseries,
+	commentstyle=\color{Brown},
+	stringstyle=\ttfamily,
+	showstringspaces=false,
+}
 
 \bibliography{bibliography} 
 

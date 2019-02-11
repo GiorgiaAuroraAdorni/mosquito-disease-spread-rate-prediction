@@ -1,4 +1,16 @@
-\begin{figure}[h]
+Tra i record delle tabelle \textsc{WNV Mosquito} e \textsc{Weather} vi è una 
+relazione di tipo spazio-temporale che vorremmo sfruttare per creare le 
+features su cui addestrare i modelli di machine learning. Vorremmo in 
+particolare collegare ogni esito del test di positività al WNV alle condizioni 
+meteorologiche della settimana in cui è stato effettuato, rilevate dalla 
+stazione meteorologica più vicina a dove sono state catturate le zanzare.
+
+Per questo motivo abbiamo applicato un processo di record linkage e data fusion 
+che ci ha portato a costruire un unico dataset fuso a partire dalle due 
+tabelle. Innanzitutto, tramite reverse-engineering dei dati abbiamo steso lo 
+schema concettuale riportato in Figura~\ref{fig:er-schema}. 
+
+\begin{figure}[H]
     \centering
     \def\svgwidth{\columnwidth}
     \scalebox{.5}{
@@ -8,13 +20,10 @@
     \label{fig:er-schema}
 \end{figure}
 
-L'analisi dei dataset ha portato alla stesura dello schema concettuale 
-riportato in Figura~\ref{fig:er-schema} per le operazioni di record linkage, in 
-particolare sono state definite le seguenti chiavi primarie per le entità:
+In particolare, sono state definite le seguenti chiavi primarie per le entità:
 
 \begin{itemize}
-    \item \textsc{WNV}: (\texttt{test\_id}, \texttt{season\_year}, 
-    \texttt{week}).
+    \item \textsc{WNV Mosquito}: (\texttt{test\_id}).
 
     \item \textsc{Block}: (\texttt{block}).
     
@@ -22,16 +31,14 @@ particolare sono state definite le seguenti chiavi primarie per le entità:
     
     \item \textsc{Weather}: (\texttt{wban}, \texttt{year}, 
     \texttt{week\_of\_year}).
-
 \end{itemize}
-
 
 Le relazioni tra entità invece si basano sulle seguenti chiavi e in particolare 
 per la relazione \textbf{NearestNeighbour} sul concetto di vicinanza fra 
 elementi distribuiti nello spazio.
 
 \begin{itemize}
-    \item \textbf{Trap}: \textsc{WNV}(\texttt{block}), 
+    \item \textbf{Trap}: \textsc{WNV Mosquito}(\texttt{block}), 
     \textsc{Block}(\texttt{block}).
 
     \item \textbf{Observation}:  \textsc{Weather}(\texttt{wban}), 
@@ -40,14 +47,13 @@ elementi distribuiti nello spazio.
     \item \textbf{NearestNeighbour}: il concetto di vicinanza spaziale è 
     ottenuto effettuando il prodotto cartesiano per tutte le coppie
     \textsc{Block}$\times$\textsc{Station} e calcolando la distanza tra le 
-    coordinate geografiche ottenuti dagli attributi \texttt{latitude} e 
+    coordinate geografiche ottenute dagli attributi \texttt{latitude} e 
     \texttt{longitude} sia di \textsc{Block} che di \textsc{Station},
     coinvolgendo nella relazione solamente la \textsc{Station} più vicina ad 
     un \textsc{Block}.
-
 \end{itemize}
 
-È stato scelto di utilizzare la tecnica di record linkage empirico, dato che 
-le chiavi scelte per le relazioni non presentano errori, dunque la distanza di 
-edit pari a zero tra le possibili corrispondenze porta sempre ad un matching 
-esatto delle chiavi.
+Poiché le chiavi scelte per le relazioni non presentano errori né ambiguità, 
+non è stato necessario definire una distanza di edit per effettuare il record 
+linkage: è stato sufficiente cercare corrispondenze esatte tra le rispettive 
+chiavi.

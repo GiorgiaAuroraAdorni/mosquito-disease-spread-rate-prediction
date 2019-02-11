@@ -1,0 +1,23 @@
+\section{Random Forest}
+Il primo modello implementato è Random Forest.
+
+Questo è stato scelto poiché in grado di maneggiare diversi tipi di variabili, 
+perché è robusto rispetto agli outlier, da una stima dell'errore e 
+dell'importanza delle variabili. 
+%FIXME questo non so come esprimerlo, anche perchè ho fatto sia validation che 
+%convalida incrociata
+I modelli di tipo Random Forest convergono sempre e non presentano problemi di 
+overfitting. Per questo motivo Random Forest non necessita della messa in atto 
+di tecniche di validazione incrociata o della verifica su un set separato di 
+variabili per avere una valutazione imparziale dell'errore, in quanto ciò è 
+garantito intrinsecamente dal metodo.
+
+Il modello è di semplice utilizzo, in quanto prevede l’inserimento di soltanto 
+due parametri (il numero di variabili nel sottoinsieme di variabili casuali 
+usate in ogni nodo ed il numero di alberi nella foresta) e non è molto 
+sensibile ai loro valori. Per questo motivo è stata utilizzata la 
+configurazione di default.
+%(i due parametri dovrebbero essere \texttt{ntree} e \texttt{mtry}:  
+%Number of trees: 500
+%No. of variables tried at each split: 7
+%)
