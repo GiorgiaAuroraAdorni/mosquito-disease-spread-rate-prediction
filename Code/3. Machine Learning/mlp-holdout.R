@@ -77,7 +77,7 @@ mx.callback.train.stop <- function(tol = 1e-3,
 
 tic("Tempo di addestramento:")
 
-model_name = "models/perceptron-v1-relu.RData"
+model_name = "models/mlp-sigmoid.RData"
 
 if (file.exists(model_name)) {
   load(model_name)
