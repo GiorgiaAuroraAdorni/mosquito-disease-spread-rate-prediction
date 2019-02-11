@@ -1,5 +1,5 @@
 \section{Support Vector Machine}
-È stato scelto di provare ad utilizzare il modello di classificazione 
+È stato scelto il modello di classificazione 
 Support Vector Machine (SVM) poichè la classificazione di un dataset contenente 
 dati reali e comprensivo di circa 70 features potrebbe risultare difficile, a 
 causa della bassa possibilità che i dati siano linearmente separabili. 
@@ -10,7 +10,9 @@ modo è possibile trovare un iperpiano di separazione in grado di classificare
 i dati.
 
 La funzione kernel (K) utilizzata è di tipo 
-Radial Basis Function (RBF) ed è definita nell'Equazione \ref{eq:rbf}.
+Radial Basis Function (RBF), definita nell'Equazione \ref{eq:rbf}, in quanto 
+è una kernel general purpose, utilizzato quando non si hanno conoscenze a priori 
+approfindite riguardo al dataset.
 
 \begin{equation}\label{eq:rbf}
     K(x, x') = e^{- \gamma \|x - x'\|^2}
