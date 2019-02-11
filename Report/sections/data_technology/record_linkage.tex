@@ -19,7 +19,7 @@ Per le operazioni di record linkage,
 in particolare sono state definite le seguenti chiavi primarie per le entità:
 
 \begin{itemize}
-    \item \textsc{WNV}: (\texttt{test\_id}).
+    \item \textsc{WNV Mosquito}: (\texttt{test\_id}).
 
     \item \textsc{Block}: (\texttt{block}).
     
@@ -36,7 +36,7 @@ per la relazione \textbf{NearestNeighbour} sul concetto di vicinanza fra
 elementi distribuiti nello spazio.
 
 \begin{itemize}
-    \item \textbf{Trap}: \textsc{WNV}(\texttt{block}), 
+    \item \textbf{Trap}: \textsc{WNV Mosquito}(\texttt{block}), 
     \textsc{Block}(\texttt{block}).
 
     \item \textbf{Observation}:  \textsc{Weather}(\texttt{wban}), 
@@ -45,7 +45,7 @@ elementi distribuiti nello spazio.
     \item \textbf{NearestNeighbour}: il concetto di vicinanza spaziale è 
     ottenuto effettuando il prodotto cartesiano per tutte le coppie
     \textsc{Block}$\times$\textsc{Station} e calcolando la distanza tra le 
-    coordinate geografiche ottenuti dagli attributi \texttt{latitude} e 
+    coordinate geografiche ottenute dagli attributi \texttt{latitude} e 
     \texttt{longitude} sia di \textsc{Block} che di \textsc{Station},
     coinvolgendo nella relazione solamente la \textsc{Station} più vicina ad 
     un \textsc{Block}.

@@ -7,7 +7,7 @@ continui, discreti e mancanti, utilizzando la funzione \texttt{plot\_intro}.
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[width=0.4\columnwidth]{images/ml/plot_intro}
+	\includegraphics[width=0.6\columnwidth]{images/ml/plot_intro}
 	\caption{FIXME}
 	\label{fig:plot_intro}
 \end{figure}
@@ -21,19 +21,22 @@ Per andare nel dettaglio di queste variabili, sono stati generati dei diagrammi
 a barre, con la funzione \texttt{plot\_bar}, per quanto riguarda le variabili 
 discrete, e gli istogrammi, tramite la funzione \texttt{plot\_histogram}, delle 
 variabili continue.
+$\\$
+Come visibile in figura \ref{fig:plot_bar}, le variabili \texttt{trap\_type} e 
+\texttt{result}, che sarebbe il target del nostro modello, hanno una 
+distribuzione dei valori non ottimale: quasi la totalità delle trappole sono di 
+tipo Gravid, mentre per quanto riguarda \texttt{result}, la maggior parte dei 
+test effettuati risultano negativi.
 
-\begin{figure}[tb]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.57\textwidth]{images/ml/plot_bar1}
 	\includegraphics[width=0.3\textwidth]{images/ml/plot_bar2}
 	\caption{GRAFICI bar}
 	\label{fig:plot_bar}
 \end{figure}
-Come visibile in figura \ref{fig:plot_bar}, le variabili \texttt{trap\_type} e 
-\texttt{result}, che sarebbe il target del nostro modello, hanno una 
-distribuzione dei valori non ottimale: quasi la totalità delle trappole sono di 
-tipo Gravid, mentre per quanto riguarda \texttt{result}, la maggior parte dei 
-test effettuati risultano negativi.
+
+
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.49\textwidth}
@@ -43,6 +46,7 @@ test effettuati risultano negativi.
 		\includegraphics[width=\textwidth]{images/ml/plot_histogram2}
 	\end{subfigure}
 \end{figure}
+
 \begin{figure}[H]
 	\ContinuedFloat 
 	\begin{subfigure}[t]{0.49\textwidth}
