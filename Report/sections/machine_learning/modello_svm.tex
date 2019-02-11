@@ -1,13 +1,12 @@
 \section{Support Vector Machine}
-È stato scelto il modello di classificazione 
-Support Vector Machine (SVM) poiché la classificazione di un dataset contenente 
-dati reali e comprensivo di circa 70 feature potrebbe risultare difficile, a 
-causa della bassa possibilità che i dati siano linearmente separabili. 
-Con SVM è possibile utilizzare il metodo Kernel tramite delle funzioni 
-che permettono di aumentare la dimensionalità dei dati senza dover 
-calcolare nuovamente la loro posizione all'interno del feature space; in questo 
-modo è possibile trovare un iperpiano di separazione in grado di classificare 
-i dati.
+È stato scelto poi di utilizzare il modello Support Vector Machine (SVM) poiché 
+la classificazione di un dataset contenente dati reali e comprensivo di circa 
+70 feature potrebbe risultare difficile, a causa della bassa possibilità che i 
+dati siano linearmente separabili. Con SVM è possibile utilizzare il metodo 
+Kernel tramite delle funzioni che permettono di aumentare la dimensionalità dei 
+dati senza dover calcolare nuovamente la loro posizione all'interno del feature 
+space; in questo modo è possibile trovare un iperpiano di separazione in grado 
+di classificare i dati.
 
 La funzione kernel (K) utilizzata è di tipo Radial Basis Function (RBF), 
 definita nell'Equazione \ref{eq:rbf}, in quanto è una kernel general purpose, 
@@ -31,5 +30,5 @@ tra i vettori di supporto:
     margine portando a una diminuzione della proprietà di generalizzazione.
 \end{itemize}
 
-Attraverso il processo di tuning del modello è stato scelto di utilizzare il 
-valore $0.01$ per il parametro $\gamma$ e $10$ per $C$.
+Attraverso il processo di tuning del modello è stato scelto di utilizzare i 
+valori $\gamma = 0.01$ e $C = 10$.
