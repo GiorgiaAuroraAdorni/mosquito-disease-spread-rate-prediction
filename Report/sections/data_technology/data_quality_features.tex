@@ -85,10 +85,10 @@ testuale di tutti i fenomeni meteorologici registrati durante il test.
  \end{figure}
 
 \section{Accuratezza}
-È stata anche eseguita un'analisi di accuratezza per quanto riguarda le 
-feature per le quali è stato possibile individuare un dominio ben definito, 
-nella Tabella \ref{tab:features-accuracy} sono mostrati i risultati ottenuti e come è 
-possibile notare tutte le feature analizzate rispettano il dominio di 
+È stata anche eseguita un'analisi di accuratezza delle feature per le quali è 
+stato possibile individuare un dominio ben definito, nella Tabella 
+\ref{tab:features-accuracy} sono mostrati i risultati ottenuti. Come è 
+possibile notare, tutte le feature analizzate rispettano il dominio di 
 riferimento. 
 
 \vspace{.5em}
@@ -99,7 +99,7 @@ riferimento.
 		\midrule
 		season\_year & $[2007, 2017]$ & $0$ \\
 		week &	$[1, 53]$ & $0$ \\
-		number\_of\_mosquitoes &	$\geq 0$ & $0$ \\
+		number\_of\_mosquitoes &	$[0, 50]$ \\
 		day\_of\_week &	$[0, 6]$ & $0$ \\
 		precip\_total &	$\geq 0$ & $0$ \\
 		stn\_pressure &	$\geq 0$ & $0$ \\
@@ -120,7 +120,7 @@ riferimento.
 		block\_longitude & $[-180, 180]$ & $0$ \\
 		\bottomrule
 	\end{tabular}
-	\captionof{table}{Analisi di accuratezza delle features per dominio 
+	\captionof{table}{Analisi di accuratezza delle feature rispetto al dominio 
 		di riferimento}
 	\label{tab:features-accuracy}
 \end{centering}
