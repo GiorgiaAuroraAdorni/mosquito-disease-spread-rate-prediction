@@ -2,6 +2,24 @@
 \part{Machine Learning}
 \chapter{Creazione del training set}
 \sections{machine_learning/creazione}
+Per ogni modello, la creazione dei set di training e validation è stata 
+realizzata utilizzando due tecniche diverse: in un primo esperimento è stato 
+utilizzato un \textit{holdout} 80--20, in un secondo si è ricorso ad una 
+\textit{10-fold cross validation}.
+
+Le features utilizzate per i modelli sono le seguenti:
+\begin{itemize}
+	\item \textbf{Random Forest}: è stato deciso di utilizzare tutte quelle 
+	disponibili, eliminando solamente le colonne \texttt{test\_date} e 
+	\texttt{main\_trap}, poiché contenenti più di 53 categorie;
+	\item \textbf{Support Vector Machine}: sono state utilizzate solamente le 
+	colonne numeriche, eliminando quelle che assumono sempre lo stesso 
+	valore sull'intero dataset;
+	\item \textbf{Neural Network}: ancora una vota vengono utilizzate solamente 
+	le colonne numeriche, eliminando quelle che mantengono lo stesso valore 
+	sull'intero set di dati, e	normalizzando le restanti secondo una 
+	distribuzione normale standard.
+\end{itemize} 
 
 \chapter{Analisi esplorativa del training set}
 \sections{machine_learning/analisi_esplorativa}
