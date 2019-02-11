@@ -23,9 +23,23 @@ generalizzazione della rete.
 
 Negli esperimenti abbiamo confrontato le prestazioni di due modelli basati 
 sull'architettura descritta, variando la funzione di attivazione dei neuroni 
-tra ReLU e sigmoide. In Figura~\ref{fig:mlp_architecture} si può vedere la 
-struttura risultante, visualizzata da \texttt{mxnet} attraverso la libreria 
-\texttt{graphviz}.
+tra ReLU (vedi Equazione~\ref{eq:relu}) e sigmoide (vedi 
+Equazione~\ref{eq:sigmoid}). 
+\begin{align}
+	ReLU(x) = \max(0, x) = \begin{cases} 
+		x & \mbox{se }x > 0 \\
+		0 & \mbox{altrimenti}
+	\end{cases}
+	\label{eq:relu}
+\end{align}
+\begin{align}
+	sigmoide(x) = \frac{1}{1 + e^{-x}}
+	\label{eq:sigmoid}
+\end{align}
+
+In Figura~\ref{fig:mlp_architecture} si possono vedere le
+strutture dei modelli risultanti, visualizzate da \texttt{mxnet} attraverso la 
+libreria \texttt{graphviz}.
 
 \begin{figure}[H]
 	\centering
