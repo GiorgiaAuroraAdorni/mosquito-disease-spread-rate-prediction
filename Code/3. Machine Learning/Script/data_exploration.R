@@ -5,7 +5,7 @@ save_data_exploration_plot <- function(dataset) {
   dev.off() 
   
   pdf("DataExplorer/plot_bar.pdf") 
-  plot_bar(dataset, nrow=1L, ncol=1L)
+  plot_bar(dataset, nrow=2L, ncol=2L)
   dev.off() 
   
   pdf("DataExplorer/plot_histogram.pdf") 

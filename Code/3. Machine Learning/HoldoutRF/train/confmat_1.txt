@@ -1,4 +1,0 @@
-                label
-prediction_class False  True
-           False 18587  1046
-           True     93   659
