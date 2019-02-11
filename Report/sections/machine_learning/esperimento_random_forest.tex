@@ -1,10 +1,10 @@
 \section{Random Forest}
-Per l'addestrare è stato utilizzato il package R \texttt{RandomForest}.
+Per l'addestramento è stato utilizzato il package R \texttt{RandomForest}.
 
 \subsection{Holdout}
 La stima degli errori di classificazione OOB è del 7,06\%.\\
 
-Le misure di accuracy, precision, recall e f-measure sono le seguenti:
+Le misure di accuracy, precision, recall e F-measure sono le seguenti:
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{lcccc}
@@ -20,7 +20,7 @@ Le misure di accuracy, precision, recall e f-measure sono le seguenti:
 	\label{tab:rf_h_performance}
 \end{figure}
 
-Di seguito vengono mostrate le curve ROC per il traning e il validation set:
+Di seguito vengono mostrate le curve ROC per il training e il validation set:
 
 \begin{figure}[H]
 	\centering
@@ -38,7 +38,7 @@ Di seguito vengono mostrate le curve ROC per il traning e il validation set:
 \end{figure}
 
 
-\subsection{10-fold cross validation}
+\subsection{10-fold Cross Validation}
 La stima degli errori di classificazione OOB è del 7,06\%, ed stata calcolata 
 come la media della misura su ogni fold.
 
