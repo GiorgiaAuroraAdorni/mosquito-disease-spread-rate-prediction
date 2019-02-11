@@ -1,5 +1,47 @@
 \section{Support Vector Machine}
 
+\subsection{Holdout}
+Le misure di accuracy, precision, recall e F-measure sono mostrate in 
+Tabella \ref{tab:svm_h_performance}.
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{lcccc}
+		\toprule
+		& \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & 
+		\textbf{F-Measure}  \\
+		\midrule
+		Training	& 93,02\% & 75,17\% & 24,86\% & 37,37\%    	\\ 
+		Validation	& 92,85\% & 70,89\% & 22,61\% & 34,29\%   	\\ 
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Analisi performance dell'holdout}
+	\label{tab:svm_h_performance}
+\end{figure}
+
+In Figura \ref{fig:svm_h_roc} sono mostrate le curve ROC per il training e il validation 
+set.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{1\textwidth}
+		\begin{minipage}[t]{0.475\textwidth}
+			\includegraphics[width=\textwidth]{images/ml/svm/HoldoutSVM/auc_train}
+			\captionof{figure}{Train ROC}
+			\label{fig:svm_h_roc_train} 
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.475\textwidth}
+			\includegraphics[width=\textwidth]{images/ml/svm/HoldoutSVM/auc_test}
+			\captionof{figure}{Validation ROC}
+			\label{fig:svm_h_roc_test} 
+		\end{minipage}
+	\end{subfigure}
+	\caption{ROC sul training e validation set}
+	\label{fig:svm_h_roc}
+\end{figure}
+
+\subsection{10-fold Cross Validation}
 Le misure finali di accuracy, precision, recall e 
 f-measure sono state calcolare come la media delle misure su ogni fold. 
 Vengono mostrate nella tabella \ref{tab:svm_cv_fold_performance} i dati relativi 
@@ -56,21 +98,20 @@ ad ogni fold e in tabella \ref{tab:svm_cv_performance} le misure complessive.
 	\label{tab:svm_cv_performance}
 \end{figure}
 
-Vengono infine mostrate le curve ROC per ognuno dei fold, sia sul traning che 
-sul validation set:
+Vengono infine mostrate in Figura \ref{fig:svm_cv_roc_valid} le curve ROC per ognuno dei fold sul 
+validation set.
 
-
-\begin{figure}[p]
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_1}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_2}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_3}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_4}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_5}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_6}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_7}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_8}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_9}
-	\includegraphics[width=.32\textwidth]{images/ml/svm/valid/auc_10}
-	\caption{ROC sul validation set}
-	\label{fig:rf_cv_roc_valid}
+\begin{figure}[H]
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_1}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_2}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_3}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_4}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_5}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_6}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_7}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_8}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_9}
+	\includegraphics[width=.32\textwidth]{images/ml/svm/CrossValidationSVM/valid/auc_10}
+	\caption{ROC sul validation set per il modello SVM}
+	\label{fig:svm_cv_roc_valid}
 \end{figure}
