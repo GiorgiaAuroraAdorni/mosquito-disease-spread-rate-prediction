@@ -1,42 +1,21 @@
 # West Nile Virus Spread Rate Prediction
 
-Il virus del Nilo occidentale (noto anche come West Nile Virus, WNV) infetta 
-ogni anno migliaia di persone, provocando nel 20% circa dei casi sintomi che 
-variano da forti febbri a gravi complicazioni neurologiche fino ad arrivare  
-anche alla morte.
+The West Nile virus (also known as West Nile Virus, WNV) infects thousands of people each year, causing symptoms ranging from severe fevers to severe neurological complications and even death in about 20% of cases.
 
-Oltre agli esseri umani, il virus colpisce anche animali quali uccelli e 
-cavalli, causando in questi ultimi tassi di mortalità che raggiungono il 40%. 
-Isolato per la prima volta nel 1937 nel distretto di West Nile in Uganda, da 
-cui prende il nome, si è oggi diffuso in tutto il mondo.
+In addition to humans, the virus also affects animals such as birds and horses, causing mortality rates of up to 40% in the latter. 
+First isolated in 1937 in the West Nile district of Uganda, from which it takes its name, it has now spread worldwide.
 
-Per questi motivi, il controllo e la prevenzione delle infezioni da WNV 
-risultano essere argomenti di grande interesse. 
+For these reasons, the control and prevention of WNV infections is a topic of great interest. 
 
-Le zanzare infette costituiscono il principale vettore di trasmissione del 
-virus agli esseri umani. Quando nel 2002 furono riportati i primi casi umani a 
-Chicago, il Dipartimento di Sanità Pubblica della città ha avviato un esteso 
-programma di sorveglianza e controllo che resta tutt'oggi in vigore.
+Infected mosquitoes are the main vector for transmitting the virus to humans. When the first human cases were reported in Chicago in 2002, the city's Public Health Department initiated an extensive surveillance and control programme that remains in place today.
 
-Dalla fine della primavera all'inizio dell'autunno, numerose trappole per 
-zanzare vengono distribuite sul territorio, andando ogni settimana a testare la 
-presenza del virus negli esemplari catturati. Sulla base di queste 
-informazioni, la città programma l'utilizzo di insetticidi per controllare la 
-popolazione di zanzare adulte.
+From late spring to early autumn, numerous mosquito traps are distributed throughout the area, testing each week for the presence of the virus in captured specimens. Based on this information, the city plans to use insecticides to control the adult mosquito population.
 
-## Obiettivi
 
-Con una media di 91 trappole attive per 14 settimane ogni anno, questo 
-programma presenta significativi costi di raccolta dei campioni ed esecuzione 
-dei test clinici per determinare la presenza del virus.
+## Objectives
 
-L'obiettivo di questo elaborato è progettare un modello di classificazione 
-supervisionata capace di prevedere se ogni settimana verrà rilevato o meno il 
-virus in una certa trappola. Le predizioni di questo modello permetteranno di 
-indirizzare gli sforzi di raccolta verso quelle trappole in cui ci si aspetta 
-di trovare esemplari infetti con probabilità maggiore.
+With an average of 91 active traps for 14 weeks each year, this programme presents significant costs for collecting samples and performing clinical tests to determine the presence of the virus.
 
-Dato che i test effettuati negli anni sono risultati positivi al virus solo 
-nell'8,6% dei casi, un modello sufficientemente accurato ha le potenzialità di 
-ridurre fortemente il numero di trappole da analizzare ogni settimana e di 
-conseguenza i costi del programma.
+This paper aims to design a supervised classification model capable of predicting whether or not a virus will be detected in a certain trap each week. The predictions of this model will allow collection efforts to be directed towards those traps where infected specimens are most likely to be found.
+
+Given that tests over the years have only tested positive for the virus in 8.6% of cases, a sufficiently accurate model can greatly reduce the number of traps to be tested each week and, consequently, the costs of the program.
